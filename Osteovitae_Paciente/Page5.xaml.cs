@@ -39,7 +39,7 @@ namespace Osteovitae_Paciente
             contacto = contact;
             tipo = type;
 
-            string filePath = @"C:\Users\riama\OneDrive\Ambiente de Trabalho\Osteovitae_Paciente\consultas.xlsx";
+            string filePath = @"C:\Users\Asus\Desktop\3ano\IHC\Clinic_Interface\consultas.xlsx";
             Excel.Application xlApp = new Excel.Application();
             Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(filePath);
             Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(2);
