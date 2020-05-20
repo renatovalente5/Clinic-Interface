@@ -1,4 +1,4 @@
-# Clinic_Interface
+# Clinic Interface
 
 ### Developers:
 - [Renato Valente](https://github.com/renatovalente5)
