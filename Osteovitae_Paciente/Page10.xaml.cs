@@ -20,7 +20,7 @@ namespace Osteovitae_Paciente
     /// </summary>
     public partial class Page10 : Page
     {
-        public string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
+        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
 
         public Page10()
         {
@@ -36,12 +36,12 @@ namespace Osteovitae_Paciente
             pass = pw;
             contacto = contact;
             tipo = type;
-            nometextBox.Text = nome;
-            apelidotextBox.Text = apelido;
-            contactotextBox.Text = contacto;
-            emailtextBox.Text = mail;
-            passwordtextBox.Text = pass;
-            perfilLabel.Content = tipo;
+            nometextBox.Text = name;
+            apelidotextBox.Text = surname;
+            contactotextBox.Text = contact;
+            emailtextBox.Text = address;
+            passwordtextBox.Text = pw;
+            perfilLabel.Content = type;
         }
 
         private void click_guardar(object sender, RoutedEventArgs e)

@@ -20,14 +20,9 @@ namespace Osteovitae_Paciente
     /// </summary>
     public partial class Page3 : Page
     {
-        public string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
+        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
 
-        public Page3()
-        {
-            InitializeComponent();
-        }
-
-        public Page3(string name, string surname,string address, string pw, string contact, string type)
+        public Page3(string name, string surname, string address, string pw, string contact, string type)
         {
             InitializeComponent();
             nome = name;

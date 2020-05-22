@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FireSharp.Config;
+using FireSharp.Interfaces;
+using FireSharp.Response;
 using Microsoft.Office.Interop;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -22,8 +25,15 @@ namespace Osteovitae_Paciente
     /// </summary>
     public partial class Page4 : Page
     {
+        IFirebaseConfig config = new FirebaseConfig
+        {
+            AuthSecret = "vXSYkw1G8Qc8CNhQSkTf68o4gYI3kqHen4ivBKFr",
+            BasePath = "https://clinic-interface.firebaseio.com/"
+        };
 
-        public string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
+        IFirebaseClient client;
+
+        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
 
         public Page4()
         {
@@ -109,49 +119,78 @@ namespace Osteovitae_Paciente
 
         private void menuBtn_Click(object sender, RoutedEventArgs e)
         {
-            Page3 menu = new Page3();
+            Page3 menu = new Page3(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(menu);
         }
 
         private void novaConsultaBtn_Click(object sender, RoutedEventArgs e)
         {
-            Page4 novaconsulta = new Page4();
+            Page4 novaconsulta = new Page4(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(novaconsulta);
         }
 
         private void listaConsultasBtn_Click(object sender, RoutedEventArgs e)
         {
-            Page5 listaconsultas = new Page5();
+            Page5 listaconsultas = new Page5(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(listaconsultas);
         }
 
         private void notificacoesBtn_Click(object sender, RoutedEventArgs e)
         {
-            Page6 notificacoes = new Page6();
+            Page6 notificacoes = new Page6(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(notificacoes);
         }
 
         private void tratamentosBtn_Click(object sender, RoutedEventArgs e)
         {
-            Page7 tratamentos = new Page7();
+            Page7 tratamentos = new Page7(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(tratamentos);
         }
 
         private void osteovitaeBtn_Click(object sender, RoutedEventArgs e)
         {
-            Page8 osteovitae = new Page8();
+            Page8 osteovitae = new Page8(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(osteovitae);
         }
 
         private void contaBtn_Click(object sender, RoutedEventArgs e)
         {
-            Page9 conta = new Page9();
+            Page9 conta = new Page9(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(conta);
         }
 
-        private void click_marcar(object sender, RoutedEventArgs e)
+        private async void click_marcar(object sender, RoutedEventArgs e)
         {
-            readExcelFile();
+            //readExcelFile();
+            Consultas consulta = new Consultas();
+            consulta.Medico = MedicoText.Text;
+            consulta.TipoConsulta = TipoConsultaText.Text;
+            consulta.Data = diaTextBox.Text + "-" + mesTextBox.Text + "-"+ anoTextBox.Text;
+            consulta.Hora = horaTextBox.Text + ":" + minutosTextBox.Text;
+
+            //Falta meter aqui um erro para o caso de o Contacto já existir
+
+            client = new FireSharp.FirebaseClient(config);
+            FirebaseResponse response = await client.GetTaskAsync("ConsultasMarcadas/" + contacto + "/numero"); //Saber o numero da Consulta
+            Numero num = response.ResultAs<Numero>();
+
+            int n = (Int32.Parse(num.numero) + 1);
+            num.numero = n + "";
+            var con = "consulta" + n;
+
+            SetResponse response2 = await client.SetTaskAsync("ConsultasMarcadas/" + contacto + "/" + con, consulta);  //Marcar consulta
+            Consultas result = response2.ResultAs<Consultas>();
+
+
+            SetResponse response3 = await client.SetTaskAsync("ConsultasMarcadas/" + contacto + "/numero", num); //Atualizar numero consultas
+            Numero num3 = response3.ResultAs<Numero>();
+
+
+            Page5 listaconsultas = new Page5(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(listaconsultas);
+
+
+
         }
     }
 }

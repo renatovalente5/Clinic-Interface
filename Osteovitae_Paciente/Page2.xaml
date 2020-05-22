@@ -67,6 +67,19 @@
             </TextBox.Background>
         </TextBox>
 
+        <!-- ROW1 - TIPO DE UTILIZADOR -->
+        <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="195,90,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="UTILIZADOR"/>
+        <ComboBox x:Name="utilizadorComboBox" Grid.Column="0" Grid.Row="1" Height="30" Width="170" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="195,115,0,0" Text=" alguem@exemplo.com" FontSize="14" FontFamily="Calibri" BorderBrush="#FF057D7D">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0.938"/>
+                    <GradientStop Color="#FF057D7D"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem Height="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Left">Paciente</ComboBoxItem>
+            <ComboBoxItem Height="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Left">Médico</ComboBoxItem>
+        </ComboBox>
+
         <!-- ROW1 - EMAIL -->
         <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,160,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="E-MAIL"/>
         <TextBox x:Name="emailTextBox" Grid.Column="0" Grid.Row="1" Height="30" Width="350" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="15,185.4,0,0" TextWrapping="NoWrap" Text=" alguem@exemplo.com" FontSize="14" FontFamily="Calibri">
@@ -108,11 +121,12 @@
                 <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
             </TextBox.Background>
         </TextBox>
-        <CheckBox x:Name="checkPrivacidadeDados" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="15,376.4,0,20" FontSize="11" FontFamily="Calibri" Foreground="#FF707070" Content="Li e aceito a política de privacidade e de proteção de dados." />
+
+        <!-- ROW1 - CHECK PRIVACIDADE -->
+        <CheckBox x:Name="checkPrivacidadeDados" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="15,376,0,20" FontSize="11" FontFamily="Calibri" Foreground="#FF707070" Content="Li e aceito a política de privacidade e de proteção de dados." />
 
         <!-- ROW2 - REGISTAR CONTA -->
-        <Label x:Name="confirmarPassLabel" Grid.Column="0" Grid.Row="2" Content="ATENÇÃO! As palavras-passe não coincidem." HorizontalAlignment="Center" Margin="80,400.6,80.4,0" VerticalAlignment="Top" FontFamily="Calibri" FontWeight="Bold" Visibility="Hidden" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-        <Label x:Name="confirmarCheckLabel" Grid.Column="0" Grid.Row="2" Content="ATENÇÃO! Tem de aceitar a privacidade de dados." HorizontalAlignment="Center" Margin="66,400.6,66.4,0" VerticalAlignment="Top" FontFamily="Calibri" FontWeight="Bold" Visibility="Hidden" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-        <Button x:Name="registarButton" Grid.Column="0" Grid.Row="2" Height="30" Width="90" Margin="0,15,0,0"  HorizontalAlignment="Center" Background="#FF066868" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Foreground="White" BorderBrush="#FF066868" Click="click_registar" Content="REGISTAR"/>
+        <Label x:Name="alertLabel" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" FontFamily="Calibri" Width="360" FontWeight="Bold" Visibility="Visible" Foreground="#FF08B4B4"/>
+        <Button x:Name="registarButton" Grid.Column="0" Grid.Row="2" Height="30" Width="90" Margin="0,20,0,0"  HorizontalAlignment="Center" Background="#FF066868" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Foreground="White" BorderBrush="#FF066868" Click="click_registar" Content="REGISTAR"/>
     </Grid>
 </Page>

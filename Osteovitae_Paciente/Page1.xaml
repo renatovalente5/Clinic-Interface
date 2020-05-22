@@ -25,7 +25,7 @@
         </Grid>
         <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,40,0,0" FontSize="50" FontFamily="Cambria" FontStyle="Italic" Foreground="#FF066868" FontWeight="Bold">Osteovitae</Label>
         
-        <TextBox x:Name="emailTextBox" Grid.Column="0" Grid.Row="2" Height="35" Width="300" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="0,45,0,0" TextWrapping="NoWrap" Text="E-mail" FontSize="16" FontFamily="Calibri">
+        <TextBox x:Name="telefoneTextBox" Grid.Column="0" Grid.Row="2" Height="35" Width="300" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="0,45,0,0" TextWrapping="NoWrap" Text="Telefone" FontSize="16" FontFamily="Calibri">
             <TextBox.Foreground>
                 <SolidColorBrush Color="#FF066868" Opacity="0.6"/>
             </TextBox.Foreground>

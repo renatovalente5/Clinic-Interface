@@ -20,12 +20,7 @@ namespace Osteovitae_Paciente
     /// </summary>
     public partial class Page9 : Page
     {
-        public string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
-
-        public Page9()
-        {
-            InitializeComponent();
-        }
+        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
 
         public Page9(string name, string surname, string address, string pw, string contact, string type)
         {
@@ -36,22 +31,25 @@ namespace Osteovitae_Paciente
             pass = pw;
             contacto = contact;
             tipo = type;
-            nomeLabel.Content = nome;
-            apelidoLabel.Content = apelido;
-            contactoLabel.Content = contacto;
-            emailLabel.Content = mail;
-            passwordLabel.Content = pass;
-            perfilLabel.Content = tipo;
+
+            Data data = new Data();
+            nomeLabel.Content = name;
+            apelidoLabel.Content = surname;
+            contactoLabel.Content = contact;
+            emailLabel.Content = address;
+            passwordLabel.Content = pw;
+            perfilLabel.Content = type;
         }
         private void click_editar(object sender, RoutedEventArgs e)
         {
-            Page10 conta = new Page10(nome, apelido, mail, pass, contacto, tipo);
+            Page10 conta = new Page10();
             this.NavigationService.Navigate(conta);
         }
 
         private void click_terminarsessao(object sender, RoutedEventArgs e)
         {
-            
+            Page1 inicio = new Page1();
+            this.NavigationService.Navigate(inicio);
         }
 
         private void menuBtn_Click(object sender, RoutedEventArgs e)

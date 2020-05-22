@@ -20,12 +20,7 @@ namespace Osteovitae_Paciente
     /// </summary>
     public partial class Page7 : Page
     {
-        public string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
-
-        public Page7()
-        {
-            InitializeComponent();
-        }
+        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
 
         public Page7(string name, string surname, string address, string pw, string contact, string type)
         {
@@ -36,6 +31,7 @@ namespace Osteovitae_Paciente
             pass = pw;
             contacto = contact;
             tipo = type;
+
         }
 
         private void menuBtn_Click(object sender, RoutedEventArgs e)
