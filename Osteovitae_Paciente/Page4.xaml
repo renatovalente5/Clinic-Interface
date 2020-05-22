@@ -52,7 +52,7 @@
             </TextBox.Background>
         </TextBox>
         <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,25,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" Content="-"/>
-        <TextBox x:Name="anoTextBox" Grid.Column="0" Grid.Row="2" Height="30" Width="45" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="105,25,0,0" TextWrapping="NoWrap" Text=" AAAA " FontSize="14" FontFamily="Calibri">
+        <TextBox x:Name="anoTextBox" Grid.Column="0" Grid.Row="2" Height="30" Width="45" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="105,25,0,0" TextWrapping="NoWrap" Text="AAAA" FontSize="14" FontFamily="Calibri">
             <TextBox.Foreground>
                 <SolidColorBrush Color="#FF066868" Opacity="0.6"/>
             </TextBox.Foreground>
@@ -64,7 +64,7 @@
             </TextBox.Background>
         </TextBox>
         <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,70,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="HORA"/>
-        <TextBox x:Name="horaTextBox" Grid.Column="0" Grid.Row="2" Height="30" Width="30" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="15,95,0,0" TextWrapping="NoWrap" Text=" HH " FontSize="14" FontFamily="Calibri">
+        <TextBox x:Name="horaTextBox" Grid.Column="0" Grid.Row="2" Height="30" Width="30" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="15,95,0,0" TextWrapping="NoWrap" Text="HH" FontSize="14" FontFamily="Calibri">
             <TextBox.Foreground>
                 <SolidColorBrush Color="#FF066868" Opacity="0.6"/>
             </TextBox.Foreground>

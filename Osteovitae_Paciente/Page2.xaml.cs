@@ -63,12 +63,12 @@ namespace Osteovitae_Paciente
                 valido = 0;
             }
             // confirmar contacto
-            if (contactoTextBox.ToString().Trim().Length != 9)
-            {
-                alertLabel.Visibility = Visibility.Visible;
-                alertLabel.Content = "! \"CONTACTO\" inválido !";
-                valido = 0;
-            }
+            //if (contactoTextBox.ToString().Trim().Length != 9)
+            //{
+            //    alertLabel.Visibility = Visibility.Visible;
+            //    alertLabel.Content = "! \"CONTACTO\" inválido !";
+            //    valido = 0;
+            //}
             // confirmar utilizador
             if (utilizadorComboBox.Text == "")
             {
