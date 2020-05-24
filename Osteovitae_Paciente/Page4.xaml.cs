@@ -50,6 +50,18 @@ namespace Osteovitae_Paciente
             contacto = contact;
             tipo = type;
         }
+
+        private void data_selecionada(object sender, SelectionChangedEventArgs e)
+        {
+            String[] dataSelect = calendar1.SelectedDate.ToString().Split(' ')[0].Split('/');
+            diaTextBox.Text = dataSelect[0];
+            diaTextBox.Foreground = new SolidColorBrush(Colors.Black);
+            mesTextBox.Text = dataSelect[1];
+            mesTextBox.Foreground = new SolidColorBrush(Colors.Black);
+            anoTextBox.Text = dataSelect[2];
+            anoTextBox.Foreground = new SolidColorBrush(Colors.Black);
+        }
+
         private void readExcelFile()
         {
             // READ EXCEL FILE
@@ -163,8 +175,8 @@ namespace Osteovitae_Paciente
         {
             //readExcelFile();
             Consultas consulta = new Consultas();
-            consulta.Medico = MedicoText.Text;
-            consulta.TipoConsulta = TipoConsultaText.Text;
+            consulta.Medico = nomeComboBox.Text;
+            consulta.TipoConsulta = tipoComboBox.Text;
             consulta.Data = diaTextBox.Text + "-" + mesTextBox.Text + "-"+ anoTextBox.Text;
             consulta.Hora = horaTextBox.Text + ":" + minutosTextBox.Text;
 
@@ -186,8 +198,74 @@ namespace Osteovitae_Paciente
             Numero num3 = response3.ResultAs<Numero>();
 
 
-            Page5 listaconsultas = new Page5(nome, apelido, mail, pass, contacto, tipo);
-            this.NavigationService.Navigate(listaconsultas);
+
+            int valido = 1;
+            // confirmar dia
+            if (diaTextBox.Text == "" || diaTextBox.Text == "DD")
+            {
+                alertLabel.Visibility = Visibility.Visible;
+                alertLabel.Content = "! \"DATA DA CONSULTA\" inválida !";
+                valido = 0;
+            }
+            // confirmar mes
+            if (mesTextBox.Text == "" || mesTextBox.Text == "MM")
+            {
+                alertLabel.Visibility = Visibility.Visible;
+                alertLabel.Content = "! \"DATA DA CONSULTA\" inválida !";
+                valido = 0;
+            }
+            // confirmar ano
+            if (anoTextBox.Text == "" || anoTextBox.Text == "AAAA")
+            {
+                alertLabel.Visibility = Visibility.Visible;
+                alertLabel.Content = "! \"DATA DA CONSULTA\" inválida !";
+                valido = 0;
+            }
+            // confirmar hora
+            if (horaTextBox.Text == "" || horaTextBox.Text == "HH")
+            {
+                alertLabel.Visibility = Visibility.Visible;
+                alertLabel.Content = "! \"HORA DA CONSULTA\" inválida !";
+                valido = 0;
+            }
+            // confirmar minutos
+            if (minutosTextBox.Text == "" || minutosTextBox.Text == "MM")
+            {
+                alertLabel.Visibility = Visibility.Visible;
+                alertLabel.Content = "! \"HORA DA CONSULTA\" inválida !";
+                valido = 0;
+            }
+            // confirmar tipo de consulta
+            if (tipoComboBox.Text == "")
+            {
+                alertLabel.Visibility = Visibility.Visible;
+                alertLabel.Content = "! \"TIPO DE CONSULTA\" inválida !";
+                valido = 0;
+            }
+            // confirmar medico
+            if (nomeComboBox.Text == "" || nomeComboBox.Text == "MM")
+            {
+                alertLabel.Visibility = Visibility.Visible;
+                alertLabel.Content = "! \"MÉDICO DA CONSULTA\" inválida !";
+                valido = 0;
+            }
+            // registar nova conta na base de dados
+            if (valido == 1)
+            {
+                // ------------- TO DO -------------
+                // nomeTextBox.Text
+                // apelidoTextBox.Text
+                // contactoTextBox.Text
+                // emailTextBox.Text
+                // utilizadorComboBox.Text
+                // passwordTextBox.Text
+
+                Page11 confirmar = new Page11(nome, apelido, mail, pass, contacto, tipo);
+                this.NavigationService.Navigate(confirmar);
+            }
+
+            //Page5 listaconsultas = new Page5(nome, apelido, mail, pass, contacto, tipo);
+            //this.NavigationService.Navigate(listaconsultas);
 
 
 
