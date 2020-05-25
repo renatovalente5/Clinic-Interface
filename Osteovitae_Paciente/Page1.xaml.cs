@@ -42,34 +42,44 @@ namespace Osteovitae_Paciente
 
         private async void click_login(object sender, RoutedEventArgs e)
         {
+            List<String> ListaContas = new List<string>();
+
+            FirebaseResponse response2 = await client.GetTaskAsync("TodosOsUsers/numero");
+            Numero num = response2.ResultAs<Numero>();
+
+            for (int i = 1; i <= Int32.Parse(num._numero); i++)
+            {
+                var user = "user" + i;
+                FirebaseResponse response3 = await client.GetTaskAsync("TodosOsUsers/users/" + user);
+                Numero obj2 = response3.ResultAs<Numero>();
+
+                var tempContas = new Numero { numero = obj2.numero };
+                ListaContas.Add(tempContas.numero);
+            }
+
             FirebaseResponse response;
             Data obj;
-            try
+
+            if (ListaContas.Contains(telefoneTextBox.Text))
             {
                 response = await client.GetTaskAsync("Information/" + telefoneTextBox.Text);
                 obj = response.ResultAs<Data>();
-            }
-            catch (Exception)
-            {
-                passinvalida.Visibility = Visibility.Visible;
-                throw;
-            }
 
-            if(passwordTextBox.Password == obj.Pass)
-            {
-                //MessageBox.Show("obj: ", obj.Contacto);
-                // = obj.Email;
-                //nome = obj.Nome;
-                //contacto = obj.Contacto;
-                //pass = obj.Pass;
-                //apelido = obj.Apelido;
-                //tipo = obj.Tipo;
-                Page3 menu = new Page3(obj.Nome, obj.Apelido, obj.Email, obj.Pass, obj.Contacto, obj.Tipo);
-                this.NavigationService.Navigate(menu);
+                if (passwordTextBox.Password == obj.Pass)
+                {
+                    Page3 menu = new Page3(obj.Nome, obj.Apelido, obj.Email, obj.Pass, obj.Contacto, obj.Tipo);
+                    this.NavigationService.Navigate(menu);
+                }
+                else
+                {
+                    logininvalido.Visibility = Visibility.Hidden;
+                    passinvalida.Visibility = Visibility.Visible;
+                }
             }
             else
             {
-                passinvalida.Visibility = Visibility.Visible;
+                passinvalida.Visibility = Visibility.Hidden;
+                logininvalido.Visibility = Visibility.Visible;
             }
         }
 

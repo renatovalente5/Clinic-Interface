@@ -96,7 +96,7 @@ namespace Osteovitae_Paciente
                 data.Pass = passwordTextBox.Text;
                 data.Tipo = "Paciente";
 
-                //Falta meter aqui um erro para o caso de o Contacto já existir
+                // Falta meter aqui um erro para o caso de o Contacto já existir
 
                 SetResponse response = await client.SetTaskAsync("Information/" + contactoTextBox.Text, data);
                 Data result = response.ResultAs<Data>();
@@ -106,6 +106,22 @@ namespace Osteovitae_Paciente
 
                 SetResponse response2 = await client.SetTaskAsync("ConsultasMarcadas/" + data.Contacto + "/numero", num);
                 Numero obj = response.ResultAs<Numero>();
+
+
+                FirebaseResponse response3 = await client.GetTaskAsync("TodosOsUsers/numero");
+                Numero nume = response3.ResultAs<Numero>();
+
+                int n = (Int32.Parse(nume.numero) + 1);
+                nume.numero = n + "";
+                var use = "user" + n;
+
+                SetResponse response4 = await client.SetTaskAsync("TodosOsUsers/numero", nume);
+                Numero result4 = response4.ResultAs<Numero>();
+
+                Numero num2 = new Numero();
+                num2.numero = contactoTextBox.Text;
+                SetResponse response5 = await client.SetTaskAsync("TodosOsUsers/users/" + use, num2);
+                Numero result5 = response5.ResultAs<Numero>();
 
                 Page3 menu = new Page3(data.Nome, data.Apelido, data.Email, data.Pass, data.Contacto, data.Tipo);
                 this.NavigationService.Navigate(menu);
