@@ -53,9 +53,6 @@ namespace Osteovitae_Paciente
 
         private async void click_confirmar(object sender, RoutedEventArgs e)
         {
-            Page12 confirmar = new Page12();
-            this.NavigationService.Navigate(confirmar);
-
             Consultas consulta = new Consultas();
             consulta.Medico = medicoConsulta;
             consulta.TipoConsulta = servicoConsulta;
@@ -75,6 +72,9 @@ namespace Osteovitae_Paciente
 
             SetResponse response3 = await client.SetTaskAsync("ConsultasMarcadas/" + contacto + "/numero", num); //Atualizar numero consultas
             Numero num3 = response3.ResultAs<Numero>();
+
+            Page12 confirmar = new Page12(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(confirmar);
         }
 
         private void voltarButton_Click(object sender, RoutedEventArgs e)
