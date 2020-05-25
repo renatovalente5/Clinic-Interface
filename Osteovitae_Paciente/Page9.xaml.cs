@@ -42,7 +42,7 @@ namespace Osteovitae_Paciente
         }
         private void click_editar(object sender, RoutedEventArgs e)
         {
-            Page10 conta = new Page10();
+            Page10 conta = new Page10(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(conta);
         }
 

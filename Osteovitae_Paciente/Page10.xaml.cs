@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FireSharp.Config;
+using FireSharp.Interfaces;
+using FireSharp.Response;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,12 +23,15 @@ namespace Osteovitae_Paciente
     /// </summary>
     public partial class Page10 : Page
     {
-        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
-
-        public Page10()
+        IFirebaseConfig config = new FirebaseConfig
         {
-            InitializeComponent();
-        }
+            AuthSecret = "vXSYkw1G8Qc8CNhQSkTf68o4gYI3kqHen4ivBKFr",
+            BasePath = "https://clinic-interface.firebaseio.com/"
+        };
+
+        IFirebaseClient client;
+
+        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
 
         public Page10(string name, string surname, string address, string pw, string contact, string type)
         {
@@ -44,11 +50,23 @@ namespace Osteovitae_Paciente
             perfilLabel.Content = type;
         }
 
-        private void click_guardar(object sender, RoutedEventArgs e)
+        private async void click_guardar(object sender, RoutedEventArgs e)
         {
-            // guardar valores no excel
+            // guardar valores
+            client = new FireSharp.FirebaseClient(config);
 
-            Page9 conta = new Page9(nome, apelido, mail, pass, contacto, tipo);
+            Data data = new Data();
+            data.Nome = nometextBox.Text;
+            data.Apelido = apelidotextBox.Text;
+            data.Contacto = contacto;  //Não pode ser possivel alterar este campo
+            data.Email = emailtextBox.Text;
+            data.Pass = passwordtextBox.Text;
+            data.Tipo = "Paciente";
+
+            SetResponse response = await client.SetTaskAsync("Information/" + contacto, data);
+            Data result = response.ResultAs<Data>();
+
+            Page9 conta = new Page9(nometextBox.Text, apelidotextBox.Text, emailtextBox.Text, passwordtextBox.Text, contacto, tipo);
             this.NavigationService.Navigate(conta);
         }
 

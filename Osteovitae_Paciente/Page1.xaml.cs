@@ -116,10 +116,10 @@ namespace Osteovitae_Paciente
                 Page3 menu = new Page3(obj.Nome, obj.Apelido, obj.Email, obj.Pass, obj.Contacto, obj.Tipo);
                 this.NavigationService.Navigate(menu);
             }
-            //else
-            //{
-            //    passinvalida.Visibility = Visibility.Visible;
-            //}
+            else
+            {
+                passinvalida.Visibility = Visibility.Visible;
+            }
         }
         private void click_criarconta(object sender, RoutedEventArgs e)
         {
