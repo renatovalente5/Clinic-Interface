@@ -71,12 +71,12 @@ namespace Osteovitae_Paciente
                 validos = 0;
             }
             // confirmar se as palavras-passes coincidem
-            if (passwordTextBox.Text != confirmarpasswordTextBox.Text)
+            if (passwordTextBox.Password != confirmarpasswordTextBox.Password)
             {
                 alertLabel.Visibility = Visibility.Visible;
                 alertLabel.Content = "! As palavras-passe não coincidem. !";
-                passwordTextBox.Text = "";
-                confirmarpasswordTextBox.Text = "";
+                passwordTextBox.Password = "";
+                confirmarpasswordTextBox.Password = "";
                 validos = 0;
             }
             // confirmar check da privacidade de dados
@@ -93,7 +93,7 @@ namespace Osteovitae_Paciente
                 data.Apelido = apelidoTextBox.Text;
                 data.Contacto = contactoTextBox.Text;
                 data.Email = emailTextBox.Text;
-                data.Pass = passwordTextBox.Text;
+                data.Pass = passwordTextBox.Password;
                 data.Tipo = "Paciente";
 
                 // Falta meter aqui um erro para o caso de o Contacto já existir

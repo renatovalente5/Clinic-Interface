@@ -23,13 +23,13 @@ namespace Osteovitae_Paciente
     /// </summary>
     public partial class Page4 : Page
     {
-        IFirebaseConfig config = new FirebaseConfig
+        /*IFirebaseConfig config = new FirebaseConfig
         {
             AuthSecret = "vXSYkw1G8Qc8CNhQSkTf68o4gYI3kqHen4ivBKFr",
             BasePath = "https://clinic-interface.firebaseio.com/"
         };
 
-        IFirebaseClient client;
+        IFirebaseClient client;*/
 
         private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
         private int hora, minutos;
@@ -57,6 +57,34 @@ namespace Osteovitae_Paciente
             menosMinuto.Visibility = Visibility.Hidden;
             //data = Int32.Parse(DateTime.Now.ToString().Split(' ')[1].Split(':')[0]);
             //MessageBox.Show(data.ToString());
+        }
+        public Page4(string name, string surname, string address, string pw, string contact, string type, string date, string hour, string service, string doctor)
+        {
+            InitializeComponent();
+            nome = name;
+            apelido = surname;
+            mail = address;
+            pass = pw;
+            contacto = contact;
+            tipo = type;
+            string [] h = hour.Split(':');
+            horaTextBox.Text = h[0];
+            hora = Int32.Parse(horaTextBox.Text);
+            horaTextBox.Foreground = new SolidColorBrush(Colors.Black);
+            minutosTextBox.Text = h[1];
+            minutos = Int32.Parse(minutosTextBox.Text);
+            minutosTextBox.Foreground = new SolidColorBrush(Colors.Black);
+            menosHora.Visibility = Visibility.Hidden;
+            menosMinuto.Visibility = Visibility.Hidden;
+            string[] d = date.Split('-');
+            diaTextBox.Text = d[0];
+            mesTextBox.Text = d[1];
+            anoTextBox.Text = d[2];
+            tipoComboBox.Text = service;
+            nomeComboBox.Text = doctor;
+            diaTextBox.Foreground = new SolidColorBrush(Colors.Black);
+            mesTextBox.Foreground = new SolidColorBrush(Colors.Black);
+            anoTextBox.Foreground = new SolidColorBrush(Colors.Black);
         }
 
         private void data_selecionada(object sender, SelectionChangedEventArgs e)
@@ -202,7 +230,7 @@ namespace Osteovitae_Paciente
 
         private async void click_marcar(object sender, RoutedEventArgs e)
         {
-            Consultas consulta = new Consultas();
+            /*Consultas consulta = new Consultas();
             consulta.Medico = nomeComboBox.Text;
             consulta.TipoConsulta = tipoComboBox.Text;
             consulta.Data = diaTextBox.Text + "-" + mesTextBox.Text + "-"+ anoTextBox.Text;
@@ -223,7 +251,7 @@ namespace Osteovitae_Paciente
 
             SetResponse response3 = await client.SetTaskAsync("ConsultasMarcadas/" + contacto + "/numero", num); //Atualizar numero consultas
             Numero num3 = response3.ResultAs<Numero>();
-
+            */
             int valido = 1;
             // confirmar dia
             if (diaTextBox.Text == "" || diaTextBox.Text == "DD")
