@@ -15,8 +15,6 @@ using System.Windows.Shapes;
 using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
-using Microsoft.Office.Interop;
-using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Osteovitae_Paciente
 {

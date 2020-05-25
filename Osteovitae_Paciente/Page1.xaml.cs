@@ -12,8 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Microsoft.Office.Interop;
-using Excel = Microsoft.Office.Interop.Excel;
 
 using FireSharp.Config;
 using FireSharp.Interfaces;
