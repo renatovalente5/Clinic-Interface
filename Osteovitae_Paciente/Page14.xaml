@@ -1,4 +1,4 @@
-﻿<Page x:Class="Osteovitae_Paciente.Page12"
+﻿<Page x:Class="Osteovitae_Paciente.Page14"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Osteovitae_Paciente"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="400"
-    Title="Page12">
+    Title="Page14">
     <Grid Margin="5,5,5,5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

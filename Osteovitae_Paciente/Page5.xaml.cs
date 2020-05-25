@@ -42,38 +42,10 @@ namespace Osteovitae_Paciente
             pass = pw;
             contacto = contact;
             tipo = type;
-
-            Page5_help();
-
-            //string filePath = @"C:\Users\Asus\Desktop\3ano\IHC\Clinic_Interface\consultas.xlsx";
-            //Excel.Application xlApp = new Excel.Application();
-            //Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(filePath);
-            //Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(2);
-            //Excel.Range xlRange = xlWorkSheet.UsedRange;
-            //int totalRows = xlRange.Rows.Count;
-            //int totalColumns = xlRange.Columns.Count;
-            //for (int rowCount = 2; rowCount <= totalRows; rowCount++)
-            //{
-            //    var tempConsulta = new Consulta { data = Convert.ToString((xlRange.Cells[rowCount, 1] as Excel.Range).Text), hora = Convert.ToString((xlRange.Cells[rowCount, 2] as Excel.Range).Text), tipoconsulta = Convert.ToString((xlRange.Cells[rowCount, 4] as Excel.Range).Text) };
-            //    ListaConsultas.Items.Add(tempConsulta);
-            //}
-            //xlWorkBook.Close();
-            //xlApp.Quit();
-
-            /*Consulta con = new Consulta();
-            con.data = "20-05-2020";
-            con.hora = "11:00";
-            con.tipoconsulta = "Osteopatia";
-            ListaConsultas.Items.Add(con);
-
-            Consulta cun = new Consulta();
-            cun.data = "25-05-2020";
-            cun.hora = "13:00";
-            cun.tipoconsulta = "Osteopatia";
-            ListaConsultas.Items.Add(cun);*/
+            listar_consultas();
         }
         
-        private async void Page5_help()
+        private async void listar_consultas()
         {
             client2 = new FireSharp.FirebaseClient(config);
             FirebaseResponse response = await client2.GetTaskAsync("ConsultasMarcadas/" + contacto + "/numero"); ;
@@ -109,7 +81,6 @@ namespace Osteovitae_Paciente
             Page4 novaconsulta = new Page4(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(novaconsulta);
         }
-
         private void listaConsultasBtn_Click(object sender, RoutedEventArgs e)
         {
             Page5 listaconsultas = new Page5(nome, apelido, mail, pass, contacto, tipo);

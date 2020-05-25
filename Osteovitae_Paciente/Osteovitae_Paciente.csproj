@@ -93,6 +93,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Page13.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page14.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Page2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -140,6 +148,12 @@
     </Compile>
     <Compile Include="Page12.xaml.cs">
       <DependentUpon>Page12.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page13.xaml.cs">
+      <DependentUpon>Page13.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page14.xaml.cs">
+      <DependentUpon>Page14.xaml</DependentUpon>
     </Compile>
     <Compile Include="Page2.xaml.cs">
       <DependentUpon>Page2.xaml</DependentUpon>
