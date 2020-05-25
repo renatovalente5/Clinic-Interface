@@ -36,52 +36,39 @@ namespace Osteovitae_Paciente
         {
             InitializeComponent();
             client = new FireSharp.FirebaseClient(config);
-
-            //if (client != null)
-            //{
-            //    MessageBox.Show("Connection is established");
-            //}
-
         }
 
         private async void click_registar(object sender, RoutedEventArgs e)
         {
-            //alertLabel.Visibility = Visibility.Hidden;
-            int valido = 1;
+            alertLabel.Visibility = Visibility.Hidden;
+            int validos = 1;
             // confirmar nome
-            if (nomeTextBox.Text == "" || nomeTextBox.Text == "Nome")
+            if (nomeTextBox.Text == "")
             {
                 alertLabel.Visibility = Visibility.Visible;
                 alertLabel.Content = "! \"NOME\" inválido !";
-                valido = 0;
+                validos = 0;
             }
             // confirmar apelido
-            if (apelidoTextBox.Text == "" || apelidoTextBox.Text == "Apelido")
+            if (apelidoTextBox.Text == "")
             {
                 alertLabel.Visibility = Visibility.Visible;
                 alertLabel.Content = "! \"APELIDO\" inválido !";
-                valido = 0;
+                validos = 0;
             }
-            // confirmar contacto
-            //if (contactoTextBox.ToString().Trim().Length != 9)
-            //{
-            //    alertLabel.Visibility = Visibility.Visible;
-            //    alertLabel.Content = "! \"CONTACTO\" inválido !";
-            //    valido = 0;
-            //}
-            // confirmar utilizador
-            if (utilizadorComboBox.Text == "")
+            /*// confirmar contacto
+            if (contactoTextBox.Text == "")
             {
                 alertLabel.Visibility = Visibility.Visible;
-                alertLabel.Content = "! \"UTILIZADOR\" inválido !";
-                valido = 0;
-            }
+                alertLabel.Content = "! \"CONTACTO\" inválido !";
+                validos = 0;
+            }*/
             // confirmar email
-            if (emailTextBox.Text == "" || emailTextBox.Text == "alguem@exemplo.com")
+            if (emailTextBox.Text == "")
             {
                 alertLabel.Visibility = Visibility.Visible;
                 alertLabel.Content = "! \"E-MAIL\" inválido !";
-                valido = 0;
+                validos = 0;
             }
             // confirmar se as palavras-passes coincidem
             if (passwordTextBox.Text != confirmarpasswordTextBox.Text)
@@ -90,17 +77,16 @@ namespace Osteovitae_Paciente
                 alertLabel.Content = "! As palavras-passe não coincidem. !";
                 passwordTextBox.Text = "";
                 confirmarpasswordTextBox.Text = "";
-                valido = 0;
+                validos = 0;
             }
             // confirmar check da privacidade de dados
             if (checkPrivacidadeDados.IsChecked == false)
             {
                 alertLabel.Visibility = Visibility.Visible;
                 alertLabel.Content = "! Para se registar tem de aceitar a política de privacidade de dados !";
-                valido = 0;
+                validos = 0;
             }
-            // registar nova conta na base de dados
-            if (valido == 1)
+            if (validos == 1)
             {
                 Data data = new Data();
                 data.Nome = nomeTextBox.Text;

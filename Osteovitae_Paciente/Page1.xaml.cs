@@ -34,18 +34,12 @@ namespace Osteovitae_Paciente
 
         IFirebaseClient client;
 
-        //private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
-
         public Page1()
         {
             InitializeComponent();
             client = new FireSharp.FirebaseClient(config);
-
-            //if (client != null)
-            //{
-            //    MessageBox.Show("Connectionnnn is established");
-            //}
         }
+
         private async void click_login(object sender, RoutedEventArgs e)
         {
             FirebaseResponse response;
@@ -78,11 +72,11 @@ namespace Osteovitae_Paciente
                 passinvalida.Visibility = Visibility.Visible;
             }
         }
+
         private void click_criarconta(object sender, RoutedEventArgs e)
         {
             Page2 criarconta = new Page2();
             this.NavigationService.Navigate(criarconta);
         }
-
     }
 }

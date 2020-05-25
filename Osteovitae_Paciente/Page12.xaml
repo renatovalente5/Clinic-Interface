@@ -1,4 +1,4 @@
-﻿<Page x:Class="Osteovitae_Paciente.Page10"
+﻿<Page x:Class="Osteovitae_Paciente.Page12"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Osteovitae_Paciente"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="400"
-      Title="Page10">
+    Title="Page12">
     <Grid Margin="5,5,5,5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -23,29 +23,11 @@
             <Image Source="icons/Borboleta.png" Opacity="0.5" Height="40" Width="40" Margin="0,0,0,0"/>
         </Grid>
         <Label Grid.Column="5" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,8.5,20,0" FontSize="12" FontFamily="Cambria" FontStyle="Italic" Foreground="#FF066868" FontWeight="Bold" Grid.ColumnSpan="2" Content="Osteovitae"/>
-        <Label Grid.Column="0" Grid.Row="0" Height="35" Width="390" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" FontSize="18" FontFamily="Calibri"  Background="#FF066868" Foreground="White" FontWeight="Bold" Content="CONTA PESSOAL" Margin="0.2,0"/>
+        <Label Grid.Column="0" Grid.Row="0" Height="35" Width="390" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" FontSize="18" FontFamily="Calibri"  Background="#FF066868" Foreground="White" FontWeight="Bold" Content="NOVA CONSULTA" Margin="0.2,0"/>
 
         <!-- CONTEÚDO -->
-        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="NOME"/>
-        <TextBox x:Name="nometextBox" Grid.Row="2" Height="27" Width="150" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,0,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" BorderBrush="#FF066868"/>
-
-        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,40,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="APELIDO"/>
-        <TextBox x:Name="apelidotextBox" Grid.Row="2" Height="27" Width="150" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,40,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" BorderBrush="#FF066868"/>
-        
-        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,80,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="CONTACTO"/>
-        <Label x:Name="contactotextBox" Grid.Row="2" Height="27" Width="100" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,80,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" BorderBrush="#FF066868"/>
-
-        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,120,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="E-MAIL"/>
-        <TextBox x:Name="emailtextBox" Grid.Row="2" Height="27" Width="220" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,120,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" BorderBrush="#FF066868"/>
-
-        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,160,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="PALAVRA-PASSE"/>
-        <TextBox x:Name="passwordtextBox" Grid.Row="2" Height="27" Width="189.5" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,160,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" BorderBrush="#FF066868"/>
-
-        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,200,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="PERFIL"/>
-        <Label x:Name="perfilLabel" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,200,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" Content="BLABLABLA"/>
-
-        <Button x:Name="guardarButton" Grid.Column="0" Grid.Row="2" Height="25" Width="75" Margin="15,240,0,50" VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Foreground="White" Background="#FF066868" BorderBrush="#FF066868" Click="click_guardar" Content="GUARDAR"/>
-
+        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-20,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="CONSULTA MARCADA COM SUCESSO."/>
+        <Button x:Name="confirmarButton" Grid.Column="0" Grid.Row="2" Height="30" Width="50" Margin="0,0,0,150" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FFD2E7E7" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Foreground="#FF066868" BorderBrush="#FF066868" Click="click_confirmar" Content="OK"/>
 
         <!-- MENU RODAPÉ -->
         <Button x:Name="menuBtn" Grid.Column="0" Grid.Row="3" Margin="1,0,0,0" Height="45" Width="52" VerticalAlignment="Top" HorizontalAlignment="Left" Click="menuBtn_Click">

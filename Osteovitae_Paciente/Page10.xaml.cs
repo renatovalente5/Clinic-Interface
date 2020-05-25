@@ -44,7 +44,7 @@ namespace Osteovitae_Paciente
             tipo = type;
             nometextBox.Text = name;
             apelidotextBox.Text = surname;
-            contactotextBox.Text = contact;
+            contactotextBox.Content = contact;
             emailtextBox.Text = address;
             passwordtextBox.Text = pw;
             perfilLabel.Content = type;

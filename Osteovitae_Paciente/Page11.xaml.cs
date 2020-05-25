@@ -20,9 +20,9 @@ namespace Osteovitae_Paciente
     /// </summary>
     public partial class Page11 : Page
     {
-        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
+        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", dataConsulta="", horaConsulta="", servicoConsulta="", medicoConsulta="" ;
 
-        public Page11(string name, string surname, string address, string pw, string contact, string type)
+        public Page11(string name, string surname, string address, string pw, string contact, string type, string data, string hora, string servico, string medico)
         {
             InitializeComponent();
             nome = name;
@@ -31,6 +31,10 @@ namespace Osteovitae_Paciente
             pass = pw;
             contacto = contact;
             tipo = type;
+            dataConsulta = data;
+            horaConsulta = hora;
+            servicoConsulta = servico;
+            medicoConsulta = medico;
         }
 
         private void click_confirmar(object sender, RoutedEventArgs e)

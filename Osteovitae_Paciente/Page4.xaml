@@ -25,7 +25,7 @@
         <Label Grid.Column="5" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,8.5,20,0" FontSize="12" FontFamily="Cambria" FontStyle="Italic" Foreground="#FF066868" FontWeight="Bold" Grid.ColumnSpan="2" Content="Osteovitae"/>
         <Label Grid.Column="0" Grid.Row="0" Height="35" Width="390" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" FontSize="18" FontFamily="Calibri"  Background="#FF066868" Foreground="White" FontWeight="Bold" Content="NOVA CONSULTA" Margin="0.2,0"/>
 
-        <!-- CONTEÚDO -->
+        <!-- DATA DA CONSULTA -->
         <Calendar x:Name="calendar1" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,0,0" Grid.Row="2" Width="198" Grid.Column="3" SelectedDatesChanged="data_selecionada"/>
         <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="DATA DA CONSULTA"/>
         <TextBox x:Name="diaTextBox" Grid.Column="0" Grid.Row="2" Height="25" Width="30" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="15,25,0,0" TextWrapping="NoWrap" Text="DD" HorizontalContentAlignment="Center" FontSize="14" FontFamily="Calibri">
@@ -63,8 +63,18 @@
                 <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
             </TextBox.Background>
         </TextBox>
+        
+        <!-- HORA DA CONSULTA -->
         <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,70,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="HORA DA CONSULTA"/>
-        <TextBox x:Name="horaTextBox" Grid.Column="0" Grid.Row="2" Height="25" Width="30" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="15,95,0,0" TextWrapping="NoWrap" Text="HH" HorizontalContentAlignment="Center" FontSize="14" FontFamily="Calibri">
+        <Button x:Name="menosHora" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Margin="15,92.8,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="︿" Click="menosHora_Click" Width="30" Height="17">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+        </Button>
+        <TextBox x:Name="horaTextBox" Grid.Column="0" Grid.Row="2" Height="25" Width="30" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="15,110,0,0" TextWrapping="NoWrap" Text="HH" HorizontalContentAlignment="Center" FontSize="14" FontFamily="Calibri">
             <TextBox.Foreground>
                 <SolidColorBrush Color="#FF066868" Opacity="0.6"/>
             </TextBox.Foreground>
@@ -75,8 +85,24 @@
                 <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
             </TextBox.Background>
         </TextBox>
-        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,94.8,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" Content=":" Height="25"/>
-        <TextBox x:Name="minutosTextBox" Grid.Column="0" Grid.Row="2" Height="25" Width="30" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="60,95,0,0" TextWrapping="NoWrap" Text="MM" HorizontalContentAlignment="Center" FontSize="14" FontFamily="Calibri">
+        <Button x:Name="maisHora" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Margin="15,134.8,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="﹀" Width="30" Height="17" Click="maisHora_Click">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+        </Button>
+        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,110,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" Content=":" Height="25"/>
+        <Button x:Name="menosMinuto" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Margin="60,92.8,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="︿" Width="30" Height="17" Click="menosMinuto_Click">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+        </Button>
+        <TextBox x:Name="minutosTextBox" Grid.Column="0" Grid.Row="2" Height="25" Width="30" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="60,110,0,0" TextWrapping="NoWrap" Text="MM" HorizontalContentAlignment="Center" FontSize="14" FontFamily="Calibri">
             <TextBox.Foreground>
                 <SolidColorBrush Color="#FF066868" Opacity="0.6"/>
             </TextBox.Foreground>
@@ -87,8 +113,18 @@
                 <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
             </TextBox.Background>
         </TextBox>
-        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,139.8,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="TIPO DE CONSULTA" Width="125"/>
-        <ComboBox x:Name="tipoComboBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,165,0,0" BorderBrush="#FF009999" Background="#FF009999"  FontSize="14" FontFamily="Calibri" Foreground="Black" Width="160" Height="25">
+        <Button x:Name="maisMinuto" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Margin="60,134.8,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="﹀" Width="30" Height="17" Click="maisMinuto_Click">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+        </Button>
+        
+        <!-- TIPO DE CONSULTA -->
+        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,160,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="TIPO DE CONSULTA" Width="125"/>
+        <ComboBox x:Name="tipoComboBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,185,0,0" BorderBrush="#FF009999" Background="#FF009999"  FontSize="14" FontFamily="Calibri" Foreground="Black" Width="160" Height="25">
             <ComboBoxItem>Osteopatia</ComboBoxItem>
             <ComboBoxItem>Reflexologia Podal</ComboBoxItem>
             <ComboBoxItem>Massagem Tailandesa</ComboBoxItem>
@@ -97,13 +133,13 @@
             <ComboBoxItem>Shiatsu</ComboBoxItem>
             <ComboBoxItem>Método das 3 Agulhas</ComboBoxItem>
         </ComboBox>
-        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,210,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="MÉDICO" Width="110"/>
-        <ComboBox x:Name="nomeComboBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,235,0,0" BorderBrush="#FF009999" Background="#FF009999"  FontSize="14" FontFamily="Calibri" Foreground="Black" Width="160" Height="25">
+        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,230,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="MÉDICO" Width="110"/>
+        <ComboBox x:Name="nomeComboBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,255,0,0" BorderBrush="#FF009999" Background="#FF009999"  FontSize="14" FontFamily="Calibri" Foreground="Black" Width="160" Height="25">
             <ComboBoxItem>Xavier Santos</ComboBoxItem>
         </ComboBox>
-        <Label x:Name="alertLabel" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" Margin="0,0,0,100" VerticalAlignment="Bottom" FontFamily="Calibri" Width="360" FontWeight="Bold" Visibility="Visible" Foreground="#FF08B4B4"/>
+        <Label x:Name="alertLabel" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" Margin="0,0,0,90" VerticalAlignment="Bottom" FontFamily="Calibri" Width="360" FontWeight="Bold" Visibility="Visible" Foreground="#FF08B4B4"/>
 
-        <Button x:Name="registarButton" Grid.Column="0" Grid.Row="2" Height="30" Width="90" Margin="0,0,0,50" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF066868" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Foreground="White" BorderBrush="#FF066868" Click="click_marcar" Content="MARCAR"/>
+        <Button x:Name="registarButton" Grid.Column="0" Grid.Row="2" Height="30" Width="90" Margin="0,0,0,40" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF066868" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Foreground="White" BorderBrush="#FF066868" Click="click_marcar" Content="MARCAR"/>
 
         <!-- MENU RODAPÉ -->
         <Button x:Name="menuBtn" Grid.Column="0" Grid.Row="3" Margin="1,0,0,0" Height="45" Width="52" VerticalAlignment="Top" HorizontalAlignment="Left" Click="menuBtn_Click">
@@ -190,5 +226,7 @@
                 <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </Button.Background>
         </Button>
+
+
     </Grid>
 </Page>

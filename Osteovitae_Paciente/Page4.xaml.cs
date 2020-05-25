@@ -34,7 +34,7 @@ namespace Osteovitae_Paciente
         IFirebaseClient client;
 
         private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
-
+        private int hora, minutos;
         public Page4()
         {
             InitializeComponent();
@@ -49,6 +49,16 @@ namespace Osteovitae_Paciente
             pass = pw;
             contacto = contact;
             tipo = type;
+            horaTextBox.Text = "09";
+            hora = Int32.Parse(horaTextBox.Text);
+            horaTextBox.Foreground = new SolidColorBrush(Colors.Black);
+            minutosTextBox.Text = "00";
+            minutos = Int32.Parse(minutosTextBox.Text);
+            minutosTextBox.Foreground = new SolidColorBrush(Colors.Black);
+            menosHora.Visibility = Visibility.Hidden;
+            menosMinuto.Visibility = Visibility.Hidden;
+            //data = Int32.Parse(DateTime.Now.ToString().Split(' ')[1].Split(':')[0]);
+            //MessageBox.Show(data.ToString());
         }
 
         private void data_selecionada(object sender, SelectionChangedEventArgs e)
@@ -60,6 +70,94 @@ namespace Osteovitae_Paciente
             mesTextBox.Foreground = new SolidColorBrush(Colors.Black);
             anoTextBox.Text = dataSelect[2];
             anoTextBox.Foreground = new SolidColorBrush(Colors.Black);
+        }
+
+        private void menosHora_Click(object sender, RoutedEventArgs e)
+        {
+            hora = Int32.Parse(horaTextBox.Text);
+            if (hora == 9)
+            {
+                menosHora.Visibility = Visibility.Hidden;
+                maisHora.Visibility = Visibility.Visible;
+            }
+            else if (hora == 10)
+            {
+                menosHora.Visibility = Visibility.Hidden;
+                maisHora.Visibility = Visibility.Visible;
+                horaTextBox.Text = "09";
+            }
+            else
+            {
+                menosHora.Visibility = Visibility.Visible;
+                maisHora.Visibility = Visibility.Visible;
+                horaTextBox.Text = (hora - 1).ToString();
+            }     
+        }
+
+        private void maisHora_Click(object sender, RoutedEventArgs e)
+        {
+            hora = Int32.Parse(horaTextBox.Text);
+            if (hora == 18)
+            {
+                menosHora.Visibility = Visibility.Visible;
+                maisHora.Visibility = Visibility.Hidden;
+            }
+            else if (hora == 17)
+            {
+                menosHora.Visibility = Visibility.Visible;
+                maisHora.Visibility = Visibility.Hidden;
+                horaTextBox.Text = "18";
+            }
+            else
+            {
+                menosHora.Visibility = Visibility.Visible;
+                maisHora.Visibility = Visibility.Visible;
+                horaTextBox.Text = (hora + 1).ToString();
+            }
+        }
+
+        private void menosMinuto_Click(object sender, RoutedEventArgs e)
+        {
+            minutos = Int32.Parse(minutosTextBox.Text);
+            if (minutos == 0)
+            {
+                menosMinuto.Visibility = Visibility.Hidden;
+                maisMinuto.Visibility = Visibility.Visible;
+            }
+            else if (minutos == 15)
+            {
+                menosMinuto.Visibility = Visibility.Hidden;
+                maisMinuto.Visibility = Visibility.Visible;
+                minutosTextBox.Text = "00";
+            }
+            else
+            {
+                menosMinuto.Visibility = Visibility.Visible;
+                maisMinuto.Visibility = Visibility.Visible;
+                minutosTextBox.Text = (minutos - 15).ToString();
+            }   
+        }
+
+        private void maisMinuto_Click(object sender, RoutedEventArgs e)
+        {
+            minutos = Int32.Parse(minutosTextBox.Text);
+            if (minutos == 45)
+            {
+                menosMinuto.Visibility = Visibility.Visible;
+                maisMinuto.Visibility = Visibility.Hidden;
+            }
+            else if (minutos == 30)
+            {
+                menosMinuto.Visibility = Visibility.Visible;
+                maisMinuto.Visibility = Visibility.Hidden;
+                minutosTextBox.Text = "45";
+            }
+            else
+            {
+                menosMinuto.Visibility = Visibility.Visible;
+                maisMinuto.Visibility = Visibility.Visible;
+                minutosTextBox.Text = (minutos + 15).ToString();
+            }
         }
 
         private void menuBtn_Click(object sender, RoutedEventArgs e)
@@ -181,7 +279,9 @@ namespace Osteovitae_Paciente
             // registar nova conta na base de dados
             if (valido == 1)
             {
-                Page11 confirmar = new Page11(nome, apelido, mail, pass, contacto, tipo);
+                string dataCon = diaTextBox.Text + "-" + mesTextBox.Text + "-" + anoTextBox.Text;
+                string horaCon = horaTextBox.Text + ":" + minutosTextBox.Text;
+                Page11 confirmar = new Page11(nome, apelido, mail, pass, contacto, tipo, dataCon, horaCon, tipoComboBox.Text, nomeComboBox.Text);
                 this.NavigationService.Navigate(confirmar);
             }
         }

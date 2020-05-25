@@ -46,7 +46,7 @@
         </DataGrid>
 
         <!-- MENU RODAPÉ -->
-        <Button x:Name="menuBtn" Grid.Column="0" Grid.Row="3" Margin="1,0,0,0" Height="45" Width="52" VerticalAlignment="Top" HorizontalAlignment="Left" Click="menuBtn_Click">
+        <Button x:Name="menuBtn" Grid.Column="0" Grid.Row="2" Margin="1,394.8,337.4,0" Height="45" VerticalAlignment="Top" Click="menuBtn_Click" Grid.RowSpan="2">
             <StackPanel Margin="0,0,0,0">
                 <Image Source="icons/menu.png" Height="18" Width="18"></Image>
                 <Label Content="MENU" FontFamily="Calibri" Margin="0,2,0,-8" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" FontSize="7.5" FontWeight="Bold"></Label>

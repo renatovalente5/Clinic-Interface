@@ -20,6 +20,7 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
+        <!-- TÍTULO APP -->
         <Grid Grid.Row="1" Margin="0,24,-0.4,0.4" >
             <Image  Source="icons\Borboleta.png" Opacity="0.5" Margin="143,-8,-8,8"/>
         </Grid>
@@ -46,11 +47,13 @@
                 <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
             </PasswordBox.Background>
         </PasswordBox>
-       
+
+        <!-- LABEL DE CONFIRMAÇÃO -->
         <Label x:Name="logininvalido" Content="Login inválido. Tente novamente." HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Top" FontFamily="Calibri" FontWeight="Bold" Visibility="Hidden" Foreground="#FF545454"/>
         <Label x:Name="passinvalida" Content="Palavra-passe inválida. Tente novamente." HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Top" FontFamily="Calibri" FontWeight="Bold" Visibility="Hidden" Foreground="#FF545454"/>
         <Button x:Name="loginBtn" Grid.Column="0" Grid.Row="3" Height="30" Width="80" Margin="0,10,0,0"  HorizontalAlignment="Center" Background="#FF066868" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Foreground="White" BorderBrush="#FF066868" Click="click_login">LOGIN</Button>
 
+        <!-- FAZER LOGIN -->
         <Button x:Name="criarContaBtn" Grid.Column="0" Grid.Row="4" Height="30" Width="90" Margin="10,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Calibri" FontSize="15" FontWeight="Bold" Foreground="#FF066868" Click="click_criarconta" BorderBrush="White" Background="White">CRIAR CONTA</Button>
     </Grid>
 </Page>

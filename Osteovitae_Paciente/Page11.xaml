@@ -26,7 +26,12 @@
         <Label Grid.Column="0" Grid.Row="0" Height="35" Width="390" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" FontSize="18" FontFamily="Calibri"  Background="#FF066868" Foreground="White" FontWeight="Bold" Content="NOVA CONSULTA" Margin="0.2,0"/>
 
         <!-- CONTEÚDO -->
-        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-20,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="CONSULTA MARCADA COM SUCESSO."/>
+        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="RELATÓRIO DA CONSULTA"/>
+        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,40,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="DATA"/>
+        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,70,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="HORA"/>
+        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,100,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="SERVIÇO"/>
+        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,130,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="MÉDICO"/>
+
         <Button x:Name="confirmarButton" Grid.Column="0" Grid.Row="2" Height="30" Width="50" Margin="0,0,0,150" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FFD2E7E7" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Foreground="#FF066868" BorderBrush="#FF066868" Click="click_confirmar" Content="OK"/>
 
         <!-- MENU RODAPÉ -->
