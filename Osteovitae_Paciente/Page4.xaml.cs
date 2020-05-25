@@ -62,73 +62,6 @@ namespace Osteovitae_Paciente
             anoTextBox.Foreground = new SolidColorBrush(Colors.Black);
         }
 
-        private void readExcelFile()
-        {
-            // READ EXCEL FILE
-            string filePath = @"C:\Users\Asus\Desktop\3ano\IHC\Clinic_Interface\consultas.xlsx";
-            Excel.Application xlApp = new Excel.Application();
-            Excel.Workbook xlWorkBook = xlApp.Workbooks.Open(filePath);
-            Excel.Worksheet xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(2);
-            Excel.Range xlRange = xlWorkSheet.UsedRange;
-            int totalRows = xlRange.Rows.Count;
-            int totalColumns = xlRange.Columns.Count;
-            string value1, value2, value3, value4, value5;
-            for (int rowCount = 2; rowCount <= totalRows; rowCount++)
-            {
-                // row rowCount - column 1
-                value1 = Convert.ToString((xlRange.Cells[rowCount, 1] as Excel.Range).Text);
-                // row rowCount - column 2
-                value2 = Convert.ToString((xlRange.Cells[rowCount, 2] as Excel.Range).Text);
-                // row rowCount - column 3
-                value3 = Convert.ToString((xlRange.Cells[rowCount, 3] as Excel.Range).Text);
-                // row rowCount - column 4
-                value4 = Convert.ToString((xlRange.Cells[rowCount, 4] as Excel.Range).Text);
-                // row rowCount - column 5
-                value5 = Convert.ToString((xlRange.Cells[rowCount, 5] as Excel.Range).Text);
-                MessageBox.Show(value1 + "\t" + value2 + "\t" + value3 + "\t" + value4 + "\t" + value5);
-            }
-            xlWorkBook.Close();
-            xlApp.Quit();
-
-            // READ EXCEL FILE
-            /*Excel.Application xlApp2 = new Excel.Application();
-            //object misValue = System.Reflection.Missing.Value;
-            Excel.Workbook xlWorkBook2 = xlApp2.Workbooks.Add(filePath);
-            Excel.Worksheet xlWorkSheet2 = (Excel.Worksheet)xlWorkBook2.Worksheets.get_Item(2);
-            xlWorkSheet.Cells[totalRows, 1] = "22/05/2020";
-            xlWorkSheet.Cells[totalRows, 2] = "11:00";
-            xlWorkSheet.Cells[totalRows, 3] = "Manuel Martins";
-            xlWorkSheet.Cells[totalRows, 4] = "Osteopatia";
-            xlWorkSheet.Cells[totalRows, 5] = "Médico";
-            xlWorkBook2.SaveAs(filePath, Excel.XlFileFormat.xlOpenXMLWorkbook);
-            xlWorkBook2.Close();
-            xlApp2.Quit();
-
-            Excel.Application excelApp = new Excel.Application();
-            if (excelApp != null)
-            {
-                Excel.Workbook excelWorkbook = excelApp.Workbooks.Add();
-                Excel.Worksheet excelWorksheet = (Excel.Worksheet)excelWorkbook.Sheets.Add();
-
-                excelWorksheet.Cells[totalRows, 1] = "22/05/2020";
-                excelWorksheet.Cells[totalRows, 2] = "11:00";
-                excelWorksheet.Cells[totalRows, 3] = "Manuel Martins";
-                excelWorksheet.Cells[totalRows, 4] = "Osteopatia";
-                excelWorksheet.Cells[totalRows, 5] = "Médico";
-
-                excelApp.ActiveWorkbook.SaveAs(filePath, Excel.XlFileFormat.xlWorkbookNormal);
-
-                excelWorkbook.Close();
-                excelApp.Quit();
-
-                System.Runtime.InteropServices.Marshal.FinalReleaseComObject(excelWorksheet);
-                System.Runtime.InteropServices.Marshal.FinalReleaseComObject(excelWorkbook);
-                System.Runtime.InteropServices.Marshal.FinalReleaseComObject(excelApp);
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
-            }*/
-        }
-
         private void menuBtn_Click(object sender, RoutedEventArgs e)
         {
             Page3 menu = new Page3(nome, apelido, mail, pass, contacto, tipo);
@@ -173,7 +106,6 @@ namespace Osteovitae_Paciente
 
         private async void click_marcar(object sender, RoutedEventArgs e)
         {
-            //readExcelFile();
             Consultas consulta = new Consultas();
             consulta.Medico = nomeComboBox.Text;
             consulta.TipoConsulta = tipoComboBox.Text;
@@ -193,11 +125,8 @@ namespace Osteovitae_Paciente
             SetResponse response2 = await client.SetTaskAsync("ConsultasMarcadas/" + contacto + "/" + con, consulta);  //Marcar consulta
             Consultas result = response2.ResultAs<Consultas>();
 
-
             SetResponse response3 = await client.SetTaskAsync("ConsultasMarcadas/" + contacto + "/numero", num); //Atualizar numero consultas
             Numero num3 = response3.ResultAs<Numero>();
-
-
 
             int valido = 1;
             // confirmar dia
@@ -252,23 +181,9 @@ namespace Osteovitae_Paciente
             // registar nova conta na base de dados
             if (valido == 1)
             {
-                // ------------- TO DO -------------
-                // nomeTextBox.Text
-                // apelidoTextBox.Text
-                // contactoTextBox.Text
-                // emailTextBox.Text
-                // utilizadorComboBox.Text
-                // passwordTextBox.Text
-
                 Page11 confirmar = new Page11(nome, apelido, mail, pass, contacto, tipo);
                 this.NavigationService.Navigate(confirmar);
             }
-
-            //Page5 listaconsultas = new Page5(nome, apelido, mail, pass, contacto, tipo);
-            //this.NavigationService.Navigate(listaconsultas);
-
-
-
         }
     }
 }

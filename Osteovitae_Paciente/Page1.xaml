@@ -24,11 +24,10 @@
             <Image  Source="icons\Borboleta.png" Opacity="0.5" Margin="143,-8,-8,8"/>
         </Grid>
         <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,40,0,0" FontSize="50" FontFamily="Cambria" FontStyle="Italic" Foreground="#FF066868" FontWeight="Bold">Osteovitae</Label>
-        
-        <TextBox x:Name="telefoneTextBox" Grid.Column="0" Grid.Row="2" Height="35" Width="300" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="0,45,0,0" TextWrapping="NoWrap" Text="Telefone" FontSize="16" FontFamily="Calibri">
-            <TextBox.Foreground>
-                <SolidColorBrush Color="#FF066868" Opacity="0.6"/>
-            </TextBox.Foreground>
+
+        <!-- INSERIR TELEMÓVEL-->
+        <Label Grid.Column="0" Grid.Row="2" Height="35" Width="300" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="0,15,0,0" FontSize="16" FontFamily="Calibri" Content="TELEMÓVEL" FontWeight="Bold" />
+        <TextBox x:Name="telefoneTextBox" Grid.Column="0" Grid.Row="2" Height="35" Width="300" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="0,45,0,0" TextWrapping="NoWrap" FontSize="16" FontFamily="Calibri" Foreground="Black">
             <TextBox.BorderBrush>
                 <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
             </TextBox.BorderBrush>
@@ -37,18 +36,17 @@
             </TextBox.Background>
         </TextBox>
 
-        <TextBox x:Name="passwordTextBox" Grid.Column="0" Grid.Row="2" Height="35" Width="300" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="0,100,0,0" TextWrapping="NoWrap" Text="Palavra-passe" FontSize="16" FontFamily="Calibri">
-            <TextBox.Foreground>
-                <SolidColorBrush Color="#FF066868" Opacity="0.6"/>
-            </TextBox.Foreground>
-            <TextBox.BorderBrush>
+        <!-- INSERIR PASSWORD -->
+        <Label Grid.Column="0" Grid.Row="2" Height="35" Width="300" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="0,85,0,0" FontSize="16" FontFamily="Calibri" Content="PALAVRA-PASSE" FontWeight="Bold" />
+        <PasswordBox x:Name="passwordTextBox" ToolTip="Password" PasswordChar="*" Grid.Column="0" Grid.Row="2" Height="35" Width="300" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="0,115,0,0" FontSize="16" FontFamily="Calibri" Foreground="Black">
+            <PasswordBox.BorderBrush>
                 <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
-            </TextBox.BorderBrush>
-            <TextBox.Background>
+            </PasswordBox.BorderBrush>
+            <PasswordBox.Background>
                 <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
-            </TextBox.Background>
-        </TextBox>
-
+            </PasswordBox.Background>
+        </PasswordBox>
+       
         <Label x:Name="logininvalido" Content="Login inválido. Tente novamente." HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Top" FontFamily="Calibri" FontWeight="Bold" Visibility="Hidden" Foreground="#FF545454"/>
         <Label x:Name="passinvalida" Content="Palavra-passe inválida. Tente novamente." HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Top" FontFamily="Calibri" FontWeight="Bold" Visibility="Hidden" Foreground="#FF545454"/>
         <Button x:Name="loginBtn" Grid.Column="0" Grid.Row="3" Height="30" Width="80" Margin="0,10,0,0"  HorizontalAlignment="Center" Background="#FF066868" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Foreground="White" BorderBrush="#FF066868" Click="click_login">LOGIN</Button>
