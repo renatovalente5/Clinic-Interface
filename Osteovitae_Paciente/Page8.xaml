@@ -4,7 +4,9 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Osteovitae_Paciente"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
+      xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       d:DesignHeight="600" d:DesignWidth="400"
       Title="Page8">
     <Grid Margin="5,5,5,5" RenderTransformOrigin="0.528,0.264">
@@ -41,6 +43,14 @@
             <Label FontFamily="Calibri" Margin="30,0,0,0" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="15" FontWeight="Bold" Content="Rua da Feira nº2, Sobreiro - Bustos" Height="27" RenderTransformOrigin="0.007,0.704"/>
         </Grid>
 
+        <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,110,0,0" Height="300" Width="303" Background="LightCyan" RenderTransformOrigin="0.495,0.477">
+            <m:Map CredentialsProvider="AttsGkqIHCOIEA11KtQZDphl5bi8lppin64jeg-ZOOhiS4cdHA_EXJwHSbyZi4Xo" Mode="Road" Grid.Column="1" Grid.Row="1" ZoomLevel="16" Center="40.499494,-8.588741">
+                <Canvas m:MapLayer.Position="40.499494,-8.588741" m:MapLayer.PositionOrigin="BottomCenter" Width="30" Height="30">
+                    <materialDesign:PackIcon Kind="MapMarker" Width="30" Height="30" Foreground="#FF3C3C3C"/>
+                </Canvas>
+            </m:Map>
+        </Grid>
+        
         <!-- MENU RODAPÉ -->
         <Button x:Name="menuBtn" Grid.Column="0" Grid.Row="3" Margin="1,0,0,0" Height="45" Width="52" VerticalAlignment="Top" HorizontalAlignment="Left" Click="menuBtn_Click">
             <StackPanel Margin="0,0,0,0">
@@ -78,7 +88,7 @@
                 <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </Button.Background>
         </Button>
-        <Button x:Name="notificacoesBtn" Grid.Column="0" Grid.Row="3" Margin="161,0,0,0" Height="45" Width="56" VerticalAlignment="Top" HorizontalAlignment="Left" Click="notificacoesBtn_Click">
+        <Button x:Name="notificacoesBtn" Grid.Column="0" Grid.Row="3" Margin="161,0,0,0" Height="45" Width="55.6" VerticalAlignment="Top" HorizontalAlignment="Left" Click="notificacoesBtn_Click">
             <StackPanel Margin="0,0,0,0">
                 <Image Source="icons/notification.png" Height="20" Width="20"></Image>
                 <Label Content="NOTIFICAÇÃO" FontFamily="Calibri" Margin="0,0,0,-6" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="7.5" FontWeight="Bold"/>
@@ -90,7 +100,7 @@
                 <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </Button.Background>
         </Button>
-        <Button x:Name="tratamentosBtn" Grid.Column="0" Grid.Row="3" Margin="216,0,0,0" Height="45" Width="56" VerticalAlignment="Top" HorizontalAlignment="Left" Click="tratamentosBtn_Click">
+        <Button x:Name="tratamentosBtn" Grid.Column="0" Grid.Row="3" Margin="216,0,0,0" Height="45" Width="55.6" VerticalAlignment="Top" HorizontalAlignment="Left" Click="tratamentosBtn_Click">
             <StackPanel Margin="0,0,0,0">
                 <Image Source="icons/descricao.png" Height="20" Width="20"></Image>
                 <Label Content="TRATAMENTO" FontFamily="Calibri" Margin="0,0,0,-6" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="7.5" FontWeight="Bold"/>
