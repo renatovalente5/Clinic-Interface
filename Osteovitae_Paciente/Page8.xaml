@@ -7,26 +7,39 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="400"
       Title="Page8">
-    <Grid Margin="5,5,5,5">
+    <Grid Margin="5,5,5,5" RenderTransformOrigin="0.528,0.264">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="85"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="395"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="427"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
         <!-- TITULO DA PÁGINA -->
-        <Grid Grid.Column="7" Grid.Row="0" Margin="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+        <Grid Grid.Row="0" Margin="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="40" Width="40">
             <Image Source="icons/Borboleta.png" Opacity="0.5" Height="40" Width="40" Margin="0,0,0,0"/>
         </Grid>
-        <Label Grid.Column="5" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,8.5,20,0" FontSize="12" FontFamily="Cambria" FontStyle="Italic" Foreground="#FF066868" FontWeight="Bold" Grid.ColumnSpan="2" Content="Osteovitae"/>
-        <Label Grid.Column="0" Grid.Row="0" Height="35" Width="390" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" FontSize="18" FontFamily="Calibri"  Background="#FF066868" Foreground="White" FontWeight="Bold" Content="OSTEOVITAE" Margin="0.2,0"/>
+        <Label Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,8,20,0" FontSize="12" FontFamily="Cambria" FontStyle="Italic" Foreground="#FF066868" FontWeight="Bold" Content="Osteovitae" Height="24" Width="67"/>
+        <Label Grid.Column="0" Grid.Row="0" Height="35" Width="390" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" FontSize="18" FontFamily="Calibri"  Background="#FF066868" Foreground="White" FontWeight="Bold" Content="OSTEOVITAE"/>
 
         <!-- CONTEÚDO -->
+        <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,0,0,0" Height="27" Width="303" Background="LightCyan">
+            <Image HorizontalAlignment="Left" Margin="5,0,0,0" Source="icons/phone.png" Height="20" Width="24"/>
+            <Label FontFamily="Calibri" Margin="30,0,0,0" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="15" FontWeight="Bold" Content="914526392" Height="27" RenderTransformOrigin="0.007,0.704"/>
+        </Grid>
 
+        <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,35,0,0" Height="27" Width="303" Background="LightCyan">
+            <Image HorizontalAlignment="Left" Margin="5,0,0,0" Source="icons/message.png" Height="20" Width="24"/>
+            <Label FontFamily="Calibri" Margin="30,0,0,0" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="15" FontWeight="Bold" Content="osteovitae@gmail.com" Height="27" RenderTransformOrigin="0.007,0.704"/>
+        </Grid>
+
+        <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,70,0,0" Height="27" Width="303" Background="LightCyan">
+            <Image HorizontalAlignment="Left" Margin="5,0,0,0" Source="icons/home_location.png" Height="20" Width="24"/>
+            <Label FontFamily="Calibri" Margin="30,0,0,0" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="15" FontWeight="Bold" Content="Rua da Feira nº2, Sobreiro - Bustos" Height="27" RenderTransformOrigin="0.007,0.704"/>
+        </Grid>
 
         <!-- MENU RODAPÉ -->
         <Button x:Name="menuBtn" Grid.Column="0" Grid.Row="3" Margin="1,0,0,0" Height="45" Width="52" VerticalAlignment="Top" HorizontalAlignment="Left" Click="menuBtn_Click">
@@ -65,7 +78,7 @@
                 <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </Button.Background>
         </Button>
-        <Button x:Name="notificacoesBtn" Grid.Column="0" Grid.Row="3" Margin="161,0,0,0" Height="45" Width="55.6" VerticalAlignment="Top" HorizontalAlignment="Left" Click="notificacoesBtn_Click">
+        <Button x:Name="notificacoesBtn" Grid.Column="0" Grid.Row="3" Margin="161,0,0,0" Height="45" Width="56" VerticalAlignment="Top" HorizontalAlignment="Left" Click="notificacoesBtn_Click">
             <StackPanel Margin="0,0,0,0">
                 <Image Source="icons/notification.png" Height="20" Width="20"></Image>
                 <Label Content="NOTIFICAÇÃO" FontFamily="Calibri" Margin="0,0,0,-6" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="7.5" FontWeight="Bold"/>
@@ -77,7 +90,7 @@
                 <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </Button.Background>
         </Button>
-        <Button x:Name="tratamentosBtn" Grid.Column="0" Grid.Row="3" Margin="216.5,0,0,0" Height="45" Width="55.6" VerticalAlignment="Top" HorizontalAlignment="Left" Click="tratamentosBtn_Click">
+        <Button x:Name="tratamentosBtn" Grid.Column="0" Grid.Row="3" Margin="216,0,0,0" Height="45" Width="56" VerticalAlignment="Top" HorizontalAlignment="Left" Click="tratamentosBtn_Click">
             <StackPanel Margin="0,0,0,0">
                 <Image Source="icons/descricao.png" Height="20" Width="20"></Image>
                 <Label Content="TRATAMENTO" FontFamily="Calibri" Margin="0,0,0,-6" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="7.5" FontWeight="Bold"/>
