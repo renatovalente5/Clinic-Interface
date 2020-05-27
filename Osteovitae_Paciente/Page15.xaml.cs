@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FireSharp.Config;
+using FireSharp.Interfaces;
+using FireSharp.Response;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +23,14 @@ namespace Osteovitae_Paciente
     /// </summary>
     public partial class Page15 : Page
     {
+        IFirebaseConfig config = new FirebaseConfig
+        {
+            AuthSecret = "vXSYkw1G8Qc8CNhQSkTf68o4gYI3kqHen4ivBKFr",
+            BasePath = "https://clinic-interface.firebaseio.com/"
+        };
+
+        IFirebaseClient client;
+
         private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", dataConsulta = "", horaConsulta = "", servicoConsulta = "", medicoConsulta = "";
 
         public Page15()
@@ -46,9 +57,22 @@ namespace Osteovitae_Paciente
             Page13 cancelar = new Page13(nome, apelido, mail, pass, contacto, tipo, dataConsulta, horaConsulta, servicoConsulta, medicoConsulta);
             this.NavigationService.Navigate(cancelar);
         }
-        private void click_eliminar(object sender, RoutedEventArgs e)
+        private async void click_eliminar(object sender, RoutedEventArgs e)
         {
             // COLOCAR AQUI O CODIGO DE ELIMINAR NA BD
+            client = new FireSharp.FirebaseClient(config);
+            FirebaseResponse response = await client.GetTaskAsync("ConsultasMarcadas/" + contacto + "/numero"); ;
+            Numero num = response.ResultAs<Numero>();
+
+
+            var consulta = "consulta" + Int32.Parse(num._numero);
+            FirebaseResponse response2 = await client.DeleteTaskAsync("ConsultasMarcadas/" + contacto + "/" + consulta);
+
+            num._numero = (Int32.Parse(num._numero) - 1) + "";
+            FirebaseResponse response3 = await client.UpdateTaskAsync("ConsultasMarcadas/" + contacto + "/numero", num); ;
+
+            Page5 menu = new Page5(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(menu);
         }
 
         private void voltarButton_Click(object sender, RoutedEventArgs e)

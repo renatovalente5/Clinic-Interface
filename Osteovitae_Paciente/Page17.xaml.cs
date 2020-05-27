@@ -21,11 +21,8 @@ namespace Osteovitae_Paciente
     public partial class Page17 : Page
     {
         private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", dataConsulta = "", horaConsulta = "", servicoConsulta = "", medicoConsulta = "";
-        public Page17()
-        {
-            InitializeComponent();
-        }
-        public Page17(string name, string surname, string address, string pw, string contact, string type, string data, string hora, string servico, string medico)
+
+        public Page17(string name, string surname, string address, string pw, string contact, string type, string data, string hora, string servico, string medico, string mensagem)
         {
             InitializeComponent();
             nome = name;
@@ -40,6 +37,7 @@ namespace Osteovitae_Paciente
             medicoConsulta = medico;
             dataTextBox.Content = data;
             medicoTextBox.Content = medico;
+            conteudoTextBox.Text = mensagem;
         }
 
         private void voltarButton_Click(object sender, RoutedEventArgs e)

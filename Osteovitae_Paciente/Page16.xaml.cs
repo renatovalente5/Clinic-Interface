@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FireSharp.Config;
+using FireSharp.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +22,20 @@ namespace Osteovitae_Paciente
     /// </summary>
     public partial class Page16 : Page
     {
+        IFirebaseConfig config = new FirebaseConfig
+        {
+            AuthSecret = "vXSYkw1G8Qc8CNhQSkTf68o4gYI3kqHen4ivBKFr",
+            BasePath = "https://clinic-interface.firebaseio.com/"
+        };
+
+        IFirebaseClient client;
+
         private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", dataConsulta = "", horaConsulta = "", servicoConsulta = "", medicoConsulta = "";
-        public Page16()
+
+        public Page16(string name, string surname, string address, string pw, string contact, string type, string data, string hora, string servico, string medico, string mensagem)
         {
             InitializeComponent();
-        }
-        public Page16(string name, string surname, string address, string pw, string contact, string type, string data, string hora, string servico, string medico)
-        {
-            InitializeComponent();
+            client = new FireSharp.FirebaseClient(config);
             nome = name;
             apelido = surname;
             mail = address;
@@ -40,6 +48,7 @@ namespace Osteovitae_Paciente
             medicoConsulta = medico;
             dataTextBox.Content = data;
             medicoTextBox.Content = medico;
+            conteudoTextBox.Text = mensagem;
         }
 
         /*private void click_editar(object sender, RoutedEventArgs e)

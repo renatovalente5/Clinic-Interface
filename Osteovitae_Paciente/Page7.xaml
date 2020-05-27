@@ -39,9 +39,9 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header=" DATA" Binding="{Binding data}" Width="90"/>
-                <DataGridTextColumn Header=" TRATAMENTO" Binding="{Binding hora}" Width="230"/>
-                <DataGridTextColumn Header="" Binding="{Binding vermais}" Width="*"/>
+                <DataGridTextColumn Header=" DATA" Binding="{Binding Data}" Width="90"/>
+                <DataGridTextColumn Header=" TRATAMENTO" Binding="{Binding Mensagem}" Width="230"/>
+                <DataGridTextColumn Header="" Binding="{Binding VerMais}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
 

@@ -47,32 +47,35 @@ namespace Osteovitae_Paciente
         private void linhaSelecionada(object sender, SelectionChangedEventArgs e)
         {
             Notificacao notificacao = (Notificacao)ListaNotificacoes.SelectedItem;
-            Page16 abrir = new Page16(nome, apelido, mail, pass, contacto, tipo, notificacao.data, notificacao.hora, notificacao.tipoconsulta, notificacao.medicoconsulta);
+            Page16 abrir = new Page16(nome, apelido, mail, pass, contacto, tipo, notificacao.Data, notificacao.Hora, notificacao.TipoConsulta, notificacao.MedicoConsulta, notificacao.Mensagem);
             this.NavigationService.Navigate(abrir);
         }
         private async void listar_notificacoes()
         {
             client2 = new FireSharp.FirebaseClient(config);
-            FirebaseResponse response = await client2.GetTaskAsync("ConsultasMarcadas/" + contacto + "/numero"); ;
+            FirebaseResponse response = await client2.GetTaskAsync("Notificacoes/numero"); ;
             Numero num = response.ResultAs<Numero>();
             string mais = "➜";
+            
             for (int i = 1; i <= Int32.Parse(num._numero); i++)
             {
-                var consulta = "consulta" + i;
-                FirebaseResponse response2 = await client2.GetTaskAsync("ConsultasMarcadas/" + contacto + "/" + consulta);
-                Consultas obj = response2.ResultAs<Consultas>();
-                var tempNotificacao = new Notificacao { data = obj.Data, hora = obj.Hora, tipoconsulta = obj.TipoConsulta, medicoconsulta = obj.Medico, vermais = mais };
+                var notificacao = "notificacao" + i;
+                FirebaseResponse response2 = await client2.GetTaskAsync("Notificacoes/" + notificacao);
+                Notificacao obj = response2.ResultAs<Notificacao>();
+
+                var tempNotificacao = new Notificacao { Data = obj.Data, Hora = obj.Hora, TipoConsulta = obj.TipoConsulta, MedicoConsulta = "Xavier Santos", VerMais = mais, Mensagem = obj.Mensagem };
                 ListaNotificacoes.Items.Add(tempNotificacao);
             }
         }
 
         public class Notificacao
         {
-            public String data { get; set; }
-            public String hora { get; set; }
-            public String tipoconsulta { get; set; }
-            public String medicoconsulta { get; set; }
-            public String vermais { get; set; }
+            public String Data { get; set; }
+            public String Hora { get; set; }
+            public String TipoConsulta { get; set; }
+            public String MedicoConsulta { get; set; }
+            public String VerMais { get; set; }
+            public String Mensagem { get; set; }
         }
         private void menuBtn_Click(object sender, RoutedEventArgs e)
         {

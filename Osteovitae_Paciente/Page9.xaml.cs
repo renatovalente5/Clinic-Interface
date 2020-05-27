@@ -36,7 +36,7 @@ namespace Osteovitae_Paciente
             apelidoLabel.Content = surname;
             contactoLabel.Content = contact;
             emailLabel.Content = address;
-            passwordLabel.Content = pw;
+            passwordLabel.Password = pw;
         }
         private void click_editar(object sender, RoutedEventArgs e)
         {

@@ -53,11 +53,6 @@
         <Label x:Name="medicoTextBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="85,210,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black"/>
 
         <Button x:Name="confirmarButton" Grid.Column="0" Grid.Row="2" Height="30" Width="80" Margin="0,0,12.5,100" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Foreground="White" Background="#FF066868" BorderBrush="#FF066868" Click="click_eliminar" Content="ELIMINAR"/>
-        <Button x:Name="editarButton" Grid.Column="0" Grid.Row="2" Height="30" Width="70" Margin="15,0,0,100" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Foreground="#FF066868" BorderBrush="#FF066868" Click="click_editar" Content="EDITAR">
-            <Button.Background>
-                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
-            </Button.Background>
-        </Button>
         <!-- MENU RODAPÉ -->
         <Button x:Name="menuBtn" Grid.Column="0" Grid.Row="3" Margin="1,0,0,0" Height="45" Width="52" VerticalAlignment="Top" HorizontalAlignment="Left" Click="menuBtn_Click">
             <StackPanel Margin="0,0,0,0">
