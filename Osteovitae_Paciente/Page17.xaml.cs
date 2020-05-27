@@ -16,17 +16,16 @@ using System.Windows.Shapes;
 namespace Osteovitae_Paciente
 {
     /// <summary>
-    /// Interaction logic for Page13.xaml
+    /// Interaction logic for Page17.xaml
     /// </summary>
-    public partial class Page13 : Page
+    public partial class Page17 : Page
     {
-
         private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", dataConsulta = "", horaConsulta = "", servicoConsulta = "", medicoConsulta = "";
-        public Page13()
+        public Page17()
         {
             InitializeComponent();
         }
-        public Page13(string name, string surname, string address, string pw, string contact, string type, string data, string hora, string servico, string medico)
+        public Page17(string name, string surname, string address, string pw, string contact, string type, string data, string hora, string servico, string medico)
         {
             InitializeComponent();
             nome = name;
@@ -39,29 +38,14 @@ namespace Osteovitae_Paciente
             horaConsulta = hora;
             servicoConsulta = servico;
             medicoConsulta = medico;
-
-            pacienteTextBox.Content = nome + " " + apelido;
-            contactoTextBox.Content = contacto;
             dataTextBox.Content = data;
-            horaTextBox.Content = hora;
-            servicoTextBox.Content = servico;
             medicoTextBox.Content = medico;
         }
-        private void click_eliminar(object sender, RoutedEventArgs e)
-        {
-            Page15 elim = new Page15(nome, apelido, mail, pass, contacto, tipo, dataConsulta, horaConsulta, servicoConsulta, medicoConsulta);
-            this.NavigationService.Navigate(elim);
-        }
 
-        private void click_editar(object sender, RoutedEventArgs e)
-        {
-            Page4 voltar = new Page4(nome, apelido, mail, pass, contacto, tipo, dataConsulta, horaConsulta, servicoConsulta, medicoConsulta, 13);
-            this.NavigationService.Navigate(voltar);
-        }
         private void voltarButton_Click(object sender, RoutedEventArgs e)
         {
-            Page5 listaconsultas = new Page5(nome, apelido, mail, pass, contacto, tipo);
-            this.NavigationService.Navigate(listaconsultas);
+            Page7 abrir = new Page7(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(abrir);
         }
 
         private void menuBtn_Click(object sender, RoutedEventArgs e)

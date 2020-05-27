@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Osteovitae_Paciente"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="400"
+     d:DesignHeight="600" d:DesignWidth="400"
       Title="Page7">
     <Grid Margin="5,5,5,5">
         <Grid.ColumnDefinitions>
@@ -26,7 +26,26 @@
         <Label Grid.Column="0" Grid.Row="0" Height="35" Width="390" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" FontSize="18" FontFamily="Calibri"  Background="#FF066868" Foreground="White" FontWeight="Bold" Content="TRATAMENTOS" Margin="0.2,0"/>
 
         <!-- CONTEÚDO -->
-        
+        <DataGrid ItemsSource="{Binding Path=Customers}" x:Name="ListaTratamentos" GridLinesVisibility="None" AlternatingRowBackground="#FF9EC2C2" AlternationCount="2" Grid.Row="2" Margin="15,0,0,0" Width="350" Height="370" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="15" Background="{x:Null}" SelectionChanged="linhaSelecionada" BorderBrush="White">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FF066868" />
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="BorderThickness" Value="1,0,0.2,1"/>
+                    <Setter Property="BorderBrush" Value="#FF066868"/>
+                    <Setter Property="Height" Value="25"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Left" />
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header=" DATA" Binding="{Binding data}" Width="90"/>
+                <DataGridTextColumn Header=" TRATAMENTO" Binding="{Binding hora}" Width="230"/>
+                <DataGridTextColumn Header="" Binding="{Binding vermais}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
         <!-- MENU RODAPÉ -->
         <Button x:Name="menuBtn" Grid.Column="0" Grid.Row="3" Margin="1,0,0,0" Height="45" Width="52" VerticalAlignment="Top" HorizontalAlignment="Left" Click="menuBtn_Click">
             <StackPanel Margin="0,0,0,0">
