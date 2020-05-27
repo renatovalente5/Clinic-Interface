@@ -47,9 +47,12 @@ namespace Osteovitae_Paciente
             contactotextBox.Content = contact;
             emailtextBox.Text = address;
             passwordtextBox.Text = pw;
-            perfilLabel.Content = type;
         }
-
+        private void voltarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Page9 conta = new Page9(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(conta);
+        }
         private async void click_guardar(object sender, RoutedEventArgs e)
         {
             // guardar valores
@@ -69,48 +72,36 @@ namespace Osteovitae_Paciente
             Page9 conta = new Page9(nometextBox.Text, apelidotextBox.Text, emailtextBox.Text, passwordtextBox.Text, contacto, tipo);
             this.NavigationService.Navigate(conta);
         }
-
-        private void click_terminarsessao(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void menuBtn_Click(object sender, RoutedEventArgs e)
         {
             Page3 menu = new Page3(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(menu);
         }
-
         private void novaConsultaBtn_Click(object sender, RoutedEventArgs e)
         {
             Page4 novaconsulta = new Page4(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(novaconsulta);
         }
-
         private void listaConsultasBtn_Click(object sender, RoutedEventArgs e)
         {
             Page5 listaconsultas = new Page5(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(listaconsultas);
         }
-
         private void notificacoesBtn_Click(object sender, RoutedEventArgs e)
         {
             Page6 notificacoes = new Page6(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(notificacoes);
         }
-
         private void tratamentosBtn_Click(object sender, RoutedEventArgs e)
         {
             Page7 tratamentos = new Page7(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(tratamentos);
         }
-
         private void osteovitaeBtn_Click(object sender, RoutedEventArgs e)
         {
             Page8 osteovitae = new Page8(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(osteovitae);
         }
-
         private void contaBtn_Click(object sender, RoutedEventArgs e)
         {
             Page9 conta = new Page9(nome, apelido, mail, pass, contacto, tipo);

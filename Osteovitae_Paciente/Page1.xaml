@@ -30,10 +30,10 @@
         <Label Grid.Column="0" Grid.Row="2" Height="35" Width="300" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="0,15,0,0" FontSize="16" FontFamily="Calibri" Content="TELEMÓVEL" FontWeight="Bold" />
         <TextBox x:Name="telefoneTextBox" Grid.Column="0" Grid.Row="2" Height="35" Width="300" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="0,45,0,0" TextWrapping="NoWrap" FontSize="16" FontFamily="Calibri" Foreground="Black">
             <TextBox.BorderBrush>
-                <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
+                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </TextBox.BorderBrush>
             <TextBox.Background>
-                <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
             </TextBox.Background>
         </TextBox>
 
@@ -41,10 +41,10 @@
         <Label Grid.Column="0" Grid.Row="2" Height="35" Width="300" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="0,85,0,0" FontSize="16" FontFamily="Calibri" Content="PALAVRA-PASSE" FontWeight="Bold" />
         <PasswordBox x:Name="passwordTextBox" ToolTip="Password" PasswordChar="*" Grid.Column="0" Grid.Row="2" Height="35" Width="300" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="0,115,0,0" FontSize="16" FontFamily="Calibri" Foreground="Black">
             <PasswordBox.BorderBrush>
-                <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
+                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </PasswordBox.BorderBrush>
             <PasswordBox.Background>
-                <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
             </PasswordBox.Background>
         </PasswordBox>
 

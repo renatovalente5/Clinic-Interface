@@ -38,6 +38,11 @@ namespace Osteovitae_Paciente
             client = new FireSharp.FirebaseClient(config);
         }
 
+        private void voltarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Page1 login = new Page1();
+            this.NavigationService.Navigate(login);
+        }
         private async void click_registar(object sender, RoutedEventArgs e)
         {
             alertLabel.Visibility = Visibility.Hidden;

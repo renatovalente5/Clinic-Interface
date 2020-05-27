@@ -33,10 +33,10 @@
                 <SolidColorBrush Color="#FF066868" Opacity="0.6"/>
             </TextBox.Foreground>
             <TextBox.BorderBrush>
-                <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
+                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </TextBox.BorderBrush>
             <TextBox.Background>
-                <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
             </TextBox.Background>
         </TextBox>
         <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,24.8,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" Content="-" Height="25"/>
@@ -45,10 +45,10 @@
                 <SolidColorBrush Color="#FF066868" Opacity="0.6"/>
             </TextBox.Foreground>
             <TextBox.BorderBrush>
-                <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
+                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </TextBox.BorderBrush>
             <TextBox.Background>
-                <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
             </TextBox.Background>
         </TextBox>
         <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,24.8,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" Content="-" Height="25"/>
@@ -57,10 +57,10 @@
                 <SolidColorBrush Color="#FF066868" Opacity="0.6"/>
             </TextBox.Foreground>
             <TextBox.BorderBrush>
-                <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
+                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </TextBox.BorderBrush>
             <TextBox.Background>
-                <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
             </TextBox.Background>
         </TextBox>
         
@@ -79,10 +79,10 @@
                 <SolidColorBrush Color="#FF066868" Opacity="0.6"/>
             </TextBox.Foreground>
             <TextBox.BorderBrush>
-                <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
+                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </TextBox.BorderBrush>
             <TextBox.Background>
-                <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
             </TextBox.Background>
         </TextBox>
         <Button x:Name="maisHora" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Margin="15,134.8,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="﹀" Width="30" Height="17" Click="maisHora_Click">
@@ -107,10 +107,10 @@
                 <SolidColorBrush Color="#FF066868" Opacity="0.6"/>
             </TextBox.Foreground>
             <TextBox.BorderBrush>
-                <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
+                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </TextBox.BorderBrush>
             <TextBox.Background>
-                <SolidColorBrush Color="#FF009999" Opacity="0.1"/>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
             </TextBox.Background>
         </TextBox>
         <Button x:Name="maisMinuto" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Margin="60,134.8,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="﹀" Width="30" Height="17" Click="maisMinuto_Click">

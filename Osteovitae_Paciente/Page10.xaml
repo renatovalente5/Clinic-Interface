@@ -25,24 +25,56 @@
         <Label Grid.Column="5" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,8.5,20,0" FontSize="12" FontFamily="Cambria" FontStyle="Italic" Foreground="#FF066868" FontWeight="Bold" Grid.ColumnSpan="2" Content="Osteovitae"/>
         <Label Grid.Column="0" Grid.Row="0" Height="35" Width="390" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" FontSize="18" FontFamily="Calibri"  Background="#FF066868" Foreground="White" FontWeight="Bold" Content="CONTA PESSOAL" Margin="0.2,0"/>
 
+        <Button x:Name="voltarButton" Grid.Column="0" Grid.Row="0" Margin="0,5,0,0" Height="30" Width="70" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FF066868" Background="White" BorderBrush="White" Click="voltarButton_Click">
+            <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
+                <Image Source="icons/backward.png" Height="15" Width="15" Stretch="Uniform" OpacityMask="Black"></Image>
+                <Label Content="VOLTAR" FontFamily="Calibri" Margin="0,0,0,0" FontSize="13" FontWeight="Bold" Foreground="#FF066868"/>
+            </StackPanel>
+        </Button>
+        
         <!-- CONTEÚDO -->
         <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="NOME"/>
-        <TextBox x:Name="nometextBox" Grid.Row="2" Height="27" Width="150" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,0,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" BorderBrush="#FF066868"/>
+        <TextBox x:Name="nometextBox" Grid.Row="2" Height="27" Width="150" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,0,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black">
+            <TextBox.BorderBrush>
+                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
+            </TextBox.BorderBrush>
+            <TextBox.Background>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
+            </TextBox.Background>
+        </TextBox>
 
         <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,40,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="APELIDO"/>
-        <TextBox x:Name="apelidotextBox" Grid.Row="2" Height="27" Width="150" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,40,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" BorderBrush="#FF066868"/>
-        
+        <TextBox x:Name="apelidotextBox" Grid.Row="2" Height="27" Width="150" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,40,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black">
+            <TextBox.BorderBrush>
+                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
+            </TextBox.BorderBrush>
+            <TextBox.Background>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
+            </TextBox.Background>
+        </TextBox>
+
         <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,80,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="CONTACTO"/>
         <Label x:Name="contactotextBox" Grid.Row="2" Height="27" Width="100" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,80,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" BorderBrush="#FF066868"/>
 
         <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,120,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="E-MAIL"/>
-        <TextBox x:Name="emailtextBox" Grid.Row="2" Height="27" Width="220" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,120,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" BorderBrush="#FF066868"/>
+        <TextBox x:Name="emailtextBox" Grid.Row="2" Height="27" Width="220" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,120,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black">
+            <TextBox.BorderBrush>
+                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
+            </TextBox.BorderBrush>
+            <TextBox.Background>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
+            </TextBox.Background>
+        </TextBox>
 
         <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,160,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="PALAVRA-PASSE"/>
-        <TextBox x:Name="passwordtextBox" Grid.Row="2" Height="27" Width="189.5" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,160,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" BorderBrush="#FF066868"/>
-
-        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,200,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="PERFIL"/>
-        <Label x:Name="perfilLabel" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,200,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" Content="BLABLABLA"/>
+        <TextBox x:Name="passwordtextBox" Grid.Row="2" Height="27" Width="189.5" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,160,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black">
+            <TextBox.BorderBrush>
+                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
+            </TextBox.BorderBrush>
+            <TextBox.Background>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
+            </TextBox.Background>
+        </TextBox>
 
         <Button x:Name="guardarButton" Grid.Column="0" Grid.Row="2" Height="25" Width="75" Margin="15,240,0,50" VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Foreground="White" Background="#FF066868" BorderBrush="#FF066868" Click="click_guardar" Content="GUARDAR"/>
 

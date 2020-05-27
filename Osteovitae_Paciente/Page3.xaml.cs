@@ -38,31 +38,26 @@ namespace Osteovitae_Paciente
             Page4 novaconsulta = new Page4(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(novaconsulta);
         }
-
         private void listaConsultasBtn_Click(object sender, RoutedEventArgs e)
         {
             Page5 listaconsultas = new Page5(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(listaconsultas);
         }
-
         private void notificacoesBtn_Click(object sender, RoutedEventArgs e)
         {
             Page6 notificacoes = new Page6(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(notificacoes);
         }
-
         private void tratamentosBtn_Click(object sender, RoutedEventArgs e)
         {
             Page7 tratamentos = new Page7(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(tratamentos);
         }
-
         private void osteovitaeBtn_Click(object sender, RoutedEventArgs e)
         {
             Page8 osteovitae = new Page8(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(osteovitae);
         }
-
         private void contaBtn_Click(object sender, RoutedEventArgs e)
         {
             Page9 conta = new Page9(nome, apelido, mail, pass, contacto, tipo);

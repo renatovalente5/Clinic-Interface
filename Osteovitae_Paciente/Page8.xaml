@@ -28,29 +28,38 @@
         <Label Grid.Column="0" Grid.Row="0" Height="35" Width="390" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" FontSize="18" FontFamily="Calibri"  Background="#FF066868" Foreground="White" FontWeight="Bold" Content="OSTEOVITAE"/>
 
         <!-- CONTEÚDO -->
-        <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,0,0,0" Height="27" Width="303" Background="LightCyan">
+        <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,0,0,0" Height="27" Width="303">
+            <Grid.Background>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
+            </Grid.Background>
             <Image HorizontalAlignment="Left" Margin="5,0,0,0" Source="icons/phone.png" Height="20" Width="24"/>
-            <Label FontFamily="Calibri" Margin="30,0,0,0" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="15" FontWeight="Bold" Content="914526392" Height="27" RenderTransformOrigin="0.007,0.704"/>
+            <Label FontFamily="Calibri" Margin="30,0,0,0" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="15" Content="914526392" Height="27" RenderTransformOrigin="0.007,0.704"/>
         </Grid>
 
-        <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,35,0,0" Height="27" Width="303" Background="LightCyan">
+        <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,35,0,0" Height="27" Width="303">
+            <Grid.Background>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
+            </Grid.Background>
             <Image HorizontalAlignment="Left" Margin="5,0,0,0" Source="icons/message.png" Height="20" Width="24"/>
-            <Label FontFamily="Calibri" Margin="30,0,0,0" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="15" FontWeight="Bold" Content="osteovitae@gmail.com" Height="27" RenderTransformOrigin="0.007,0.704"/>
+            <Label FontFamily="Calibri" Margin="30,0,0,0" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="15" Content="osteovitae@gmail.com" Height="27" RenderTransformOrigin="0.007,0.704"/>
         </Grid>
 
-        <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,70,0,0" Height="27" Width="303" Background="LightCyan">
-            <Image HorizontalAlignment="Left" Margin="5,0,0,0" Source="icons/home_location.png" Height="20" Width="24"/>
-            <Label FontFamily="Calibri" Margin="30,0,0,0" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="15" FontWeight="Bold" Content="Rua da Feira nº2, Sobreiro - Bustos" Height="27" RenderTransformOrigin="0.007,0.704"/>
+        <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,70,0,0" Height="27" Width="303">
+            <Grid.Background>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
+            </Grid.Background>
+            <Image HorizontalAlignment="Left" Margin="5,0,0,0" Source="icons/location.png" Height="20" Width="24"/>
+            <Label FontFamily="Calibri" Margin="30,0,0,0" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="15" Content="Rua da Feira nº2, Sobreiro - Bustos" Height="27" RenderTransformOrigin="0.007,0.704"/>
         </Grid>
 
-        <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,110,0,0" Height="300" Width="303" Background="LightCyan" RenderTransformOrigin="0.495,0.477">
+        <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,110,0,0" Height="300" Width="303" RenderTransformOrigin="0.495,0.477">
             <m:Map CredentialsProvider="AttsGkqIHCOIEA11KtQZDphl5bi8lppin64jeg-ZOOhiS4cdHA_EXJwHSbyZi4Xo" Mode="Road" Grid.Column="1" Grid.Row="1" ZoomLevel="16" Center="40.499494,-8.588741">
                 <Canvas m:MapLayer.Position="40.499494,-8.588741" m:MapLayer.PositionOrigin="BottomCenter" Width="30" Height="30">
                     <materialDesign:PackIcon Kind="MapMarker" Width="30" Height="30" Foreground="#FF3C3C3C"/>
                 </Canvas>
             </m:Map>
         </Grid>
-        
+
         <!-- MENU RODAPÉ -->
         <Button x:Name="menuBtn" Grid.Column="0" Grid.Row="3" Margin="1,0,0,0" Height="45" Width="52" VerticalAlignment="Top" HorizontalAlignment="Left" Click="menuBtn_Click">
             <StackPanel Margin="0,0,0,0">
