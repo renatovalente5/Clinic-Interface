@@ -128,6 +128,9 @@ namespace Osteovitae_Paciente
                 SetResponse response5 = await client.SetTaskAsync("TodosOsUsers/users/" + use, num2);
                 Numero result5 = response5.ResultAs<Numero>();
 
+                SetResponse response6 = await client.SetTaskAsync("ConsultasMarcadas/" + data.Contacto + "/tratamento/numero", num);
+                Numero result6 = response6.ResultAs<Numero>();
+
                 Page3 menu = new Page3(data.Nome, data.Apelido, data.Email, data.Pass, data.Contacto, data.Tipo);
                 this.NavigationService.Navigate(menu);
             }

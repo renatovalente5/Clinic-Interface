@@ -53,7 +53,7 @@ namespace Osteovitae_Paciente
         private async void listar_tratamentos()
         {
             client2 = new FireSharp.FirebaseClient(config);
-            FirebaseResponse response = await client2.GetTaskAsync("ConsultasMarcadas/" + contacto + "/tratamento/numero"); ;
+            FirebaseResponse response = await client2.GetTaskAsync("ConsultasMarcadas/" + contacto + "/tratamento/numero");
             Numero num = response.ResultAs<Numero>();
             string mais = "➜";
             for (int i = 1; i <= Int32.Parse(num._numero); i++)
