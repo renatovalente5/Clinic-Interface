@@ -16,17 +16,17 @@ using System.Windows.Shapes;
 namespace Osteovitae_Paciente
 {
     /// <summary>
-    /// Interaction logic for Page13.xaml
+    /// Interaction logic for Page15.xaml
     /// </summary>
-    public partial class Page13 : Page
+    public partial class Page15 : Page
     {
-
         private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", dataConsulta = "", horaConsulta = "", servicoConsulta = "", medicoConsulta = "";
-        public Page13()
+
+        public Page15()
         {
             InitializeComponent();
         }
-        public Page13(string name, string surname, string address, string pw, string contact, string type, string data, string hora, string servico, string medico)
+        public Page15(string name, string surname, string address, string pw, string contact, string type, string data, string hora, string servico, string medico)
         {
             InitializeComponent();
             nome = name;
@@ -39,31 +39,23 @@ namespace Osteovitae_Paciente
             horaConsulta = hora;
             servicoConsulta = servico;
             medicoConsulta = medico;
-
-            pacienteTextBox.Content = nome + " " + apelido;
-            contactoTextBox.Content = contacto;
-            dataTextBox.Content = data;
-            horaTextBox.Content = hora;
-            servicoTextBox.Content = servico;
-            medicoTextBox.Content = medico;
         }
 
-        private void click_editar(object sender, RoutedEventArgs e)
+        private void click_cancelar(object sender, RoutedEventArgs e)
         {
-            Page4 voltar = new Page4(nome, apelido, mail, pass, contacto, tipo, dataConsulta, horaConsulta, servicoConsulta, medicoConsulta, 13);
-            this.NavigationService.Navigate(voltar);
+            Page13 cancelar = new Page13(nome, apelido, mail, pass, contacto, tipo, dataConsulta, horaConsulta, servicoConsulta, medicoConsulta);
+            this.NavigationService.Navigate(cancelar);
         }
         private void click_eliminar(object sender, RoutedEventArgs e)
         {
-            Page15 confirmar = new Page15(nome, apelido, mail, pass, contacto, tipo, dataConsulta, horaConsulta, servicoConsulta, medicoConsulta);
-            this.NavigationService.Navigate(confirmar);
-        }
-        private void voltarButton_Click(object sender, RoutedEventArgs e)
-        {
-            Page5 listaconsultas = new Page5(nome, apelido, mail, pass, contacto, tipo);
-            this.NavigationService.Navigate(listaconsultas);
+            // COLOCAR AQUI O CODIGO DE ELIMINAR NA BD
         }
 
+        private void voltarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Page13 cancelar = new Page13(nome, apelido, mail, pass, contacto, tipo, dataConsulta, horaConsulta, servicoConsulta, medicoConsulta);
+            this.NavigationService.Navigate(cancelar);
+        }
         private void menuBtn_Click(object sender, RoutedEventArgs e)
         {
             Page3 menu = new Page3(nome, apelido, mail, pass, contacto, tipo);

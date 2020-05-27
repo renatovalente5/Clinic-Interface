@@ -24,24 +24,25 @@
         </Grid>
         <Label Grid.Column="5" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,8.5,20,0" FontSize="12" FontFamily="Cambria" FontStyle="Italic" Foreground="#FF066868" FontWeight="Bold" Grid.ColumnSpan="2" Content="Osteovitae"/>
         <Label Grid.Column="0" Grid.Row="0" Height="35" Width="390" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" FontSize="18" FontFamily="Calibri"  Background="#FF066868" Foreground="White" FontWeight="Bold" Content="LISTA DE CONSULTAS" Margin="0.2,0" Grid.ColumnSpan="7"/>
-
+        
         <!-- CONTEÚDO -->
-        <DataGrid x:Name="ListaConsultas" Grid.Row="2" Margin="15,0,0,0" Width="350" Height="370" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="15" Background="White">
+        <DataGrid ItemsSource="{Binding Path=Customers}" x:Name="ListaConsultas" GridLinesVisibility="None" AlternatingRowBackground="#FF9EC2C2" AlternationCount="2" Grid.Row="2" Margin="15,0,0,0" Width="350" Height="370" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Calibri" FontSize="15" Background="{x:Null}" SelectionChanged="linhaSelecionada" BorderBrush="White">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="Background" Value="#FF009999"/>
+                    <Setter Property="Background" Value="#FF066868" />
                     <Setter Property="FontWeight" Value="SemiBold"/>
                     <Setter Property="Foreground" Value="White"/>
                     <Setter Property="BorderThickness" Value="1,0,0.2,1"/>
                     <Setter Property="BorderBrush" Value="#FF066868"/>
                     <Setter Property="Height" Value="25"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Left" />
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header=" DATA" Binding="{Binding data}" Width="80"/>
+                <DataGridTextColumn Header=" DATA" Binding="{Binding data}" Width="90"/>
                 <DataGridTextColumn Header=" HORA" Binding="{Binding hora}" Width="65"/>
                 <DataGridTextColumn Header=" TIPO CONSULTA" Binding="{Binding tipoconsulta}" Width="180"/>
-                <DataGridTextColumn Header="" Width="*"/>
+                <DataGridTextColumn Header="" Binding="{Binding vermais}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
 

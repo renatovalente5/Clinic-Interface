@@ -58,7 +58,7 @@ namespace Osteovitae_Paciente
             //data = Int32.Parse(DateTime.Now.ToString().Split(' ')[1].Split(':')[0]);
             //MessageBox.Show(data.ToString());
         }
-        public Page4(string name, string surname, string address, string pw, string contact, string type, string date, string hour, string service, string doctor)
+        public Page4(string name, string surname, string address, string pw, string contact, string type, string date, string hour, string service, string doctor, int id)
         {
             InitializeComponent();
             nome = name;
@@ -85,6 +85,10 @@ namespace Osteovitae_Paciente
             diaTextBox.Foreground = new SolidColorBrush(Colors.Black);
             mesTextBox.Foreground = new SolidColorBrush(Colors.Black);
             anoTextBox.Foreground = new SolidColorBrush(Colors.Black);
+            if (id == 13)
+            {
+                titulo.Content = "LISTA DE CONSULTAS";
+            }
         }
 
         private void data_selecionada(object sender, SelectionChangedEventArgs e)

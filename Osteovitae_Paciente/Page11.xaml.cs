@@ -79,7 +79,7 @@ namespace Osteovitae_Paciente
 
         private void voltarButton_Click(object sender, RoutedEventArgs e)
         {
-            Page4 voltar = new Page4(nome, apelido, mail, pass, contacto, tipo, dataConsulta, horaConsulta, servicoConsulta, medicoConsulta);
+            Page4 voltar = new Page4(nome, apelido, mail, pass, contacto, tipo, dataConsulta, horaConsulta, servicoConsulta, medicoConsulta, 11);
             this.NavigationService.Navigate(voltar);
         }
 

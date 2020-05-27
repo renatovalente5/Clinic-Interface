@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,33 +45,37 @@ namespace Osteovitae_Paciente
             tipo = type;
             listar_consultas();
         }
-        
+        private void linhaSelecionada(object sender, SelectionChangedEventArgs e)
+        {
+            Consulta consulta = (Consulta)ListaConsultas.SelectedItem;
+            Page13 abrir = new Page13(nome, apelido, mail, pass, contacto, tipo, consulta.data, consulta.hora, consulta.tipoconsulta, consulta.medicoconsulta);
+            this.NavigationService.Navigate(abrir);
+        }
         private async void listar_consultas()
         {
             client2 = new FireSharp.FirebaseClient(config);
             FirebaseResponse response = await client2.GetTaskAsync("ConsultasMarcadas/" + contacto + "/numero"); ;
             Numero num = response.ResultAs<Numero>();
-
+            string mais = "➜";
             for (int i = 1; i <= Int32.Parse(num._numero); i++)
             {
                 var consulta = "consulta" + i;
                 FirebaseResponse response2 = await client2.GetTaskAsync("ConsultasMarcadas/"+ contacto +"/" + consulta);
                 Consultas obj = response2.ResultAs<Consultas>();
-                var tempConsulta = new Consulta { data = obj.Data, hora = obj.Hora, tipoconsulta = obj.TipoConsulta };
+                var tempConsulta = new Consulta { data = obj.Data , hora = obj.Hora, tipoconsulta = obj.TipoConsulta, medicoconsulta= obj.Medico, vermais = mais };
                 ListaConsultas.Items.Add(tempConsulta);
             }
         }
 
-        // ----------------------- CONSULTAS ----------------------
-        
         public class Consulta
         {
             public String data { get; set; }
             public String hora { get; set; }
             public String tipoconsulta { get; set; }
+            public String medicoconsulta { get; set; }
+            public String vermais { get; set; }
         }
 
-        // ------------------------- MENU -------------------------
         private void menuBtn_Click(object sender, RoutedEventArgs e)
         {
             Page3 menu = new Page3(nome, apelido, mail, pass, contacto, tipo);

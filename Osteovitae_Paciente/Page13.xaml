@@ -23,27 +23,41 @@
             <Image Source="icons/Borboleta.png" Opacity="0.5" Height="40" Width="40" Margin="0,0,0,0"/>
         </Grid>
         <Label Grid.Column="5" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,8.5,20,0" FontSize="12" FontFamily="Cambria" FontStyle="Italic" Foreground="#FF066868" FontWeight="Bold" Grid.ColumnSpan="2" Content="Osteovitae"/>
-        <Label Grid.Column="0" Grid.Row="0" Height="35" Width="390" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" FontSize="18" FontFamily="Calibri"  Background="#FF066868" Foreground="White" FontWeight="Bold" Content="NOVA CONSULTA" Margin="0.2,0"/>
+        <Label Grid.Column="0" Grid.Row="0" Height="35" Width="390" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" FontSize="18" FontFamily="Calibri"  Background="#FF066868" Foreground="White" FontWeight="Bold" Content="LISTA DE CONSULTAS" Margin="0.2,0"/>
 
-        <!-- CONTEÚDO -->
-        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0" FontSize="15" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="RELATÓRIO DA CONSULTA"/>
-        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,40,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="DATA"/>
-        <Label x:Name="dataTextBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,40,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black"/>
-        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,70,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="HORA"/>
-        <Label x:Name="horaTextBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,70,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black"/>
-        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,100,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="SERVIÇO"/>
-        <Label x:Name="servicoTextBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,100,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black"/>
-        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,130,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="MÉDICO"/>
-        <Label x:Name="medicoTextBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,130,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black"/>
-
-        <Button x:Name="confirmarButton" Grid.Column="0" Grid.Row="2" Height="30" Width="90" Margin="0,0,0,150" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontFamily="Calibri" FontSize="15" FontWeight="Bold" Foreground="White" Background="#FF066868" BorderBrush="#FF066868" Click="click_confirmar" Content="CONFIRMAR"/>
-        <Button x:Name="voltarButton" Grid.Column="0" Grid.Row="2" Margin="15,250,0,0" Height="30" Width="85" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FF066868" Background="White" BorderBrush="White" Click="voltarButton_Click">
+        <Button x:Name="voltarButton" Grid.Column="0" Grid.Row="0" Margin="0,5,0,0" Height="30" Width="70" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FF066868" Background="White" BorderBrush="White" Click="voltarButton_Click">
             <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
-                <Image Source="icons/backward.png" Height="18" Width="18" Stretch="Uniform" OpacityMask="Black"></Image>
-                <Label Content="VOLTAR" FontFamily="Calibri" Margin="0,0,0,0" FontSize="15" FontWeight="Bold" Foreground="#FF066868"/>
+                <Image Source="icons/backward.png" Height="15" Width="15" Stretch="Uniform" OpacityMask="Black"></Image>
+                <Label Content="VOLTAR" FontFamily="Calibri" Margin="0,0,0,0" FontSize="13" FontWeight="Bold" Foreground="#FF066868"/>
             </StackPanel>
         </Button>
+        
+        <!-- CONTEÚDO -->
+        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0" FontSize="15" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="RELATÓRIO DA CONSULTA"/>
+        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,40,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="PACIENTE"/>
+        <Label x:Name="pacienteTextBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="85,40,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black"/>
 
+        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,70,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="CONTACTO"/>
+        <Label x:Name="contactoTextBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="85,70,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black"/>
+
+        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,120,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="DATA"/>
+        <Label x:Name="dataTextBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="85,120,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black"/>
+        
+        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,150,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="HORA"/>
+        <Label x:Name="horaTextBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="85,150,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black"/>
+        
+        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,180,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="SERVIÇO"/>
+        <Label x:Name="servicoTextBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="85,180,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black"/>
+        
+        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,210,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="MÉDICO"/>
+        <Label x:Name="medicoTextBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="85,210,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black"/>
+
+        <Button x:Name="confirmarButton" Grid.Column="0" Grid.Row="2" Height="30" Width="80" Margin="0,0,12.5,100" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Foreground="White" Background="#FF066868" BorderBrush="#FF066868" Click="click_eliminar" Content="ELIMINAR"/>
+        <Button x:Name="editarButton" Grid.Column="0" Grid.Row="2" Height="30" Width="70" Margin="15,0,0,100" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Foreground="#FF066868" BorderBrush="#FF066868" Click="click_editar" Content="EDITAR">
+            <Button.Background>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
+            </Button.Background>
+        </Button>
         <!-- MENU RODAPÉ -->
         <Button x:Name="menuBtn" Grid.Column="0" Grid.Row="3" Margin="1,0,0,0" Height="45" Width="52" VerticalAlignment="Top" HorizontalAlignment="Left" Click="menuBtn_Click">
             <StackPanel Margin="0,0,0,0">
