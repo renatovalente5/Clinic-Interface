@@ -21,7 +21,6 @@ namespace Osteovitae_Medico
     public partial class Page9 : Page
     {
         private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
-
         public Page9(string name, string surname, string address, string pw, string contact, string type)
         {
             InitializeComponent();
@@ -48,6 +47,8 @@ namespace Osteovitae_Medico
             Page1 inicio = new Page1();
             this.NavigationService.Navigate(inicio);
         }
+
+        // ------------------------------------------- MENU RODAPÉ -------------------------------------------
         private void menuBtn_Click(object sender, RoutedEventArgs e)
         {
             Page3 menu = new Page3(nome, apelido, mail, pass, contacto, tipo);
@@ -62,6 +63,16 @@ namespace Osteovitae_Medico
         {
             Page5 listaconsultas = new Page5(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(listaconsultas);
+        }
+        private void agendaBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Page18 menu = new Page18(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(menu);
+        }
+        private void pacientesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Page2 menu = new Page2(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(menu);
         }
         private void notificacoesBtn_Click(object sender, RoutedEventArgs e)
         {

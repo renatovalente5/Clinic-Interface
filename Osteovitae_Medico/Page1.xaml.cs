@@ -80,11 +80,5 @@ namespace Osteovitae_Medico
                 logininvalido.Visibility = Visibility.Visible;
             }
         }
-
-        private void click_criarconta(object sender, RoutedEventArgs e)
-        {
-            Page2 criarconta = new Page2();
-            this.NavigationService.Navigate(criarconta);
-        }
     }
 }

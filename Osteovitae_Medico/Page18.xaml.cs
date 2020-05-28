@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,28 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using FireSharp.Config;
-using FireSharp.Interfaces;
-using FireSharp.Response;
 
 namespace Osteovitae_Medico
 {
-    /// <summary>s
-    /// Interaction logic for Page2.xaml
+    /// <summary>
+    /// Interaction logic for Page18.xaml
     /// </summary>
-    public partial class Page2 : Page
+    public partial class Page18 : Page
     {
-        IFirebaseConfig config = new FirebaseConfig
-        {
-            AuthSecret = "vXSYkw1G8Qc8CNhQSkTf68o4gYI3kqHen4ivBKFr",
-            BasePath = "https://clinic-interface.firebaseio.com/"
-        };
-
-        IFirebaseClient client2;
-
         private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
-
-        public Page2(string name, string surname, string address, string pw, string contact, string type)
+        public Page18()
+        {
+            InitializeComponent();
+        }
+        public Page18(string name, string surname, string address, string pw, string contact, string type)
         {
             InitializeComponent();
             nome = name;
@@ -43,36 +34,6 @@ namespace Osteovitae_Medico
             pass = pw;
             contacto = contact;
             tipo = type;
-            listar_pacientes();
-        }
-        private void linhaSelecionada(object sender, SelectionChangedEventArgs e)
-        {
-            Consulta consulta = (Consulta)ListaPacientes.SelectedItem;
-            Page13 abrir = new Page13(nome, apelido, mail, pass, contacto, tipo, consulta.data, consulta.hora, consulta.tipoconsulta, consulta.medicoconsulta);
-            this.NavigationService.Navigate(abrir);
-        }
-        private async void listar_pacientes()
-        {
-            client2 = new FireSharp.FirebaseClient(config);
-            FirebaseResponse response = await client2.GetTaskAsync("ConsultasMarcadas/" + contacto + "/numero"); ;
-            Numero num = response.ResultAs<Numero>();
-            string mais = "➜";
-            for (int i = 1; i <= Int32.Parse(num._numero); i++)
-            {
-                var consulta = "consulta" + i;
-                FirebaseResponse response2 = await client2.GetTaskAsync("ConsultasMarcadas/" + contacto + "/" + consulta);
-                Consultas obj = response2.ResultAs<Consultas>();
-                var tempConsulta = new Consulta { data = obj.Data, hora = obj.Hora, tipoconsulta = obj.TipoConsulta, medicoconsulta = obj.Medico, vermais = mais };
-                ListaPacientes.Items.Add(tempConsulta);
-            }
-        }
-        public class Consulta
-        {
-            public String data { get; set; }
-            public String hora { get; set; }
-            public String tipoconsulta { get; set; }
-            public String medicoconsulta { get; set; }
-            public String vermais { get; set; }
         }
 
         // ------------------------------------------- MENU RODAPÉ -------------------------------------------

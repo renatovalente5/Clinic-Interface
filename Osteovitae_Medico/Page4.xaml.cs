@@ -23,15 +23,7 @@ namespace Osteovitae_Medico
     /// </summary>
     public partial class Page4 : Page
     {
-        /*IFirebaseConfig config = new FirebaseConfig
-        {
-            AuthSecret = "vXSYkw1G8Qc8CNhQSkTf68o4gYI3kqHen4ivBKFr",
-            BasePath = "https://clinic-interface.firebaseio.com/"
-        };
-
-        IFirebaseClient client;*/
-
-        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
+        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", medico="";
         private int hora, minutos;
         public Page4()
         {
@@ -55,8 +47,6 @@ namespace Osteovitae_Medico
             minutosTextBox.Foreground = new SolidColorBrush(Colors.Black);
             maisHora.Visibility = Visibility.Hidden;
             maisMinuto.Visibility = Visibility.Hidden;
-            //data = Int32.Parse(DateTime.Now.ToString().Split(' ')[1].Split(':')[0]);
-            //MessageBox.Show(data.ToString());
         }
         public Page4(string name, string surname, string address, string pw, string contact, string type, string date, string hour, string service, string doctor, int id)
         {
@@ -81,7 +71,7 @@ namespace Osteovitae_Medico
             mesTextBox.Text = d[1];
             anoTextBox.Text = d[2];
             tipoComboBox.Text = service;
-            nomeComboBox.Text = doctor;
+            medico = doctor;
             diaTextBox.Foreground = new SolidColorBrush(Colors.Black);
             mesTextBox.Foreground = new SolidColorBrush(Colors.Black);
             anoTextBox.Foreground = new SolidColorBrush(Colors.Black);
@@ -90,7 +80,6 @@ namespace Osteovitae_Medico
                 titulo.Content = "LISTA DE CONSULTAS";
             }
         }
-
         private void data_selecionada(object sender, SelectionChangedEventArgs e)
         {
             String[] dataSelect = calendar1.SelectedDate.ToString().Split(' ')[0].Split('/');
@@ -101,7 +90,6 @@ namespace Osteovitae_Medico
             anoTextBox.Text = dataSelect[2];
             anoTextBox.Foreground = new SolidColorBrush(Colors.Black);
         }
-
         private void menosHora_Click(object sender, RoutedEventArgs e)
         {
             hora = Int32.Parse(horaTextBox.Text);
@@ -123,7 +111,6 @@ namespace Osteovitae_Medico
                 horaTextBox.Text = (hora + 1).ToString();
             }
         }
-
         private void maisHora_Click(object sender, RoutedEventArgs e)
         {
             hora = Int32.Parse(horaTextBox.Text);
@@ -145,7 +132,6 @@ namespace Osteovitae_Medico
                 horaTextBox.Text = (hora - 1).ToString();
             }
         }
-
         private void menosMinuto_Click(object sender, RoutedEventArgs e)
         {
             minutos = Int32.Parse(minutosTextBox.Text);
@@ -167,7 +153,6 @@ namespace Osteovitae_Medico
                 minutosTextBox.Text = (minutos + 15).ToString();
             }
         }
-
         private void maisMinuto_Click(object sender, RoutedEventArgs e)
         {
             minutos = Int32.Parse(minutosTextBox.Text);
@@ -190,130 +175,98 @@ namespace Osteovitae_Medico
             }
         }
 
-        private void menuBtn_Click(object sender, RoutedEventArgs e)
+        private  void click_marcar(object sender, RoutedEventArgs e)
         {
-            Page3 menu = new Page3(nome, apelido, mail, pass, contacto, tipo);
-            this.NavigationService.Navigate(menu);
-        }
-
-        private void novaConsultaBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Page4 novaconsulta = new Page4(nome, apelido, mail, pass, contacto, tipo);
-            this.NavigationService.Navigate(novaconsulta);
-        }
-
-        private void listaConsultasBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Page5 listaconsultas = new Page5(nome, apelido, mail, pass, contacto, tipo);
-            this.NavigationService.Navigate(listaconsultas);
-        }
-
-        private void notificacoesBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Page6 notificacoes = new Page6(nome, apelido, mail, pass, contacto, tipo);
-            this.NavigationService.Navigate(notificacoes);
-        }
-
-        private void tratamentosBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Page7 tratamentos = new Page7(nome, apelido, mail, pass, contacto, tipo);
-            this.NavigationService.Navigate(tratamentos);
-        }
-
-        private void osteovitaeBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Page8 osteovitae = new Page8(nome, apelido, mail, pass, contacto, tipo);
-            this.NavigationService.Navigate(osteovitae);
-        }
-
-        private void contaBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Page9 conta = new Page9(nome, apelido, mail, pass, contacto, tipo);
-            this.NavigationService.Navigate(conta);
-        }
-
-        private async void click_marcar(object sender, RoutedEventArgs e)
-        {
-            /*Consultas consulta = new Consultas();
-            consulta.Medico = nomeComboBox.Text;
-            consulta.TipoConsulta = tipoComboBox.Text;
-            consulta.Data = diaTextBox.Text + "-" + mesTextBox.Text + "-"+ anoTextBox.Text;
-            consulta.Hora = horaTextBox.Text + ":" + minutosTextBox.Text;
-
-            //Falta meter aqui um erro para o caso de o Contacto já existir
-
-            client = new FireSharp.FirebaseClient(config);
-            FirebaseResponse response = await client.GetTaskAsync("ConsultasMarcadas/" + contacto + "/numero"); //Saber o numero da Consulta
-            Numero num = response.ResultAs<Numero>();
-
-            int n = (Int32.Parse(num.numero) + 1);
-            num.numero = n + "";
-            var con = "consulta" + n;
-
-            SetResponse response2 = await client.SetTaskAsync("ConsultasMarcadas/" + contacto + "/" + con, consulta);  //Marcar consulta
-            Consultas result = response2.ResultAs<Consultas>();
-
-            SetResponse response3 = await client.SetTaskAsync("ConsultasMarcadas/" + contacto + "/numero", num); //Atualizar numero consultas
-            Numero num3 = response3.ResultAs<Numero>();
-            */
             int valido = 1;
-            // confirmar dia
             if (diaTextBox.Text == "" || diaTextBox.Text == "DD")
             {
                 alertLabel.Visibility = Visibility.Visible;
                 alertLabel.Content = "! \"DATA DA CONSULTA\" inválida !";
                 valido = 0;
             }
-            // confirmar mes
             if (mesTextBox.Text == "" || mesTextBox.Text == "MM")
             {
                 alertLabel.Visibility = Visibility.Visible;
                 alertLabel.Content = "! \"DATA DA CONSULTA\" inválida !";
                 valido = 0;
             }
-            // confirmar ano
             if (anoTextBox.Text == "" || anoTextBox.Text == "AAAA")
             {
                 alertLabel.Visibility = Visibility.Visible;
                 alertLabel.Content = "! \"DATA DA CONSULTA\" inválida !";
                 valido = 0;
             }
-            // confirmar hora
             if (horaTextBox.Text == "" || horaTextBox.Text == "HH")
             {
                 alertLabel.Visibility = Visibility.Visible;
                 alertLabel.Content = "! \"HORA DA CONSULTA\" inválida !";
                 valido = 0;
             }
-            // confirmar minutos
             if (minutosTextBox.Text == "" || minutosTextBox.Text == "MM")
             {
                 alertLabel.Visibility = Visibility.Visible;
                 alertLabel.Content = "! \"HORA DA CONSULTA\" inválida !";
                 valido = 0;
             }
-            // confirmar tipo de consulta
             if (tipoComboBox.Text == "")
             {
                 alertLabel.Visibility = Visibility.Visible;
                 alertLabel.Content = "! \"TIPO DE CONSULTA\" inválida !";
                 valido = 0;
             }
-            // confirmar medico
-            if (nomeComboBox.Text == "" || nomeComboBox.Text == "MM")
-            {
-                alertLabel.Visibility = Visibility.Visible;
-                alertLabel.Content = "! \"MÉDICO DA CONSULTA\" inválida !";
-                valido = 0;
-            }
-            // registar nova conta na base de dados
             if (valido == 1)
             {
                 string dataCon = diaTextBox.Text + "-" + mesTextBox.Text + "-" + anoTextBox.Text;
                 string horaCon = horaTextBox.Text + ":" + minutosTextBox.Text;
-                Page11 confirmar = new Page11(nome, apelido, mail, pass, contacto, tipo, dataCon, horaCon, tipoComboBox.Text, nomeComboBox.Text);
+                Page11 confirmar = new Page11(nome, apelido, mail, pass, contacto, tipo, dataCon, horaCon, tipoComboBox.Text, "Xavier Santos");
                 this.NavigationService.Navigate(confirmar);
             }
+        }
+        // ------------------------------------------- MENU RODAPÉ -------------------------------------------
+        private void menuBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Page3 menu = new Page3(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(menu);
+        }
+        private void novaConsultaBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Page4 novaconsulta = new Page4(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(novaconsulta);
+        }
+        private void listaConsultasBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Page5 listaconsultas = new Page5(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(listaconsultas);
+        }
+        private void agendaBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Page18 menu = new Page18(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(menu);
+        }
+        private void pacientesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Page2 menu = new Page2(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(menu);
+        }
+        private void notificacoesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Page6 notificacoes = new Page6(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(notificacoes);
+        }
+        private void tratamentosBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Page7 tratamentos = new Page7(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(tratamentos);
+        }
+        private void osteovitaeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Page8 osteovitae = new Page8(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(osteovitae);
+        }
+        private void contaBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Page9 conta = new Page9(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(conta);
         }
     }
 }

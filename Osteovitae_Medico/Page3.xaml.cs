@@ -33,10 +33,21 @@ namespace Osteovitae_Medico
             tipo = type;
         }
 
+        // ----------------------------------------------- MENU ----------------------------------------------
         private void novaConsultaBtn_Click(object sender, RoutedEventArgs e)
         {
             Page4 novaconsulta = new Page4(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(novaconsulta);
+        }
+        private void agendaBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Page18 menu = new Page18(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(menu);
+        }
+        private void pacientesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Page2 listapacientes = new Page2(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(listapacientes);
         }
         private void listaConsultasBtn_Click(object sender, RoutedEventArgs e)
         {

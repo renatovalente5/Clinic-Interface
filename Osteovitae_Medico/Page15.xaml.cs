@@ -28,11 +28,8 @@ namespace Osteovitae_Medico
             AuthSecret = "vXSYkw1G8Qc8CNhQSkTf68o4gYI3kqHen4ivBKFr",
             BasePath = "https://clinic-interface.firebaseio.com/"
         };
-
         IFirebaseClient client;
-
         private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", dataConsulta = "", horaConsulta = "", servicoConsulta = "", medicoConsulta = "";
-
         public Page15()
         {
             InitializeComponent();
@@ -51,7 +48,6 @@ namespace Osteovitae_Medico
             servicoConsulta = servico;
             medicoConsulta = medico;
         }
-
         private void click_cancelar(object sender, RoutedEventArgs e)
         {
             Page13 cancelar = new Page13(nome, apelido, mail, pass, contacto, tipo, dataConsulta, horaConsulta, servicoConsulta, medicoConsulta);
@@ -59,7 +55,6 @@ namespace Osteovitae_Medico
         }
         private async void click_eliminar(object sender, RoutedEventArgs e)
         {
-            // COLOCAR AQUI O CODIGO DE ELIMINAR NA BD
             client = new FireSharp.FirebaseClient(config);
             FirebaseResponse response = await client.GetTaskAsync("ConsultasMarcadas/" + contacto + "/numero"); ;
             Numero num = response.ResultAs<Numero>();
@@ -74,48 +69,54 @@ namespace Osteovitae_Medico
             Page5 menu = new Page5(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(menu);
         }
-
         private void voltarButton_Click(object sender, RoutedEventArgs e)
         {
             Page13 cancelar = new Page13(nome, apelido, mail, pass, contacto, tipo, dataConsulta, horaConsulta, servicoConsulta, medicoConsulta);
             this.NavigationService.Navigate(cancelar);
         }
+
+
+        // ------------------------------------------- MENU RODAPÉ -------------------------------------------
         private void menuBtn_Click(object sender, RoutedEventArgs e)
         {
             Page3 menu = new Page3(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(menu);
         }
-
         private void novaConsultaBtn_Click(object sender, RoutedEventArgs e)
         {
             Page4 novaconsulta = new Page4(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(novaconsulta);
         }
-
         private void listaConsultasBtn_Click(object sender, RoutedEventArgs e)
         {
             Page5 listaconsultas = new Page5(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(listaconsultas);
         }
-
+        private void agendaBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Page18 menu = new Page18(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(menu);
+        }
+        private void pacientesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Page2 menu = new Page2(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(menu);
+        }
         private void notificacoesBtn_Click(object sender, RoutedEventArgs e)
         {
             Page6 notificacoes = new Page6(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(notificacoes);
         }
-
         private void tratamentosBtn_Click(object sender, RoutedEventArgs e)
         {
             Page7 tratamentos = new Page7(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(tratamentos);
         }
-
         private void osteovitaeBtn_Click(object sender, RoutedEventArgs e)
         {
             Page8 osteovitae = new Page8(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(osteovitae);
         }
-
         private void contaBtn_Click(object sender, RoutedEventArgs e)
         {
             Page9 conta = new Page9(nome, apelido, mail, pass, contacto, tipo);
