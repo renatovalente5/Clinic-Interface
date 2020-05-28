@@ -39,7 +39,7 @@
         <Label x:Name="emailLabel" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,120,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" Content=""/>
 
         <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,160,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="PALAVRA-PASSE"/>
-        <PasswordBox x:Name="passwordLabel" ToolTip="Password" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="120,160,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" />
+        <PasswordBox x:Name="passwordLabel" ToolTip="Password" PasswordChar="*" Grid.Column="0" Grid.Row="2" Height="35" Width="240" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="120,160,0,0" FontSize="16" FontFamily="Calibri" Foreground="Black" Background="{x:Null}" BorderBrush="{x:Null}" IsEnabled="False"/>
 
         <Button x:Name="editarButton" Grid.Column="0" Grid.Row="2" Height="25" Width="70" Margin="15,240,0,50" VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Foreground="#FF066868" BorderBrush="#FF066868" Click="click_editar" Content="EDITAR">
             <Button.Background>
