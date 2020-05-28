@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29926.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Osteovitae_Medico", "Osteovitae_Medico.csproj", "{89E78DF2-1E29-4BE5-991E-638A686162D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89E78DF2-1E29-4BE5-991E-638A686162D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89E78DF2-1E29-4BE5-991E-638A686162D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89E78DF2-1E29-4BE5-991E-638A686162D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89E78DF2-1E29-4BE5-991E-638A686162D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {47697129-5AFC-4B78-8131-3AEE08EE2777}
+	EndGlobalSection
+EndGlobal

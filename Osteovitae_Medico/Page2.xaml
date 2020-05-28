@@ -1,0 +1,108 @@
+﻿<Page x:Class="Osteovitae_Medico.Page2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Osteovitae_Medico"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="400"
+      Title="Page2">
+
+    <Grid Margin="5,5,5,5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="410"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+
+        <!-- TÍTULO DA PÁGINA -->
+        <Grid Grid.Row="0" Margin="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Image Source="icons\Borboleta.png" Opacity="0.5" Height="40" Width="40"/>
+        </Grid>
+        <Label Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,8.5,20,0" FontSize="12" FontFamily="Cambria" FontStyle="Italic" Foreground="#FF066868" FontWeight="Bold">Osteovitae</Label>
+        <Label Grid.Column="0" Grid.Row="0" Height="35" Width="390" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" FontSize="18" FontFamily="Calibri"  Background="#FF066868" Foreground="White" FontWeight="Bold" Content="CRIAR CONTA"/>
+
+        <Button x:Name="voltarButton" Grid.Column="0" Grid.Row="0" Margin="0,5,0,0" Height="30" Width="70" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FF066868" Background="White" BorderBrush="White" Click="voltarButton_Click">
+            <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
+                <Image Source="icons/backward.png" Height="15" Width="15" Stretch="Uniform" OpacityMask="Black"></Image>
+                <Label Content="VOLTAR" FontFamily="Calibri" Margin="0,0,0,0" FontSize="13" FontWeight="Bold" Foreground="#FF066868"/>
+            </StackPanel>
+        </Button>
+        
+        <!-- NOME -->
+        <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,20,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="NOME" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="nomeTextBox" Grid.Column="0" Grid.Row="1" Height="30" Width="170" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="15,45,0,0" TextWrapping="NoWrap" FontSize="14" FontFamily="Calibri" Foreground="Black">
+            <TextBox.BorderBrush>
+                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
+            </TextBox.BorderBrush>
+            <TextBox.Background>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
+            </TextBox.Background>
+        </TextBox>
+
+        <!-- APELIDO -->
+        <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="195,20,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="APELIDO" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="apelidoTextBox" Grid.Column="0" Grid.Row="1" Height="30" Width="170" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="195,45,0,0" TextWrapping="NoWrap" FontSize="14" FontFamily="Calibri" Foreground="Black">
+            <TextBox.BorderBrush>
+                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
+            </TextBox.BorderBrush>
+            <TextBox.Background>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
+            </TextBox.Background>
+        </TextBox>
+
+        <!-- CONTACTO -->
+        <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,90,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="CONTACTO"/>
+        <TextBox x:Name="contactoTextBox" Grid.Column="0" Grid.Row="1" Height="30" Width="100" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="15,115,0,0" TextWrapping="NoWrap" Foreground="Black" FontSize="14" FontFamily="Calibri">
+            <TextBox.BorderBrush>
+                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
+            </TextBox.BorderBrush>
+            <TextBox.Background>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
+            </TextBox.Background>
+        </TextBox>
+ 
+        <!-- EMAIL -->
+        <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,160,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="E-MAIL"/>
+        <TextBox x:Name="emailTextBox" Grid.Column="0" Grid.Row="1" Height="30" Width="270" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="15,185.4,0,0" TextWrapping="NoWrap" Foreground="Black" FontSize="14" FontFamily="Calibri">
+            <TextBox.BorderBrush>
+                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
+            </TextBox.BorderBrush>
+            <TextBox.Background>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
+            </TextBox.Background>
+        </TextBox>
+
+        <!-- PASSWORD -->
+        <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,230,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="PALAVRA-PASSE"/>
+        <PasswordBox x:Name="passwordTextBox" ToolTip="Password" PasswordChar="*" Grid.Column="0" Grid.Row="1" Height="30" Width="200" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="15,255,0,0" Foreground="Black" FontSize="14" FontFamily="Calibri">
+            <PasswordBox.BorderBrush>
+                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
+            </PasswordBox.BorderBrush>
+            <PasswordBox.Background>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
+            </PasswordBox.Background>
+        </PasswordBox>
+
+        <!-- CONFIRMAR PASSWORD -->
+        <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,298,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="CONFIRMAR PALAVRA-PASSE"/>
+        <PasswordBox x:Name="confirmarpasswordTextBox" ToolTip="Password" PasswordChar="*" Grid.Column="0" Grid.Row="1" Height="30" Width="200" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="15,325,0,0" Foreground="Black" FontSize="14" FontFamily="Calibri">
+            <PasswordBox.BorderBrush>
+                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
+            </PasswordBox.BorderBrush>
+            <PasswordBox.Background>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
+            </PasswordBox.Background>
+        </PasswordBox>
+
+        <!-- CHECK PRIVACIDADE -->
+        <CheckBox x:Name="checkPrivacidadeDados" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="15,376,0,20" FontSize="11" FontFamily="Calibri" Foreground="#FF707070" Content="Li e aceito a política de privacidade e de proteção de dados." />
+
+        <!-- REGISTAR CONTA -->
+        <Label x:Name="alertLabel" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" FontFamily="Calibri" Width="360" FontWeight="Bold" Visibility="Visible" Foreground="#FF08B4B4"/>
+        <Button x:Name="registarButton" Grid.Column="0" Grid.Row="2" Height="30" Width="90" Margin="0,20,0,0"  HorizontalAlignment="Center" Background="#FF066868" FontFamily="Calibri" FontSize="15" FontWeight="Bold" Foreground="White" BorderBrush="#FF066868" Click="click_registar" Content="REGISTAR"/>
+    </Grid>
+</Page>
