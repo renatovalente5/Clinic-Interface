@@ -59,7 +59,6 @@ namespace Osteovitae_Paciente
         }
         private async void click_eliminar(object sender, RoutedEventArgs e)
         {
-            // COLOCAR AQUI O CODIGO DE ELIMINAR NA BD
             client = new FireSharp.FirebaseClient(config);
             FirebaseResponse response = await client.GetTaskAsync("ConsultasMarcadas/" + contacto + "/numero"); ;
             Numero num = response.ResultAs<Numero>();
@@ -71,7 +70,7 @@ namespace Osteovitae_Paciente
             num._numero = (Int32.Parse(num._numero) - 1) + "";
             FirebaseResponse response3 = await client.UpdateTaskAsync("ConsultasMarcadas/" + contacto + "/numero", num); ;
 
-            Page5 menu = new Page5(nome, apelido, mail, pass, contacto, tipo);
+            Page14 menu = new Page14();
             this.NavigationService.Navigate(menu);
         }
 

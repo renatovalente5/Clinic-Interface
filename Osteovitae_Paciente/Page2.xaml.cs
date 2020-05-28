@@ -47,35 +47,24 @@ namespace Osteovitae_Paciente
         {
             alertLabel.Visibility = Visibility.Hidden;
             int validos = 1;
-            // confirmar nome
             if (nomeTextBox.Text == "")
             {
                 alertLabel.Visibility = Visibility.Visible;
                 alertLabel.Content = "! \"NOME\" inválido !";
                 validos = 0;
             }
-            // confirmar apelido
             if (apelidoTextBox.Text == "")
             {
                 alertLabel.Visibility = Visibility.Visible;
                 alertLabel.Content = "! \"APELIDO\" inválido !";
                 validos = 0;
             }
-            /*// confirmar contacto
-            if (contactoTextBox.Text == "")
-            {
-                alertLabel.Visibility = Visibility.Visible;
-                alertLabel.Content = "! \"CONTACTO\" inválido !";
-                validos = 0;
-            }*/
-            // confirmar email
             if (emailTextBox.Text == "")
             {
                 alertLabel.Visibility = Visibility.Visible;
                 alertLabel.Content = "! \"E-MAIL\" inválido !";
                 validos = 0;
             }
-            // confirmar se as palavras-passes coincidem
             if (passwordTextBox.Password != confirmarpasswordTextBox.Password)
             {
                 alertLabel.Visibility = Visibility.Visible;
@@ -84,7 +73,6 @@ namespace Osteovitae_Paciente
                 confirmarpasswordTextBox.Password = "";
                 validos = 0;
             }
-            // confirmar check da privacidade de dados
             if (checkPrivacidadeDados.IsChecked == false)
             {
                 alertLabel.Visibility = Visibility.Visible;
@@ -100,8 +88,6 @@ namespace Osteovitae_Paciente
                 data.Email = emailTextBox.Text;
                 data.Pass = passwordTextBox.Password;
                 data.Tipo = "Paciente";
-
-                // Falta meter aqui um erro para o caso de o Contacto já existir
 
                 SetResponse response = await client.SetTaskAsync("Information/" + contactoTextBox.Text, data);
                 Data result = response.ResultAs<Data>();

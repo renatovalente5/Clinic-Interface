@@ -133,11 +133,7 @@
             <ComboBoxItem>Shiatsu</ComboBoxItem>
             <ComboBoxItem>Método das 3 Agulhas</ComboBoxItem>
         </ComboBox>
-        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,230,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="MÉDICO" Width="110"/>
-        <ComboBox x:Name="nomeComboBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,255,0,0" BorderBrush="#FF009999" Background="#FF009999"  FontSize="14" FontFamily="Calibri" Foreground="Black" Width="160" Height="25">
-            <ComboBoxItem>Xavier Santos</ComboBoxItem>
-        </ComboBox>
-        <Label x:Name="alertLabel" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" Margin="0,0,0,90" VerticalAlignment="Bottom" FontFamily="Calibri" Width="360" FontWeight="Bold" Visibility="Visible" Foreground="#FF08B4B4"/>
+        <Label x:Name="alertLabel" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,80" VerticalAlignment="Bottom" FontFamily="Calibri" Width="360" FontWeight="Bold" Visibility="Visible" Foreground="#FF08B4B4"/>
 
         <Button x:Name="registarButton" Grid.Column="0" Grid.Row="2" Height="30" Width="90" Margin="0,0,0,40" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF066868" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Foreground="White" BorderBrush="#FF066868" Click="click_marcar" Content="MARCAR"/>
 

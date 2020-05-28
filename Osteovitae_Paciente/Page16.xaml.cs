@@ -51,16 +51,6 @@ namespace Osteovitae_Paciente
             conteudoTextBox.Text = mensagem;
         }
 
-        /*private void click_editar(object sender, RoutedEventArgs e)
-        {
-            Page4 voltar = new Page4(nome, apelido, mail, pass, contacto, tipo, dataConsulta, horaConsulta, servicoConsulta, medicoConsulta, 13);
-            this.NavigationService.Navigate(voltar);
-        }
-        private void click_eliminar(object sender, RoutedEventArgs e)
-        {
-            Page15 confirmar = new Page15(nome, apelido, mail, pass, contacto, tipo, dataConsulta, horaConsulta, servicoConsulta, medicoConsulta);
-            this.NavigationService.Navigate(confirmar);
-        }*/
         private void voltarButton_Click(object sender, RoutedEventArgs e)
         {
             Page6 abrir = new Page6(nome, apelido, mail, pass, contacto, tipo);

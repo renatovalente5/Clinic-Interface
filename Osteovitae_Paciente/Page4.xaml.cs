@@ -23,15 +23,8 @@ namespace Osteovitae_Paciente
     /// </summary>
     public partial class Page4 : Page
     {
-        /*IFirebaseConfig config = new FirebaseConfig
-        {
-            AuthSecret = "vXSYkw1G8Qc8CNhQSkTf68o4gYI3kqHen4ivBKFr",
-            BasePath = "https://clinic-interface.firebaseio.com/"
-        };
 
-        IFirebaseClient client;*/
-
-        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
+        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", medico="";
         private int hora, minutos;
         public Page4()
         {
@@ -81,7 +74,7 @@ namespace Osteovitae_Paciente
             mesTextBox.Text = d[1];
             anoTextBox.Text = d[2];
             tipoComboBox.Text = service;
-            nomeComboBox.Text = doctor;
+            medico = doctor;
             diaTextBox.Foreground = new SolidColorBrush(Colors.Black);
             mesTextBox.Foreground = new SolidColorBrush(Colors.Black);
             anoTextBox.Foreground = new SolidColorBrush(Colors.Black);
@@ -232,86 +225,50 @@ namespace Osteovitae_Paciente
             this.NavigationService.Navigate(conta);
         }
 
-        private async void click_marcar(object sender, RoutedEventArgs e)
+        private void click_marcar(object sender, RoutedEventArgs e)
         {
-            /*Consultas consulta = new Consultas();
-            consulta.Medico = nomeComboBox.Text;
-            consulta.TipoConsulta = tipoComboBox.Text;
-            consulta.Data = diaTextBox.Text + "-" + mesTextBox.Text + "-"+ anoTextBox.Text;
-            consulta.Hora = horaTextBox.Text + ":" + minutosTextBox.Text;
-
-            //Falta meter aqui um erro para o caso de o Contacto já existir
-
-            client = new FireSharp.FirebaseClient(config);
-            FirebaseResponse response = await client.GetTaskAsync("ConsultasMarcadas/" + contacto + "/numero"); //Saber o numero da Consulta
-            Numero num = response.ResultAs<Numero>();
-
-            int n = (Int32.Parse(num.numero) + 1);
-            num.numero = n + "";
-            var con = "consulta" + n;
-
-            SetResponse response2 = await client.SetTaskAsync("ConsultasMarcadas/" + contacto + "/" + con, consulta);  //Marcar consulta
-            Consultas result = response2.ResultAs<Consultas>();
-
-            SetResponse response3 = await client.SetTaskAsync("ConsultasMarcadas/" + contacto + "/numero", num); //Atualizar numero consultas
-            Numero num3 = response3.ResultAs<Numero>();
-            */
             int valido = 1;
-            // confirmar dia
             if (diaTextBox.Text == "" || diaTextBox.Text == "DD")
             {
                 alertLabel.Visibility = Visibility.Visible;
                 alertLabel.Content = "! \"DATA DA CONSULTA\" inválida !";
                 valido = 0;
             }
-            // confirmar mes
             if (mesTextBox.Text == "" || mesTextBox.Text == "MM")
             {
                 alertLabel.Visibility = Visibility.Visible;
                 alertLabel.Content = "! \"DATA DA CONSULTA\" inválida !";
                 valido = 0;
             }
-            // confirmar ano
             if (anoTextBox.Text == "" || anoTextBox.Text == "AAAA")
             {
                 alertLabel.Visibility = Visibility.Visible;
                 alertLabel.Content = "! \"DATA DA CONSULTA\" inválida !";
                 valido = 0;
             }
-            // confirmar hora
             if (horaTextBox.Text == "" || horaTextBox.Text == "HH")
             {
                 alertLabel.Visibility = Visibility.Visible;
                 alertLabel.Content = "! \"HORA DA CONSULTA\" inválida !";
                 valido = 0;
             }
-            // confirmar minutos
             if (minutosTextBox.Text == "" || minutosTextBox.Text == "MM")
             {
                 alertLabel.Visibility = Visibility.Visible;
                 alertLabel.Content = "! \"HORA DA CONSULTA\" inválida !";
                 valido = 0;
             }
-            // confirmar tipo de consulta
             if (tipoComboBox.Text == "")
             {
                 alertLabel.Visibility = Visibility.Visible;
                 alertLabel.Content = "! \"TIPO DE CONSULTA\" inválida !";
                 valido = 0;
             }
-            // confirmar medico
-            if (nomeComboBox.Text == "" || nomeComboBox.Text == "MM")
-            {
-                alertLabel.Visibility = Visibility.Visible;
-                alertLabel.Content = "! \"MÉDICO DA CONSULTA\" inválida !";
-                valido = 0;
-            }
-            // registar nova conta na base de dados
             if (valido == 1)
             {
                 string dataCon = diaTextBox.Text + "-" + mesTextBox.Text + "-" + anoTextBox.Text;
                 string horaCon = horaTextBox.Text + ":" + minutosTextBox.Text;
-                Page11 confirmar = new Page11(nome, apelido, mail, pass, contacto, tipo, dataCon, horaCon, tipoComboBox.Text, nomeComboBox.Text);
+                Page11 confirmar = new Page11(nome, apelido, mail, pass, contacto, tipo, dataCon, horaCon, tipoComboBox.Text, "Xavier Santos");
                 this.NavigationService.Navigate(confirmar);
             }
         }

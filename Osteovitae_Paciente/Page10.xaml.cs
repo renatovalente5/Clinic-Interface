@@ -55,13 +55,12 @@ namespace Osteovitae_Paciente
         }
         private async void click_guardar(object sender, RoutedEventArgs e)
         {
-            // guardar valores
             client = new FireSharp.FirebaseClient(config);
 
             Data data = new Data();
             data.Nome = nometextBox.Text;
             data.Apelido = apelidotextBox.Text;
-            data.Contacto = contacto;  //Não pode ser possivel alterar este campo
+            data.Contacto = contacto;
             data.Email = emailtextBox.Text;
             data.Pass = passwordtextBox.Text;
             data.Tipo = "Paciente";
