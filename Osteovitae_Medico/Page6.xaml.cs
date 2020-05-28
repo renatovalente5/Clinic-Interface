@@ -75,6 +75,12 @@ namespace Osteovitae_Medico
             public String Mensagem { get; set; }
         }
 
+        private void novaNotificacaoButton_Click(object sender, RoutedEventArgs e)
+        {
+            Page19 menu = new Page19(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(menu);
+        }
+
         // ------------------------------------------- MENU RODAPÉ -------------------------------------------
         private void menuBtn_Click(object sender, RoutedEventArgs e)
         {

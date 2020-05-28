@@ -128,6 +128,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Page19.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Page2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -193,6 +197,9 @@
     </Compile>
     <Compile Include="Page18.xaml.cs">
       <DependentUpon>Page18.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page19.xaml.cs">
+      <DependentUpon>Page19.xaml</DependentUpon>
     </Compile>
     <Compile Include="Page2.xaml.cs">
       <DependentUpon>Page2.xaml</DependentUpon>

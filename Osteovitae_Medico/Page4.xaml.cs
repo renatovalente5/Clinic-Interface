@@ -222,6 +222,7 @@ namespace Osteovitae_Medico
                 this.NavigationService.Navigate(confirmar);
             }
         }
+        
         // ------------------------------------------- MENU RODAPÉ -------------------------------------------
         private void menuBtn_Click(object sender, RoutedEventArgs e)
         {
