@@ -8,7 +8,7 @@
    - Then click **Reference**
    - Clink **Browse** and Add the Path
 
-  <br />
+  
 ### Developers:
 - [Renato Valente](https://github.com/renatovalente5)
 - [Rita Amante](https://github.com/rita-amante)
