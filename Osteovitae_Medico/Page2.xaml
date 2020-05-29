@@ -39,9 +39,9 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header=" NOME" Binding="{Binding nomePaciente}" Width="120"/>
-                <DataGridTextColumn Header=" APELIDO" Binding="{Binding apelidoPaciente}" Width="120"/>
-                <DataGridTextColumn Header=" CONTACTO" Binding="{Binding contactoPaciente}" Width="120"/>
+                <DataGridTextColumn Header=" NOME" Binding="{Binding Nome}" Width="120"/>
+                <DataGridTextColumn Header=" APELIDO" Binding="{Binding Apelido}" Width="120"/>
+                <DataGridTextColumn Header=" CONTACTO" Binding="{Binding Contacto}" Width="120"/>
                 <DataGridTextColumn Header="" Binding="{Binding vermais}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -30,7 +31,7 @@ namespace Osteovitae_Medico
             BasePath = "https://clinic-interface.firebaseio.com/"
         };
 
-        IFirebaseClient client2;
+        IFirebaseClient client;
 
         private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
 
@@ -48,31 +49,77 @@ namespace Osteovitae_Medico
         private void linhaSelecionada(object sender, SelectionChangedEventArgs e)
         {
             Consulta consulta = (Consulta)ListaConsultas.SelectedItem;
-            Page13 abrir = new Page13(nome, apelido, mail, pass, contacto, tipo, consulta.data, consulta.hora, consulta.tipoconsulta, consulta.medicoconsulta);
+            Page13 abrir = new Page13(consulta.Nome, consulta.Apelido, mail, pass, contacto, tipo, consulta.Data, consulta.Hora, consulta.TipoConsulta, consulta.Medico);
             this.NavigationService.Navigate(abrir);
         }
         private async void listar_consultas()
         {
-            client2 = new FireSharp.FirebaseClient(config);
-            FirebaseResponse response = await client2.GetTaskAsync("ConsultasMarcadas/" + contacto + "/numero"); ;
-            Numero num = response.ResultAs<Numero>();
-            string mais = "➜";
+            client = new FireSharp.FirebaseClient(config);
+
+            List<String> ListaContas = new List<string>();
+            List<Consulta> ListaOrdenada = new List<Consulta>();
+
+            FirebaseResponse response2 = await client.GetTaskAsync("TodosOsUsers/numero");
+            Numero num = response2.ResultAs<Numero>();
+
             for (int i = 1; i <= Int32.Parse(num._numero); i++)
             {
-                var consulta = "consulta" + i;
-                FirebaseResponse response2 = await client2.GetTaskAsync("ConsultasMarcadas/"+ contacto +"/" + consulta);
-                Consultas obj = response2.ResultAs<Consultas>();
-                var tempConsulta = new Consulta { data = obj.Data , hora = obj.Hora, tipoconsulta = obj.TipoConsulta, medicoconsulta= obj.Medico, vermais = mais };
-                ListaConsultas.Items.Add(tempConsulta);
+                var user = "user" + i;
+                FirebaseResponse response3 = await client.GetTaskAsync("TodosOsUsers/users/" + user);
+                Numero obj2 = response3.ResultAs<Numero>();
+
+                var tempContas = new Numero { numero = obj2.numero };
+                ListaContas.Add(tempContas.numero);
             }
+
+            string mais = "➜";
+            foreach (String item in ListaContas)
+            {
+                FirebaseResponse response = await client.GetTaskAsync("ConsultasMarcadas/" + item + "/numero");
+                Numero num2 = response.ResultAs<Numero>();
+
+                FirebaseResponse response6 = await client.GetTaskAsync("Information/" + item);
+                Data data2 = response6.ResultAs<Data>();
+
+                for (int i = 1; i <= Int32.Parse(num2._numero); i++)
+                {
+                    var consulta = "consulta" + i;
+                    FirebaseResponse response5 = await client.GetTaskAsync("ConsultasMarcadas/" + item + "/" + consulta);
+                    Consulta obj = response5.ResultAs<Consulta>();
+
+                    var tempConsulta = new Consulta { Data = obj.Data, Hora = obj.Hora, TipoConsulta = obj.TipoConsulta, Medico = obj.Medico, vermais = mais , Nome = data2.Nome, Apelido = data2.Apelido};
+                    //ListaConsultas.Items.Add(tempConsulta);
+                    ListaConsultas.Items.Add(tempConsulta);
+                    ListaConsultas.Items.SortDescriptions.Add(new SortDescription("Data", ListSortDirection.Ascending));
+                }
+            }
+
+
+            //ListaOrdenada.Sort( ("Data");
+            //ListaConsultas.Items.SortDescriptions ("Data", ListSortDirection.Ascending);
+            //ListaConsultas.Items.SortDescriptions.Add(new SortDescription("Data", ListSortDirection.Ascending));
+
+            //.Items.Add(ListaOrdenada);
+
+            //for (int i = 1; i <= Int32.Parse(num._numero); i++)
+            //{
+            //    var consulta = "consulta" + i;
+            //    FirebaseResponse response2 = await client2.GetTaskAsync("ConsultasMarcadas/"+ contacto +"/" + consulta);
+            //    Consultas obj = response2.ResultAs<Consultas>();
+            //    var tempConsulta = new Consulta { data = obj.Data , hora = obj.Hora, tipoconsulta = obj.TipoConsulta, medicoconsulta= obj.Medico, vermais = mais };
+            //    ListaConsultas.Items.Add(tempConsulta);
+            //}
         }
+
         public class Consulta
         {
-            public String data { get; set; }
-            public String hora { get; set; }
-            public String tipoconsulta { get; set; }
-            public String medicoconsulta { get; set; }
+            public String Data { get; set; }
+            public String Hora { get; set; }
+            public String TipoConsulta { get; set; }
+            public String Medico{ get; set; }
             public String vermais { get; set; }
+            public String Nome { get; set; }
+            public String Apelido { get; set; }
         }
 
         // ------------------------------------------- MENU RODAPÉ -------------------------------------------

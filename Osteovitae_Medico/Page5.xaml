@@ -39,9 +39,9 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header=" DATA" Binding="{Binding data}" Width="90"/>
-                <DataGridTextColumn Header=" HORA" Binding="{Binding hora}" Width="65"/>
-                <DataGridTextColumn Header=" TIPO CONSULTA" Binding="{Binding tipoconsulta}" Width="180"/>
+                <DataGridTextColumn Header=" DATA" Binding="{Binding Data}" SortDirection="Ascending"  Width="90"/>
+                <DataGridTextColumn Header=" HORA" Binding="{Binding Hora}" Width="65"/>
+                <DataGridTextColumn Header=" TIPO CONSULTA" Binding="{Binding TipoConsulta}" Width="180"/>
                 <DataGridTextColumn Header="" Binding="{Binding vermais}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>

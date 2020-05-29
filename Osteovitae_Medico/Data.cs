@@ -51,5 +51,6 @@ namespace Osteovitae_Medico
             get { return _Tipo; }
             set { _Tipo = value; }
         }
+        public String vermais { get; set; }
     }
 }
