@@ -62,28 +62,18 @@ namespace Osteovitae_Medico
         }
         private void agendaBtn_Click(object sender, RoutedEventArgs e)
         {
-            Page18 menu = new Page18(nome, apelido, mail, pass, contacto, tipo);
-            this.NavigationService.Navigate(menu);
+            Page18 agenda = new Page18(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(agenda);
         }
         private void pacientesBtn_Click(object sender, RoutedEventArgs e)
         {
-            Page2 menu = new Page2(nome, apelido, mail, pass, contacto, tipo);
-            this.NavigationService.Navigate(menu);
+            Page2 pacientes = new Page2(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(pacientes);
         }
         private void notificacoesBtn_Click(object sender, RoutedEventArgs e)
         {
             Page6 notificacoes = new Page6(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(notificacoes);
-        }
-        private void tratamentosBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Page7 tratamentos = new Page7(nome, apelido, mail, pass, contacto, tipo);
-            this.NavigationService.Navigate(tratamentos);
-        }
-        private void osteovitaeBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Page8 osteovitae = new Page8(nome, apelido, mail, pass, contacto, tipo);
-            this.NavigationService.Navigate(osteovitae);
         }
         private void contaBtn_Click(object sender, RoutedEventArgs e)
         {

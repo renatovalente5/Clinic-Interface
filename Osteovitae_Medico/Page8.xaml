@@ -9,165 +9,121 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       d:DesignHeight="600" d:DesignWidth="400"
       Title="Page8">
-    <Grid Margin="5,5,5,5" RenderTransformOrigin="0.528,0.264">
+    <Grid Margin="5,5,5,5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="85"/>
-            <RowDefinition Height="18"/>
-            <RowDefinition Height="427"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="395"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
         <!-- TITULO DA PÁGINA -->
-        <Grid Grid.Row="0" Margin="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="40" Width="40">
+        <Grid Grid.Column="7" Grid.Row="0" Margin="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top">
             <Image Source="icons/Borboleta.png" Opacity="0.5" Height="40" Width="40" Margin="0,0,0,0"/>
         </Grid>
-        <Label Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,8,20,0" FontSize="12" FontFamily="Cambria" FontStyle="Italic" Foreground="#FF066868" FontWeight="Bold" Content="Osteovitae" Height="24" Width="67"/>
-        <Label Grid.Column="0" Grid.Row="0" Height="35" Width="390" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" FontSize="18" FontFamily="Calibri"  Background="#FF066868" Foreground="White" FontWeight="Bold" Content="OSTEOVITAE"/>
+        <Label Grid.Column="5" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,8.5,20,0" FontSize="12" FontFamily="Cambria" FontStyle="Italic" Foreground="#FF066868" FontWeight="Bold" Grid.ColumnSpan="2" Content="Osteovitae"/>
+        <Label Grid.Column="0" Grid.Row="0" Height="35" Width="390" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" VerticalContentAlignment="Center" FontSize="18" FontFamily="Calibri"  Background="#FF066868" Foreground="White" FontWeight="Bold" Content="NOTIFICAÇÕES" Margin="0.2,0"/>
+
+        <Button x:Name="voltarButton" Grid.Column="0" Grid.Row="0" Margin="0,5,0,0" Height="30" Width="70" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FF066868" Background="White" BorderBrush="White" Click="voltarButton_Click">
+            <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
+                <Image Source="icons/backward.png" Height="15" Width="15" Stretch="Uniform" OpacityMask="Black"></Image>
+                <Label Content="VOLTAR" FontFamily="Calibri" Margin="0,0,0,0" FontSize="13" FontWeight="Bold" Foreground="#FF066868"/>
+            </StackPanel>
+        </Button>
 
         <!-- CONTEÚDO -->
-        <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,0,0,0" Height="27" Width="303">
-            <Grid.Background>
-                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
-            </Grid.Background>
-            <Image HorizontalAlignment="Left" Margin="5,0,0,0" Source="icons/phone.png" Height="20" Width="24"/>
-            <Label FontFamily="Calibri" Margin="30,0,0,0" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="15" Content="914526392" Height="27" RenderTransformOrigin="0.007,0.704"/>
-        </Grid>
-
-        <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,35,0,0" Height="27" Width="303">
-            <Grid.Background>
-                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
-            </Grid.Background>
-            <Image HorizontalAlignment="Left" Margin="5,0,0,0" Source="icons/message.png" Height="20" Width="24"/>
-            <Label FontFamily="Calibri" Margin="30,0,0,0" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="15" Content="osteovitae@gmail.com" Height="27" RenderTransformOrigin="0.007,0.704"/>
-        </Grid>
-
-        <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,70,0,0" Height="27" Width="303">
-            <Grid.Background>
-                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
-            </Grid.Background>
-            <Image HorizontalAlignment="Left" Margin="5,0,0,0" Source="icons/location.png" Height="20" Width="24"/>
-            <Label FontFamily="Calibri" Margin="30,0,0,0" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="15" Content="Rua da Feira nº2, Sobreiro - Bustos" Height="27" RenderTransformOrigin="0.007,0.704"/>
-        </Grid>
-
-        <Grid Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,110,0,0" Height="300" Width="303" RenderTransformOrigin="0.495,0.477">
-            <m:Map CredentialsProvider="AttsGkqIHCOIEA11KtQZDphl5bi8lppin64jeg-ZOOhiS4cdHA_EXJwHSbyZi4Xo" Mode="Road" Grid.Column="1" Grid.Row="1" ZoomLevel="16" Center="40.499494,-8.588741">
-                <Canvas m:MapLayer.Position="40.499494,-8.588741" m:MapLayer.PositionOrigin="BottomCenter" Width="30" Height="30">
-                    <materialDesign:PackIcon Kind="MapMarker" Width="30" Height="30" Foreground="#FF3C3C3C"/>
-                </Canvas>
-            </m:Map>
-        </Grid>
+        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-80,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="PRETENDE ENVIAR ESTA NOTIFICAÇÃO"/>
+        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-30,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="PARA TODOS OS PACIENTES?"/>
+        <Button x:Name="confirmarButton" Grid.Column="0" Grid.Row="2" Height="30" Width="40" Margin="0,0,-100,150" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF066868" FontFamily="Calibri" FontSize="15" FontWeight="Bold" Foreground="White" BorderBrush="#FF066868" Content="Sim" Click="confirmarButton_Click"/>
+        <Button x:Name="cancelarButton" Grid.Column="0" Grid.Row="2" Height="30" Width="40" Margin="0,0,100,150" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FFD2E7E7" FontFamily="Calibri" FontSize="15" FontWeight="Bold" Foreground="#FF066868" BorderBrush="#FF066868" Content="Não" Click="cancelarButton_Click"/>
 
         <!-- MENU RODAPÉ -->
-        <Button  x:Name="menuBtn" Grid.Column="0" Grid.Row="3" Margin="1,0,0,0" Height="45" Width="42" VerticalAlignment="Top" HorizontalAlignment="Left" Click="menuBtn_Click">
-            <StackPanel Margin="0,0,0,0">
-                <Image Source="icons/menu.png" Height="18" Width="18"></Image>
-                <Label Content="MENU" FontFamily="Calibri" Margin="0,2,0,-6" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" FontSize="6.5" FontWeight="Bold"></Label>
-            </StackPanel>
+        <Button x:Name="menuBtn" Grid.Column="0" Grid.Row="3" Margin="1,0,0,0" Height="45" Width="52" VerticalAlignment="Top" HorizontalAlignment="Left" Click="menuBtn_Click">
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </Button.BorderBrush>
             <Button.Background>
                 <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </Button.Background>
+            <StackPanel Margin="0,0,0,0">
+                <Image Source="icons/menu.png" Height="18" Width="18"/>
+                <Label Content="MENU" FontFamily="Calibri" Margin="0,2,0,-8" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" FontSize="7.5" FontWeight="Bold"/>
+            </StackPanel>
         </Button>
-        <Button x:Name="novaConsultaBtn" Grid.Column="0" Grid.Row="3" Margin="43,0,0,0" Height="45" Width="42" VerticalAlignment="Top" HorizontalAlignment="Left" Click="novaConsultaBtn_Click">
-            <StackPanel Margin="0,0,0,0">
-                <Image Source="icons/add.png" Height="20" Width="20"></Image>
-                <Label Content="CONSULTA" FontFamily="Calibri" Margin="0,0,0,-6" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" FontSize="6.5" FontWeight="Bold"></Label>
-            </StackPanel>
+        <Button x:Name="novaConsultaBtn" Grid.Column="0" Grid.Row="3" Margin="53,0,0,0" Height="45" Width="54" VerticalAlignment="Top" HorizontalAlignment="Left" Click="novaConsultaBtn_Click">
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </Button.BorderBrush>
             <Button.Background>
                 <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </Button.Background>
+            <StackPanel Margin="0,0,0,0">
+                <Image Source="icons/add.png" Height="20" Width="20"/>
+                <Label Content="CONSULTA" FontFamily="Calibri" Margin="0,0,0,-6" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" FontSize="7.5" FontWeight="Bold"/>
+            </StackPanel>
         </Button>
-        <Button x:Name="listaConsultasBtn" Grid.Column="0" Grid.Row="3" Margin="85,0,0,0" Height="45" Width="42" VerticalAlignment="Top" HorizontalAlignment="Left" Click="listaConsultasBtn_Click">
-            <StackPanel Margin="0,0,0,0">
-                <Image Source="icons/list.png" Height="20" Width="20"></Image>
-                <Label Content="CONSULTAS" FontFamily="Calibri" Margin="0,0,0,-6" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" FontSize="6.5" FontWeight="Bold" Width="42"></Label>
-            </StackPanel>
+        <Button x:Name="listaConsultasBtn" Grid.Column="0" Grid.Row="3" Margin="107,0,0,0" Height="45" Width="54" VerticalAlignment="Top" HorizontalAlignment="Left" Click="listaConsultasBtn_Click">
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </Button.BorderBrush>
             <Button.Background>
                 <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </Button.Background>
+            <StackPanel Margin="0,0,0,0">
+                <Image Source="icons/list.png" Height="20" Width="20"/>
+                <Label Content="CONSULTAS" FontFamily="Calibri" Margin="0,0,0,-6" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" FontSize="7.5" FontWeight="Bold"/>
+            </StackPanel>
         </Button>
-        <Button x:Name="agendaBtn" Grid.Column="0" Grid.Row="3" Margin="127,0,0,0" Height="45" Width="42" VerticalAlignment="Top" HorizontalAlignment="Left" Click="agendaBtn_Click">
-            <StackPanel Margin="0,0,0,0">
-                <Image Source="icons/calendario.png" Height="20" Width="20"></Image>
-                <Label Content="AGENDA" FontFamily="Calibri" Margin="0,0,0,-6" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="6.5" FontWeight="Bold"/>
-            </StackPanel>
+        <Button x:Name="agendaBtn" Grid.Column="0" Grid.Row="3" Margin="161,0,0,0" Height="45" Width="55.6" VerticalAlignment="Top" HorizontalAlignment="Left" Click="agendaBtn_Click">
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </Button.BorderBrush>
             <Button.Background>
                 <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </Button.Background>
+            <StackPanel Margin="0,0,0,0">
+                <Image Source="icons/calendario.png" Height="20" Width="20"/>
+                <Label Content="AGENDA" FontFamily="Calibri" Margin="0,0,0,-6" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="7.5" FontWeight="Bold"/>
+            </StackPanel>
         </Button>
-        <Button x:Name="pacientesBtn" Grid.Column="0" Grid.Row="3" Margin="169,0,0,0" Height="45" Width="42" VerticalAlignment="Top" HorizontalAlignment="Left" Click="pacientesBtn_Click">
-            <StackPanel Margin="0,0,0,0">
-                <Image Source="icons/users.png" Height="20" Width="20"></Image>
-                <Label Content="PACIENTES" FontFamily="Calibri" Margin="0,0,0,-6" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="6.5" FontWeight="Bold"/>
-            </StackPanel>
+        <Button x:Name="pacientesBtn" Grid.Column="0" Grid.Row="3" Margin="216.5,0,0,0" Height="45" Width="55.6" VerticalAlignment="Top" HorizontalAlignment="Left" Click="pacientesBtn_Click">
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </Button.BorderBrush>
             <Button.Background>
                 <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </Button.Background>
+            <StackPanel Margin="0,0,0,0">
+                <Image Source="icons/users.png" Height="20" Width="20"/>
+                <Label Content="PACIENTES" FontFamily="Calibri" Margin="0,0,0,-6" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="7.5" FontWeight="Bold"/>
+            </StackPanel>
         </Button>
-        <Button x:Name="notificacoesBtn" Grid.Column="0" Grid.Row="3" Margin="211,0,0,0" Height="45" Width="43" VerticalAlignment="Top" HorizontalAlignment="Left" Click="notificacoesBtn_Click">
-            <StackPanel Margin="0,0,0,0">
-                <Image Source="icons/notification.png" Height="20" Width="20"></Image>
-                <Label Content="NOTIFICAÇÃO" FontFamily="Calibri" Margin="-4.5,0,0,-6" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="6.5" FontWeight="Bold" Width="46"/>
-            </StackPanel>
+        <Button x:Name="notificacoesBtn" Grid.Column="0" Grid.Row="3" Margin="272,0,0,0" Height="45" Width="54" VerticalAlignment="Top" HorizontalAlignment="Left" Click="notificacoesBtn_Click">
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </Button.BorderBrush>
             <Button.Background>
                 <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </Button.Background>
+            <StackPanel Margin="0,0,0,0">
+                <Image Source="icons/notification.png" Height="20" Width="20"/>
+                <Label Content="NOTIFICAÇÃO" FontFamily="Calibri" Margin="0,0,0,-6" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="7.5" FontWeight="Bold" Width="53" RenderTransformOrigin="0.374,0.49"/>
+            </StackPanel>
         </Button>
-        <Button x:Name="tratamentosBtn" Grid.Column="0" Grid.Row="3" Margin="254.5,0,0,0" Height="45" Width="42" VerticalAlignment="Top" HorizontalAlignment="Left" Click="tratamentosBtn_Click">
-            <StackPanel Margin="0,0,0,0">
-                <Image Source="icons/descricao.png" Height="20" Width="20"></Image>
-                <Label Content="TRATAMENTO" FontFamily="Calibri" Margin="-5,0,0,-6" HorizontalContentAlignment="Left" VerticalAlignment="Bottom" FontSize="6.5" FontWeight="Bold" Width="50"/>
-            </StackPanel>
+        <Button x:Name="contaBtn" Grid.Column="0" Grid.Row="3" Margin="326,0,0,0" Height="45" Width="51" VerticalAlignment="Top" HorizontalAlignment="Left" Click="contaBtn_Click">
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </Button.BorderBrush>
             <Button.Background>
                 <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
             </Button.Background>
-        </Button>
-        <Button x:Name="osteovitaeBtn" Grid.Column="0" Grid.Row="3" Margin="296.5,0,0,0" Height="45" Width="42" VerticalAlignment="Top" HorizontalAlignment="Left" Click="osteovitaeBtn_Click">
             <StackPanel Margin="0,0,0,0">
-                <Image Source="icons/info.png" Height="20" Width="20"></Image>
-                <Label Content="OSTEOVITAE" FontFamily="Calibri" Margin="-3,0,0,-6" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" FontSize="6.5" FontWeight="Bold" Width="44" RenderTransformOrigin="0.426,0.534"/>
+                <Image Source="icons/user.png" Height="20" Width="20"/>
+                <Label Content="CONTA" FontFamily="Calibri" Margin="0,0,0,-6" HorizontalContentAlignment="CENTER" VerticalAlignment="Bottom" FontSize="7.5" FontWeight="Bold"/>
             </StackPanel>
-            <Button.BorderBrush>
-                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
-            </Button.BorderBrush>
-            <Button.Background>
-                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
-            </Button.Background>
-        </Button>
-        <Button x:Name="contaBtn" Grid.Column="0" Grid.Row="3" Margin="338,0,0,0" Height="45" Width="38" VerticalAlignment="Top" HorizontalAlignment="Left" Click="contaBtn_Click">
-            <StackPanel Margin="0,0,0,0">
-                <Image Source="icons/user.png" Height="20" Width="20"></Image>
-                <Label Content="CONTA" FontFamily="Calibri" Margin="0,0,0,-6" HorizontalContentAlignment="CENTER" VerticalAlignment="Bottom" FontSize="6.5" FontWeight="Bold"/>
-            </StackPanel>
-            <Button.BorderBrush>
-                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
-            </Button.BorderBrush>
-            <Button.Background>
-                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
-            </Button.Background>
         </Button>
     </Grid>
 </Page>

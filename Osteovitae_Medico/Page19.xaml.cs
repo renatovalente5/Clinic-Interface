@@ -32,7 +32,7 @@ namespace Osteovitae_Medico
 
         IFirebaseClient client;
 
-        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
+        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", data="";
 
         public Page19(string name, string surname, string address, string pw, string contact, string type)
         {
@@ -44,35 +44,32 @@ namespace Osteovitae_Medico
             pass = pw;
             contacto = contact;
             tipo = type;
-            dataLabel.Content =  DateTime.Now.ToLongDateString();
+            data = DateTime.Now.ToString().Split(' ')[0];
+            dataLabel.Content = data;
+        }
+        public Page19(string name, string surname, string address, string pw, string contact, string type, string content)
+        {
+            InitializeComponent();
+            client = new FireSharp.FirebaseClient(config);
+            nome = name;
+            apelido = surname;
+            mail = address;
+            pass = pw;
+            contacto = contact;
+            tipo = type;
+            data = DateTime.Now.ToString().Split(' ')[0];
+            dataLabel.Content = data;
+            conteudoTextBox.Text = content;
         }
         private void voltarButton_Click(object sender, RoutedEventArgs e)
         {
             Page6 voltar = new Page6(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(voltar);
         }
-        private async void registarButton_Click(object sender, RoutedEventArgs e)
+        private void registarButton_Click(object sender, RoutedEventArgs e)
         {
-            // NOVA JANELA DE CONFIRMACAO
-            FirebaseResponse response = await client.GetTaskAsync("Notificacoes/numero");
-            Numero num = response.ResultAs<Numero>();
-
-            var not = "" + (Int32.Parse(num._numero) + 1);
-            var notificacao = "notificacao" + (Int32.Parse(num._numero) + 1);
-            Numero num2 = response.ResultAs<Numero>();
-            num2.numero = not;
-
-            FirebaseResponse response2 = await client.SetTaskAsync("Notificacoes/numero", num2);
-            Numero num3 = response2.ResultAs<Numero>();
-
-            var tempNotificacao = new Notificacao { Data = DateTime.Now.ToString(), Hora = null, TipoConsulta = null, MedicoConsulta = "Xavier Santos", VerMais = null, Mensagem = conteudoTextBox.Text};
-            
-            FirebaseResponse response3 = await client.SetTaskAsync("Notificacoes/" + notificacao, tempNotificacao);
-            Numero num4 = response3.ResultAs<Numero>();
-
-            Page14 menu = new Page14(nome, apelido, mail, pass, contacto, tipo);
-            this.NavigationService.Navigate(menu);
-
+            Page8 voltar = new Page8(nome, apelido, mail, pass, contacto, tipo, data, conteudoTextBox.Text);
+            this.NavigationService.Navigate(voltar);
         }
         public class Notificacao
         {
@@ -102,29 +99,18 @@ namespace Osteovitae_Medico
         }
         private void agendaBtn_Click(object sender, RoutedEventArgs e)
         {
-            Page18 menu = new Page18(nome, apelido, mail, pass, contacto, tipo);
-            this.NavigationService.Navigate(menu);
+            Page18 agenda = new Page18(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(agenda);
         }
-
         private void pacientesBtn_Click(object sender, RoutedEventArgs e)
         {
-            Page2 menu = new Page2(nome, apelido, mail, pass, contacto, tipo);
-            this.NavigationService.Navigate(menu);
+            Page2 pacientes = new Page2(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(pacientes);
         }
         private void notificacoesBtn_Click(object sender, RoutedEventArgs e)
         {
             Page6 notificacoes = new Page6(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(notificacoes);
-        }
-        private void tratamentosBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Page7 tratamentos = new Page7(nome, apelido, mail, pass, contacto, tipo);
-            this.NavigationService.Navigate(tratamentos);
-        }
-        private void osteovitaeBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Page8 osteovitae = new Page8(nome, apelido, mail, pass, contacto, tipo);
-            this.NavigationService.Navigate(osteovitae);
         }
         private void contaBtn_Click(object sender, RoutedEventArgs e)
         {
