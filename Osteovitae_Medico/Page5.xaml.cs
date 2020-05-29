@@ -88,27 +88,10 @@ namespace Osteovitae_Medico
                     Consulta obj = response5.ResultAs<Consulta>();
 
                     var tempConsulta = new Consulta { Data = obj.Data, Hora = obj.Hora, TipoConsulta = obj.TipoConsulta, Medico = obj.Medico, vermais = mais , Nome = data2.Nome, Apelido = data2.Apelido};
-                    //ListaConsultas.Items.Add(tempConsulta);
                     ListaConsultas.Items.Add(tempConsulta);
                     ListaConsultas.Items.SortDescriptions.Add(new SortDescription("Data", ListSortDirection.Ascending));
                 }
             }
-
-
-            //ListaOrdenada.Sort( ("Data");
-            //ListaConsultas.Items.SortDescriptions ("Data", ListSortDirection.Ascending);
-            //ListaConsultas.Items.SortDescriptions.Add(new SortDescription("Data", ListSortDirection.Ascending));
-
-            //.Items.Add(ListaOrdenada);
-
-            //for (int i = 1; i <= Int32.Parse(num._numero); i++)
-            //{
-            //    var consulta = "consulta" + i;
-            //    FirebaseResponse response2 = await client2.GetTaskAsync("ConsultasMarcadas/"+ contacto +"/" + consulta);
-            //    Consultas obj = response2.ResultAs<Consultas>();
-            //    var tempConsulta = new Consulta { data = obj.Data , hora = obj.Hora, tipoconsulta = obj.TipoConsulta, medicoconsulta= obj.Medico, vermais = mais };
-            //    ListaConsultas.Items.Add(tempConsulta);
-            //}
         }
 
         public class Consulta

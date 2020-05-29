@@ -21,10 +21,7 @@ namespace Osteovitae_Medico
     public partial class Page13 : Page
     {
         private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", dataConsulta = "", horaConsulta = "", servicoConsulta = "", medicoConsulta = "";
-        public Page13()
-        {
-            InitializeComponent();
-        }
+
         public Page13(string name, string surname, string address, string pw, string contact, string type, string data, string hora, string servico, string medico)
         {
             InitializeComponent();
