@@ -43,16 +43,7 @@ namespace Osteovitae_Medico
             servicoTextBox.Content = servico;
             medicoTextBox.Content = medico;
         }
-        private void click_eliminar(object sender, RoutedEventArgs e)
-        {
-            Page15 elim = new Page15(nome, apelido, mail, pass, contacto, tipo, dataConsulta, horaConsulta, servicoConsulta, medicoConsulta);
-            this.NavigationService.Navigate(elim);
-        }
-        private void click_editar(object sender, RoutedEventArgs e)
-        {
-            Page4 voltar = new Page4(nome, apelido, mail, pass, contacto, tipo, dataConsulta, horaConsulta, servicoConsulta, medicoConsulta, 13);
-            this.NavigationService.Navigate(voltar);
-        }
+
         private void voltarButton_Click(object sender, RoutedEventArgs e)
         {
             Page5 listaconsultas = new Page5(nome, apelido, mail, pass, contacto, tipo);

@@ -133,8 +133,19 @@
             <ComboBoxItem>Shiatsu</ComboBoxItem>
             <ComboBoxItem>Método das 3 Agulhas</ComboBoxItem>
         </ComboBox>
-        <Label x:Name="alertLabel" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" Margin="0,0,0,90" VerticalAlignment="Bottom" FontFamily="Calibri" Width="360" FontWeight="Bold" Visibility="Visible" Foreground="#FF08B4B4"/>
 
+        <!-- CONTACTO PACIENTE -->
+        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,220,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="CONTACTO PACIENTE" Width="140"/>
+        <TextBox x:Name="contactoTextBox" Grid.Column="0" Grid.Row="2" Height="25" Width="100" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="15,245,0,0" TextWrapping="NoWrap" Foreground="Black" FontSize="14" FontFamily="Calibri">
+            <TextBox.BorderBrush>
+                <SolidColorBrush Color="#FF066868" Opacity="0.3"/>
+            </TextBox.BorderBrush>
+            <TextBox.Background>
+                <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
+            </TextBox.Background>
+        </TextBox>
+
+        <Label x:Name="alertLabel" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" Margin="0,0,0,90" VerticalAlignment="Bottom" FontFamily="Calibri" Width="360" FontWeight="Bold" Visibility="Visible" Foreground="#FF08B4B4"/>
         <Button x:Name="registarButton" Grid.Column="0" Grid.Row="2" Height="30" Width="90" Margin="0,0,0,40" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF066868" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Foreground="White" BorderBrush="#FF066868" Click="click_marcar" Content="MARCAR"/>
 
         <!-- MENU RODAPÉ -->
