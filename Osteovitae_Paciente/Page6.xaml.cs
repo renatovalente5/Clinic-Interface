@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,6 +66,7 @@ namespace Osteovitae_Paciente
 
                 var tempNotificacao = new Notificacao { Data = obj.Data, Hora = obj.Hora, TipoConsulta = obj.TipoConsulta, MedicoConsulta = "Xavier Santos", VerMais = mais, Mensagem = obj.Mensagem };
                 ListaNotificacoes.Items.Add(tempNotificacao);
+                ListaNotificacoes.Items.SortDescriptions.Add(new SortDescription("Data", ListSortDirection.Ascending));
             }
         }
 
