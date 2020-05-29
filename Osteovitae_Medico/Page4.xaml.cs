@@ -23,12 +23,17 @@ namespace Osteovitae_Medico
     /// </summary>
     public partial class Page4 : Page
     {
+        IFirebaseConfig config = new FirebaseConfig
+        {
+            AuthSecret = "vXSYkw1G8Qc8CNhQSkTf68o4gYI3kqHen4ivBKFr",
+            BasePath = "https://clinic-interface.firebaseio.com/"
+        };
+
+        IFirebaseClient client;
+
         private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", medico="";
         private int hora, minutos;
-        public Page4()
-        {
-            InitializeComponent();
-        }
+
         public Page4(string name, string surname, string address, string pw, string contact, string type)
         {
             InitializeComponent();
@@ -174,7 +179,7 @@ namespace Osteovitae_Medico
             }
         }
 
-        private  void click_marcar(object sender, RoutedEventArgs e)
+        private async void click_marcar(object sender, RoutedEventArgs e)
         {
             int valido = 1;
             if (diaTextBox.Text == "" || diaTextBox.Text == "DD")
@@ -213,15 +218,37 @@ namespace Osteovitae_Medico
                 alertLabel.Content = "! \"TIPO DE CONSULTA\" inválida !";
                 valido = 0;
             }
+            client = new FireSharp.FirebaseClient(config);
+
+            List<String> ListaContas = new List<string>();
+
+            FirebaseResponse response2 = await client.GetTaskAsync("TodosOsUsers/numero");
+            Numero num = response2.ResultAs<Numero>();
+
+            for (int i = 1; i <= Int32.Parse(num._numero); i++)
+            {
+                var user = "user" + i;
+                FirebaseResponse response3 = await client.GetTaskAsync("TodosOsUsers/users/" + user);
+                Numero obj2 = response3.ResultAs<Numero>();
+
+                var tempContas = new Numero { numero = obj2.numero };
+                ListaContas.Add(tempContas.numero);
+            }            
+            if (!ListaContas.Contains(contactoTextBox.Text))
+            {
+                alertLabel.Visibility = Visibility.Visible;
+                alertLabel.Content = "! \"CONTACTO\" inválida !";
+                valido = 0;
+            }
             if (valido == 1)
             {
                 string dataCon = diaTextBox.Text + "-" + mesTextBox.Text + "-" + anoTextBox.Text;
                 string horaCon = horaTextBox.Text + ":" + minutosTextBox.Text;
-                Page11 confirmar = new Page11(nome, apelido, mail, pass, contacto, tipo, dataCon, horaCon, tipoComboBox.Text, "Xavier Santos");
+                Page11 confirmar = new Page11(nome, apelido, mail, pass, contactoTextBox.Text, tipo, dataCon, horaCon, tipoComboBox.Text, "Xavier Santos");
                 this.NavigationService.Navigate(confirmar);
             }
         }
-        
+
         // ------------------------------------------- MENU RODAPÉ -------------------------------------------
         private void menuBtn_Click(object sender, RoutedEventArgs e)
         {

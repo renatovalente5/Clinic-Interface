@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -48,8 +49,8 @@ namespace Osteovitae_Medico
         }
         private void linhaSelecionada(object sender, SelectionChangedEventArgs e)
         {
-            //Paciente pac = (Paciente)ListaPacientes.SelectedItem;
-            Page21 abrir = new Page21(nome, apelido, mail, pass, contacto, tipo);
+            Data pac = (Data)ListaPacientes.SelectedItem;
+            Page21 abrir = new Page21(pac.Nome, pac.Apelido, pac.Email, pac.Pass, pac.Contacto, pac.Tipo);
             this.NavigationService.Navigate(abrir);
         }
         private async void listar_pacientes()
@@ -82,6 +83,7 @@ namespace Osteovitae_Medico
 
                 var tempPaciente = new Data { Nome = obj.Nome, Apelido = obj.Apelido, Contacto = obj.Contacto, Email = obj.Email, vermais = mais };
                 ListaPacientes.Items.Add(tempPaciente);
+                ListaPacientes.Items.SortDescriptions.Add(new SortDescription("Data", ListSortDirection.Ascending));
             }       
         }
 

@@ -15,13 +15,14 @@ using System.Windows.Shapes;
 using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
+using Microsoft.Office.Interop.Excel;
 
 namespace Osteovitae_Medico
 {
     /// <summary>
     /// Interaction logic for Page11.xaml
     /// </summary>
-    public partial class Page11 : Page
+    public partial class Page11 : System.Windows.Controls.Page
     {
         IFirebaseConfig config = new FirebaseConfig
         {
@@ -48,7 +49,20 @@ namespace Osteovitae_Medico
             horaTextBox.Content = hora;
             servicoTextBox.Content = servico;
             medicoTextBox.Content = medico;
+
+            client = new FireSharp.FirebaseClient(config);
+            displayContact();
         }
+
+        private async void displayContact()
+        {
+            FirebaseResponse response = await client.GetTaskAsync("Information/" + contacto);
+            Data obj = response.ResultAs<Data>();
+
+            var tempPaciente = new Data { Nome = obj.Nome, Apelido = obj.Apelido, Contacto = obj.Contacto, Email = obj.Email};
+            nomeTextBox.Content = contacto;
+        }
+
         private async void click_confirmar(object sender, RoutedEventArgs e)
         {
             Consultas consulta = new Consultas();
@@ -56,8 +70,7 @@ namespace Osteovitae_Medico
             consulta.TipoConsulta = servicoConsulta;
             consulta.Data = dataConsulta;
             consulta.Hora = horaConsulta;
-
-            client = new FireSharp.FirebaseClient(config);
+                        
             FirebaseResponse response = await client.GetTaskAsync("ConsultasMarcadas/" + contacto + "/numero"); //Saber o numero da Consulta
             Numero num = response.ResultAs<Numero>();
 

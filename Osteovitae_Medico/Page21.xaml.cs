@@ -1,5 +1,9 @@
-﻿using System;
+﻿using FireSharp.Config;
+using FireSharp.Interfaces;
+using FireSharp.Response;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +24,14 @@ namespace Osteovitae_Medico
     /// </summary>
     public partial class Page21 : Page
     {
+        IFirebaseConfig config = new FirebaseConfig
+        {
+            AuthSecret = "vXSYkw1G8Qc8CNhQSkTf68o4gYI3kqHen4ivBKFr",
+            BasePath = "https://clinic-interface.firebaseio.com/"
+        };
+
+        IFirebaseClient client;
+
         private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
         public Page21(string name, string surname, string address, string pw, string contact, string type)
         {
@@ -30,7 +42,30 @@ namespace Osteovitae_Medico
             pass = pw;
             contacto = contact;
             tipo = type;
+            nomeTextBox.Content = nome + " " + apelido;
+            contactoTextBox.Content = contacto;
+            emailTextBox.Content = mail;
+            ListasTratamentos();
         }
+
+        private async void ListasTratamentos()
+        {
+            client = new FireSharp.FirebaseClient(config);
+            FirebaseResponse response = await client.GetTaskAsync("ConsultasMarcadas/" + contacto + "/tratamento/numero");
+            Numero num = response.ResultAs<Numero>();
+            string mais = "➜";
+            for (int i = 1; i <= Int32.Parse(num._numero); i++)
+            {
+                var tratamento = "trat" + i;
+                FirebaseResponse response2 = await client.GetTaskAsync("ConsultasMarcadas/" + contacto + "/tratamento/" + tratamento);
+                Tratamento obj = response2.ResultAs<Tratamento>();
+
+                var tempNotificacao = new Tratamento { Data = obj.Data, Hora = obj.Hora, TipoConsulta = obj.TipoConsulta, MedicoConsulta = "Xavier Santos", VerMais = mais, Mensagem = obj.Mensagem };
+                ListaTratamentos.Items.Add(tempNotificacao);
+                ListaTratamentos.Items.SortDescriptions.Add(new SortDescription("Data", ListSortDirection.Ascending));
+            }
+        }
+
         private void voltarButton_Click(object sender, RoutedEventArgs e)
         {
             Page2 pacientes = new Page2(nome, apelido, mail, pass, contacto, tipo);

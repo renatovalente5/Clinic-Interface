@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,7 +46,7 @@ namespace Osteovitae_Medico
         private void linhaSelecionada(object sender, SelectionChangedEventArgs e)
         {
             Notificacao notificacao = (Notificacao)ListaNotificacoes.SelectedItem;
-            Page16 abrir = new Page16(nome, apelido, mail, pass, contacto, tipo, notificacao.Data.Split(' ')[0], notificacao.Hora, notificacao.TipoConsulta, notificacao.MedicoConsulta, notificacao.Mensagem);
+            Page16 abrir = new Page16(nome, apelido, mail, pass, contacto, tipo, notificacao.Data, notificacao.Hora, notificacao.TipoConsulta, notificacao.MedicoConsulta, notificacao.Mensagem);
             this.NavigationService.Navigate(abrir);
         }
         private async void listar_notificacoes()
@@ -61,8 +62,10 @@ namespace Osteovitae_Medico
                 FirebaseResponse response2 = await client2.GetTaskAsync("Notificacoes/" + notificacao);
                 Notificacao obj = response2.ResultAs<Notificacao>();
 
-                var tempNotificacao = new Notificacao { Data = obj.Data, Hora = obj.Hora, TipoConsulta = obj.TipoConsulta, MedicoConsulta = "Xavier Santos", VerMais = mais, Mensagem = obj.Mensagem };
+                var tempNotificacao = new Notificacao { Data = obj.Data.Split(' ')[0], Hora = obj.Hora, TipoConsulta = obj.TipoConsulta, MedicoConsulta = "Xavier Santos", VerMais = mais, Mensagem = obj.Mensagem };
                 ListaNotificacoes.Items.Add(tempNotificacao);
+                ListaNotificacoes.Items.SortDescriptions.Add(new SortDescription("Data", ListSortDirection.Ascending));
+
             }
         }
         public class Notificacao

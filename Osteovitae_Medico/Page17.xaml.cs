@@ -40,7 +40,7 @@ namespace Osteovitae_Medico
         }
         private void voltarButton_Click(object sender, RoutedEventArgs e)
         {
-            Page7 abrir = new Page7(nome, apelido, mail, pass, contacto, tipo);
+            Page21 abrir = new Page21(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(abrir);
         }
 

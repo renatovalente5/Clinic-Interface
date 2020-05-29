@@ -28,7 +28,9 @@ namespace Osteovitae_Medico
             AuthSecret = "vXSYkw1G8Qc8CNhQSkTf68o4gYI3kqHen4ivBKFr",
             BasePath = "https://clinic-interface.firebaseio.com/"
         };
+
         IFirebaseClient client;
+
         private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", data="", conteudo="";
         public Page8(string name, string surname, string address, string pw, string contact, string type, string date, string content)
         {
@@ -54,6 +56,7 @@ namespace Osteovitae_Medico
         }
         private async void confirmarButton_Click(object sender, RoutedEventArgs e)
         {
+            client = new FireSharp.FirebaseClient(config);
             FirebaseResponse response = await client.GetTaskAsync("Notificacoes/numero");
             Numero num = response.ResultAs<Numero>();
 
@@ -65,7 +68,7 @@ namespace Osteovitae_Medico
             FirebaseResponse response2 = await client.SetTaskAsync("Notificacoes/numero", num2);
             Numero num3 = response2.ResultAs<Numero>();
 
-            var tempNotificacao = new Notificacao { Data = data, Hora = null, TipoConsulta = null, MedicoConsulta = "Xavier Santos", VerMais = null, Mensagem = conteudo};
+            var tempNotificacao = new Notificacao { Data = data, Medico = "Xavier Santos", Mensagem = conteudo};
 
             FirebaseResponse response3 = await client.SetTaskAsync("Notificacoes/" + notificacao, tempNotificacao);
             Numero num4 = response3.ResultAs<Numero>();
@@ -78,7 +81,7 @@ namespace Osteovitae_Medico
             public String Data { get; set; }
             public String Hora { get; set; }
             public String TipoConsulta { get; set; }
-            public String MedicoConsulta { get; set; }
+            public String Medico { get; set; }
             public String VerMais { get; set; }
             public String Mensagem { get; set; }
         }

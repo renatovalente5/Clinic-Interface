@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FireSharp.Config;
+using FireSharp.Interfaces;
+using FireSharp.Response;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +23,14 @@ namespace Osteovitae_Medico
     /// </summary>
     public partial class Page23 : Page
     {
+        IFirebaseConfig config = new FirebaseConfig
+        {
+            AuthSecret = "vXSYkw1G8Qc8CNhQSkTf68o4gYI3kqHen4ivBKFr",
+            BasePath = "https://clinic-interface.firebaseio.com/"
+        };
+
+        IFirebaseClient client;
+
         private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", data = "", conteudo = "";
         public Page23(string name, string surname, string address, string pw, string contact, string type, string date, string content)
         {
@@ -43,19 +54,31 @@ namespace Osteovitae_Medico
             Page21 not = new Page21(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(not);
         }
-        private void confirmarButton_Click(object sender, RoutedEventArgs e)
+        private async void confirmarButton_Click(object sender, RoutedEventArgs e)
         {
             // GUARDAR TRATAMENTO NA BD
+            client = new FireSharp.FirebaseClient(config);
+            FirebaseResponse response = await client.GetTaskAsync("ConsultasMarcadas/" + contacto + "/tratamento/numero");
+            Numero num = response.ResultAs<Numero>();
+
+            num.numero = "" + (Int32.Parse(num._numero) + 1);
+            var trat = "trat" + num.numero;
+            FirebaseResponse response2 = await client.SetTaskAsync("ConsultasMarcadas/" + contacto + "/tratamento/numero", num);
+            Numero num2 = response2.ResultAs<Numero>();
+
+            var tratamento = new Tratamento { Data = data, Hora = null, TipoConsulta = null, Medico = "Xavier Santos", Mensagem = conteudo };
+            FirebaseResponse response3 = await client.SetTaskAsync("ConsultasMarcadas/" + contacto + "/tratamento/" + trat, tratamento);
+            Tratamento obj = response3.ResultAs<Tratamento>();
 
             Page24 conf = new Page24(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(conf);
         }
-        public class Notificacao
+        public class Tratamento
         {
             public String Data { get; set; }
             public String Hora { get; set; }
             public String TipoConsulta { get; set; }
-            public String MedicoConsulta { get; set; }
+            public String Medico { get; set; }
             public String VerMais { get; set; }
             public String Mensagem { get; set; }
         }
