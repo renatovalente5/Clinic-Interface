@@ -32,8 +32,8 @@ namespace Osteovitae_Medico
 
         IFirebaseClient client;
 
-        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "";
-        public Page21(string name, string surname, string address, string pw, string contact, string type)
+        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", contact3 = "";
+        public Page21(string name, string surname, string address, string pw, string contact, string type, string name2, string surname2, string address2, string pw2, string contact2, string type2)
         {
             InitializeComponent();
             nome = name;
@@ -42,22 +42,23 @@ namespace Osteovitae_Medico
             pass = pw;
             contacto = contact;
             tipo = type;
-            nomeTextBox.Content = nome + " " + apelido;
-            contactoTextBox.Content = contacto;
-            emailTextBox.Content = mail;
+            contact3 = contact2;
+            nomeTextBox.Content = name2 + " " + surname2;
+            contactoTextBox.Content = contact2;
+            emailTextBox.Content = address2;
             ListasTratamentos();
         }
 
         private async void ListasTratamentos()
         {
             client = new FireSharp.FirebaseClient(config);
-            FirebaseResponse response = await client.GetTaskAsync("ConsultasMarcadas/" + contacto + "/tratamento/numero");
+            FirebaseResponse response = await client.GetTaskAsync("ConsultasMarcadas/" + contact3 + "/tratamento/numero");
             Numero num = response.ResultAs<Numero>();
             string mais = "➜";
             for (int i = 1; i <= Int32.Parse(num._numero); i++)
             {
                 var tratamento = "trat" + i;
-                FirebaseResponse response2 = await client.GetTaskAsync("ConsultasMarcadas/" + contacto + "/tratamento/" + tratamento);
+                FirebaseResponse response2 = await client.GetTaskAsync("ConsultasMarcadas/" + contact3 + "/tratamento/" + tratamento);
                 Tratamento obj = response2.ResultAs<Tratamento>();
 
                 var tempNotificacao = new Tratamento { Data = obj.Data, Hora = obj.Hora, TipoConsulta = obj.TipoConsulta, MedicoConsulta = "Xavier Santos", VerMais = mais, Mensagem = obj.Mensagem };

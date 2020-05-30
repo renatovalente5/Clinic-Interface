@@ -51,7 +51,7 @@ namespace Osteovitae_Medico
         }
         private void cancelarButton_Click(object sender, RoutedEventArgs e)
         {
-            Page21 not = new Page21(nome, apelido, mail, pass, contacto, tipo);
+            Page21 not = new Page21(nome, apelido, mail, pass, contacto, tipo, nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(not);
         }
         private async void confirmarButton_Click(object sender, RoutedEventArgs e)

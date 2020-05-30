@@ -50,7 +50,7 @@ namespace Osteovitae_Medico
         private void linhaSelecionada(object sender, SelectionChangedEventArgs e)
         {
             Data pac = (Data)ListaPacientes.SelectedItem;
-            Page21 abrir = new Page21(pac.Nome, pac.Apelido, pac.Email, pac.Pass, pac.Contacto, pac.Tipo);
+            Page21 abrir = new Page21(nome, apelido, mail, pass, contacto, tipo, pac.Nome, pac.Apelido, pac.Email, pac.Pass, pac.Contacto, pac.Tipo);
             this.NavigationService.Navigate(abrir);
         }
         private async void listar_pacientes()
