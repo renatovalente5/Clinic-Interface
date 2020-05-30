@@ -31,8 +31,8 @@ namespace Osteovitae_Medico
 
         IFirebaseClient client;
 
-        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", data = "", conteudo = "";
-        public Page23(string name, string surname, string address, string pw, string contact, string type, string date, string content)
+        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", data = "", conteudo = "", contact3="";
+        public Page23(string name, string surname, string address, string pw, string contact, string type, string date, string content, string contact2)
         {
             InitializeComponent();
             nome = name;
@@ -43,6 +43,7 @@ namespace Osteovitae_Medico
             tipo = type;
             data = date;
             conteudo = content;
+            contact3 = contact2;
         }
         private void voltarButton_Click(object sender, RoutedEventArgs e)
         {
@@ -58,16 +59,16 @@ namespace Osteovitae_Medico
         {
             // GUARDAR TRATAMENTO NA BD
             client = new FireSharp.FirebaseClient(config);
-            FirebaseResponse response = await client.GetTaskAsync("ConsultasMarcadas/" + contacto + "/tratamento/numero");
+            FirebaseResponse response = await client.GetTaskAsync("ConsultasMarcadas/" + contact3 + "/tratamento/numero");
             Numero num = response.ResultAs<Numero>();
 
             num.numero = "" + (Int32.Parse(num._numero) + 1);
             var trat = "trat" + num.numero;
-            FirebaseResponse response2 = await client.SetTaskAsync("ConsultasMarcadas/" + contacto + "/tratamento/numero", num);
+            FirebaseResponse response2 = await client.SetTaskAsync("ConsultasMarcadas/" + contact3 + "/tratamento/numero", num);
             Numero num2 = response2.ResultAs<Numero>();
 
             var tratamento = new Tratamento { Data = data, Hora = null, TipoConsulta = null, Medico = "Xavier Santos", Mensagem = conteudo };
-            FirebaseResponse response3 = await client.SetTaskAsync("ConsultasMarcadas/" + contacto + "/tratamento/" + trat, tratamento);
+            FirebaseResponse response3 = await client.SetTaskAsync("ConsultasMarcadas/" + contact3 + "/tratamento/" + trat, tratamento);
             Tratamento obj = response3.ResultAs<Tratamento>();
 
             Page24 conf = new Page24(nome, apelido, mail, pass, contacto, tipo);

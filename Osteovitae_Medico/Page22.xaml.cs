@@ -20,9 +20,9 @@ namespace Osteovitae_Medico
     /// </summary>
     public partial class Page22 : Page
     {
-        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", data = "";
+        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", data = "", contact3="";
 
-        public Page22(string name, string surname, string address, string pw, string contact, string type)
+        public Page22(string name, string surname, string address, string pw, string contact, string type, string contact2)
         {
             InitializeComponent();
             nome = name;
@@ -30,11 +30,12 @@ namespace Osteovitae_Medico
             mail = address;
             pass = pw;
             contacto = contact;
+            contact3 = contact2;
             tipo = type;
             data = DateTime.Now.ToString().Split(' ')[0];
             dataLabel.Content = data;
         }
-        public Page22(string name, string surname, string address, string pw, string contact, string type, string content)
+        public Page22(string name, string surname, string address, string pw, string contact, string type, string content, string contact2)
         {
             InitializeComponent();
             nome = name;
@@ -42,6 +43,7 @@ namespace Osteovitae_Medico
             mail = address;
             pass = pw;
             contacto = contact;
+            contact3 = contact2;
             tipo = type;
             data = DateTime.Now.ToString().Split(' ')[0];
             dataLabel.Content = data;
@@ -49,12 +51,12 @@ namespace Osteovitae_Medico
         }
         private void voltarButton_Click(object sender, RoutedEventArgs e)
         {
-            Page21 voltar = new Page21(nome, apelido, mail, pass, contacto, tipo, nome, apelido, mail, pass, contacto, tipo);
+            Page21 voltar = new Page21(nome, apelido, mail, pass, contacto, tipo, nome, apelido, mail, pass, contact3, tipo);
             this.NavigationService.Navigate(voltar);
         }
         private void registarButton_Click(object sender, RoutedEventArgs e)
         {
-            Page23 voltar = new Page23(nome, apelido, mail, pass, contacto, tipo, data, conteudoTextBox.Text);
+            Page23 voltar = new Page23(nome, apelido, mail, pass, contacto, tipo, data, conteudoTextBox.Text, contact3);
             this.NavigationService.Navigate(voltar);
         }
         public class Notificacao

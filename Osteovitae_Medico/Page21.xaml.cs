@@ -74,7 +74,7 @@ namespace Osteovitae_Medico
         }
         private void novoTratamentoButton_Click(object sender, RoutedEventArgs e)
         {
-            Page22 novoTratamento = new Page22(nome, apelido, mail, pass, contacto, tipo);
+            Page22 novoTratamento = new Page22(nome, apelido, mail, pass, contacto, tipo, contact3);
             this.NavigationService.Navigate(novoTratamento);
         }
         private void linhaSelecionada(object sender, SelectionChangedEventArgs e)
