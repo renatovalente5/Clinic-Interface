@@ -35,6 +35,11 @@ namespace Osteovitae_Medico
             contacto = contact;
             tipo = type;
         }
+        private void nextMonth_Click(object sender, RoutedEventArgs e)
+        {
+            Page7 julho = new Page7(nome, apelido, mail, pass, contacto, tipo);
+            this.NavigationService.Navigate(julho);
+        }
 
         // ------------------------------------------- MENU RODAPÉ -------------------------------------------
         private void menuBtn_Click(object sender, RoutedEventArgs e)

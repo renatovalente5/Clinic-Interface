@@ -27,11 +27,11 @@
 
         <!-- CONTEÚDO -->
         <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="NOME"/>
-        <Label x:Name="nomeTextBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,0,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black"/>
+        <Label x:Name="nomeTextBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,0,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black"/>
         <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,30,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="CONTACTO"/>
-        <Label x:Name="contactoTextBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,30,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black"/>
+        <Label x:Name="contactoTextBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,30,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black"/>
         <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,60,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black" FontWeight="Bold" Content="E-MAIL"/>
-        <Label x:Name="emailTextBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,60,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black"/>
+        <Label x:Name="emailTextBox" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,60,0,0" FontSize="14" FontFamily="Calibri" Foreground="Black"/>
         <Button x:Name="novoTratamentoButton" Grid.Column="0" Grid.Row="2" Height="25" Width="160" Margin="0,90,25,0" VerticalAlignment="Top" HorizontalAlignment="Right" FontFamily="Calibri" FontSize="15" FontWeight="Bold" Foreground="#FF066868" BorderBrush="#FF066868" Content="ENVIAR TRATAMENTO" Click="novoTratamentoButton_Click">
             <Button.Background>
                 <SolidColorBrush Color="#FF066868" Opacity="0.1"/>
