@@ -60,7 +60,7 @@ namespace Osteovitae_Medico
             Data obj = response.ResultAs<Data>();
 
             var tempPaciente = new Data { Nome = obj.Nome, Apelido = obj.Apelido, Contacto = obj.Contacto, Email = obj.Email};
-            nomeTextBox.Content = contacto;
+            nomeTextBox.Content = obj.Nome +" " + obj.Apelido;
         }
 
         private async void click_confirmar(object sender, RoutedEventArgs e)

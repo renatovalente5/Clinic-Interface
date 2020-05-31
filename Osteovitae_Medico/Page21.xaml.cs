@@ -32,7 +32,7 @@ namespace Osteovitae_Medico
 
         IFirebaseClient client;
 
-        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", contact3 = "";
+        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", contact3 = "", name3="", surname3="", address3="";
         public Page21(string name, string surname, string address, string pw, string contact, string type, string name2, string surname2, string address2, string pw2, string contact2, string type2)
         {
             InitializeComponent();
@@ -43,9 +43,12 @@ namespace Osteovitae_Medico
             contacto = contact;
             tipo = type;
             contact3 = contact2;
-            nomeTextBox.Content = name2 + " " + surname2;
-            contactoTextBox.Content = contact2;
-            emailTextBox.Content = address2;
+            name3 = name2;
+            surname3 = surname2;
+            address3 = address2;
+            nomeTextBox.Content = name3 + " " + surname3;
+            contactoTextBox.Content = contact3;
+            emailTextBox.Content = address3;
             ListasTratamentos();
         }
 
@@ -80,7 +83,7 @@ namespace Osteovitae_Medico
         private void linhaSelecionada(object sender, SelectionChangedEventArgs e)
         {
             Tratamento tra = (Tratamento)ListaTratamentos.SelectedItem;
-            Page17 abrir = new Page17(nome, apelido, mail, pass, contacto, tipo, tra.Data, tra.Hora, tra.TipoConsulta, tra.MedicoConsulta, tra.Mensagem);
+            Page17 abrir = new Page17(nome, apelido, mail, pass, contacto, tipo, tra.Data, tra.Hora, tra.TipoConsulta, tra.MedicoConsulta, tra.Mensagem, contact3, name3, surname3, address3);
             this.NavigationService.Navigate(abrir);
         }
         public class Tratamento

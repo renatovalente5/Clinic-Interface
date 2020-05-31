@@ -49,7 +49,7 @@ namespace Osteovitae_Medico
         private void linhaSelecionada(object sender, SelectionChangedEventArgs e)
         {
             Consulta consulta = (Consulta)ListaConsultas.SelectedItem;
-            Page13 abrir = new Page13(consulta.Nome, consulta.Apelido, mail, pass, contacto, tipo, consulta.Data, consulta.Hora, consulta.TipoConsulta, consulta.Medico);
+            Page13 abrir = new Page13(nome, apelido, mail, pass, contacto, tipo, consulta.Nome, consulta.Apelido, consulta.Data, consulta.Hora, consulta.TipoConsulta, consulta.Medico);
             this.NavigationService.Navigate(abrir);
         }
         private async void listar_consultas()

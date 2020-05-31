@@ -20,8 +20,8 @@ namespace Osteovitae_Medico
     /// </summary>
     public partial class Page17 : Page
     {
-        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", dataConsulta = "", horaConsulta = "", servicoConsulta = "", medicoConsulta = "";
-        public Page17(string name, string surname, string address, string pw, string contact, string type, string data, string hora, string servico, string medico, string mensagem)
+        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", dataConsulta = "", horaConsulta = "", servicoConsulta = "", medicoConsulta = "", contact3="", name3 = "", surname3 = "", address3 = "";
+        public Page17(string name, string surname, string address, string pw, string contact, string type, string data, string hora, string servico, string medico, string mensagem, string contact2, string name2, string surname2, string address2)
         {
             InitializeComponent();
             nome = name;
@@ -37,10 +37,14 @@ namespace Osteovitae_Medico
             dataTextBox.Content = data;
             medicoTextBox.Content = medico;
             conteudoTextBox.Text = mensagem;
+            contact3 = contact2;
+            name3 = name2;
+            surname3 = surname2;
+            address3 = address2;
         }
         private void voltarButton_Click(object sender, RoutedEventArgs e)
         {
-            Page21 abrir = new Page21(nome, apelido, mail, pass, contacto, tipo, nome, apelido, mail, pass, contacto, tipo);
+            Page21 abrir = new Page21(nome, apelido, mail, pass, contacto, tipo, name3, surname3, address3, pass, contact3, tipo);
             this.NavigationService.Navigate(abrir);
         }
 

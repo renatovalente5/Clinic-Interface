@@ -26,10 +26,6 @@ namespace Osteovitae_Paciente
 
         private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", medico="";
         private int hora, minutos;
-        public Page4()
-        {
-            InitializeComponent();
-        }
 
         public Page4(string name, string surname, string address, string pw, string contact, string type)
         {

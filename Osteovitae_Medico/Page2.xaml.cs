@@ -83,7 +83,7 @@ namespace Osteovitae_Medico
 
                 var tempPaciente = new Data { Nome = obj.Nome, Apelido = obj.Apelido, Contacto = obj.Contacto, Email = obj.Email, vermais = mais };
                 ListaPacientes.Items.Add(tempPaciente);
-                ListaPacientes.Items.SortDescriptions.Add(new SortDescription("Data", ListSortDirection.Ascending));
+                ListaPacientes.Items.SortDescriptions.Add(new SortDescription("Nome", ListSortDirection.Ascending));
             }       
         }
 

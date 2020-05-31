@@ -65,7 +65,7 @@ namespace Osteovitae_Paciente
                 Consultas obj = response2.ResultAs<Consultas>();
                 var tempConsulta = new Consulta { data = obj.Data , hora = obj.Hora, tipoconsulta = obj.TipoConsulta, medicoconsulta= obj.Medico, vermais = mais };
                 ListaConsultas.Items.Add(tempConsulta);
-                ListaConsultas.Items.SortDescriptions.Add(new SortDescription("Data", ListSortDirection.Ascending));
+                ListaConsultas.Items.SortDescriptions.Add(new SortDescription("data", ListSortDirection.Ascending));
             }
         }
 

@@ -33,10 +33,6 @@ namespace Osteovitae_Paciente
 
         private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", dataConsulta = "", horaConsulta = "", servicoConsulta = "", medicoConsulta = "";
 
-        public Page15()
-        {
-            InitializeComponent();
-        }
         public Page15(string name, string surname, string address, string pw, string contact, string type, string data, string hora, string servico, string medico)
         {
             InitializeComponent();
@@ -70,7 +66,7 @@ namespace Osteovitae_Paciente
             num._numero = (Int32.Parse(num._numero) - 1) + "";
             FirebaseResponse response3 = await client.UpdateTaskAsync("ConsultasMarcadas/" + contacto + "/numero", num); ;
 
-            Page14 menu = new Page14();
+            Page14 menu = new Page14(nome, apelido, mail, pass, contacto, tipo);
             this.NavigationService.Navigate(menu);
         }
 

@@ -20,9 +20,9 @@ namespace Osteovitae_Medico
     /// </summary>
     public partial class Page13 : Page
     {
-        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", dataConsulta = "", horaConsulta = "", servicoConsulta = "", medicoConsulta = "";
+        private string nome = "", apelido = "", mail = "", pass = "", contacto = "", tipo = "", nome3="", apelido3="", dataConsulta = "", horaConsulta = "", servicoConsulta = "", medicoConsulta = "";
 
-        public Page13(string name, string surname, string address, string pw, string contact, string type, string data, string hora, string servico, string medico)
+        public Page13(string name, string surname, string address, string pw, string contact, string type, string nome2, string apelido2, string data, string hora, string servico, string medico)
         {
             InitializeComponent();
             nome = name;
@@ -35,8 +35,10 @@ namespace Osteovitae_Medico
             horaConsulta = hora;
             servicoConsulta = servico;
             medicoConsulta = medico;
+            nome3 = nome2;
+            apelido3 = apelido2;
 
-            pacienteTextBox.Content = nome + " " + apelido;
+            pacienteTextBox.Content = nome3 + " " + apelido3;
             contactoTextBox.Content = contacto;
             dataTextBox.Content = data;
             horaTextBox.Content = hora;
