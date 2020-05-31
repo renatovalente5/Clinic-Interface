@@ -1,7 +1,8 @@
 # Clinic Interface
 
-![Scenarios](https://github.com/renatovalente5/Clinic-Interface/raw/master/Scenarios.png) <br />
+![Scenarios](https://github.com/renatovalente5/Clinic-Interface/raw/master/Scenarios.png)
 
+<br />
 <br />
 ### To test in Develompment have to install a Bing Maps WPF Control:
 1. Install and Execute
